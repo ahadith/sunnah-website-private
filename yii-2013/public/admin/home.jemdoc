@@ -1,0 +1,6 @@
+# jemdoc: menu{MENU}{home.php}
+{{<?php include "matching/checklogin.php"; ?> }}
+= Sunnah.com Admin Section
+
+
+Use the menu to the left to navigate.

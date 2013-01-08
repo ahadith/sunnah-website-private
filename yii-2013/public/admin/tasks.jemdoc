@@ -1,0 +1,64 @@
+# jemdoc: menu{MENU}{tasks.php}
+{{<?php include "matching/checklogin.php"; ?> }}
+= Sunnah.com Admin Section
+
+== Volunteer Tasks and Status
+This page details ongoing projects related to the *content* on the website, the volunteers working on them, and the current status.
+
+- Hadith Typing project
+  -- Jami` at-Tirmidhi (hyaziz, abumaahi) +in progress+
+  -- Sunan an-Nasai (hyaziz, snwahdy) +in progress+
+  -- Sunan Abi Dawud (abumaahi) +in progress+
+  -- Bulugh al-Mar'am (Karim, mansoor) +in progress+
+  -- Muqaddimah of Sahih Muslim +to begin+
+  -- Hisn ul Muslim +to begin+
+  -- 110 Hadith Qudsi
+
+- English Hadith importing project
+  -- Sunan an-Nasai (Karim) +complete+
+  -- Sunan ibn Majah (Karim) +in progress+
+
+- Importing Arabic and English for Al-Adab al-Mufrad (Karim) +in progress+
+
+- Arabic re-numbering project
+  -- Sahih Muslim (Hussam, Ahmad) +in progress, volunteers needed+
+  -- Sahih al-Bukhari (ansari) +in progress+
+  -- Jami` at-Tirmidhi (ansari) +in progress+
+  -- Sunan an-Nasa'i (ansari) +in progress+
+
+- Collection Introductions (Nabeel, Salmaan) +in progress+
+
+- Add/Verify chapter names
+  -- Sahih Muslim (Hussam, Ahmad) +in progress, volunteers needed+
+  -- Sahih al-Bukhari (Raffiqu, Khalid) +in progress, volunteers needed+
+  -- Sunan Abi Dawud (farzana) +complete+
+
+- Synonyms +volunteers needed+
+
+- Search autocomplete Project (Karim) +complete for now+
+
+- Adding cross-references to ahadith
+  -- Nawawi's 40 Hadith (Abdul Aziz Khawaja) +in progress+
+
+- English Matching project
+  -- Jami` at-Tirmidhi (ansari) +in progress+
+
+- Bahasa Indonesia matching project
+  -- Sahih al-Bukhari (Amru) +in progress+
+
+- Adding commentary
+  -- Nawawi's 40 Hadith (ansari) +to begin+
+
+- Adding hadith grades +to begin+
+  -- Shama'il Tirmidhi
+  -- Sunan at-Tirmidhi (Albani)
+  -- Muwatta Malik (Abdul-Baaqi)
+
+- Adding tashkeel +to begin+
+  -- 40 Hadith Nawawi
+  -- Riyad as-Salihin
+  -- Book names
+
+- Add Sahih al-Bukhari mu'allaqat translations +to begin+
+
+- Locate translations in Urdu

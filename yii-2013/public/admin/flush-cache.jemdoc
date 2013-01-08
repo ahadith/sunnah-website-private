@@ -1,0 +1,22 @@
+# jemdoc: menu{MENU}{utilities.php}
+{{<?php include "matching/checklogin.php"; ?> }}
+
+== Flush Memcached
+Flushing ...
+
+{{<?php
+	if (isset($_GET['all'])) {
+		//echo "http://".$_SERVER['SERVER_NAME'].":".$_SERVER['SERVER_PORT']."/yiiadmin/flushcache";
+		$success = file_get_contents("http://".$_SERVER['SERVER_NAME'].":".$_SERVER['SERVER_PORT']."/yiiadmin/flushcache");
+		if (substr($success, 0, 1) == '1') echo "Flushed successfully alhamdulillah.";
+		else echo "There was an error: $success";
+	}
+	elseif (isset($_POST['key'])) {
+		$success = file_get_contents("http://".$_SERVER['SERVER_NAME'].":".$_SERVER['SERVER_PORT']."/default/index/flushcache/key/".rawurlencode(rawurlencode($_POST['key'])));
+		//echo "http://".$_SERVER['SERVER_NAME'].":".$_SERVER['SERVER_PORT']."/default/index/flushcache/key/".rawurlencode($_POST['key']);
+		if (substr($success, 0, 1) == '1') echo "Deleted key \"".$_POST['key']."\"successfully alhamdulillah.";
+		else echo "There was an error deleting the key \"".$_POST['key']."\": $success";
+	}
+?> }}
+
+[utilities.php Back to Utilities page]

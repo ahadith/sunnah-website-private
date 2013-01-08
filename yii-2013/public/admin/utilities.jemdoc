@@ -1,0 +1,22 @@
+# jemdoc: menu{MENU}{utilities.php}
+{{<?php include "matching/checklogin.php"; ?> }}
+= Utilities Page
+
+
+=== Hadith Data
+[refresh.php Update production tables]
+
+[update-solr.php Update Solr index]
+
+=== Memcached
+[memcached-stats.php Memcached Stats]
+
+[flush-cache.php?all Flush Memcached] (be careful, this flushes ALL cache data)
+~~~
+{}{raw}
+<form name=flushcache action="flush-cache.php" method=post>
+Or delete a specific key: 
+<input type=text name=key>&nbsp;
+<input type=submit value="Delete">
+</form>
+~~~
