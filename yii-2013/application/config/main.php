@@ -88,6 +88,7 @@ return array(
 				'yiiadmin/flushcache' => 'default/index/flushcache',
 
 				'nasai/35b/<hadithNumbers>' => array('default/collection/dispbook/collectionName/nasai/ourBookID/-35', 'defaultParams' => array('_escaped_fragment_' => 'default')),
+				'<collectionName:\w+>/introduction/<hadithNumbers>' => array('default/collection/dispbook/ourBookID/-1', 'defaultParams' => array('_escaped_fragment_' => 'default')),
 				'<collectionName:\w+>/<ourBookID:\d+>/<hadithNumbers>' => array('default/collection/dispbook', 'defaultParams' => array('_escaped_fragment_' => 'default')),
 				'<collectionName:\w+>/about' => 'default/collection/about',
 				'muslim/introduction' => array('default/collection/dispbook/collectionName/muslim/ourBookID/-1', 'defaultParams' => array('_escaped_fragment_' => 'default')),
@@ -147,7 +148,7 @@ return array(
 	'params'=>array(
 		// this is used in contact page
 		'adminEmail'=>'webmaster@example.com',
-		'cacheTTL' => 7200, // time to leave objects in cache
+		'cacheTTL' => 1, // time to leave objects in cache
 		'pageSize' => 100,
 	),
 );

@@ -4,72 +4,69 @@
 	$splitSize=round($num_collections/2, 0, PHP_ROUND_HALF_UP);
 ?>
 
-	<div align=center style="font-size: 20px; font-variant: small-caps; font-family: Arial;">
+	<div align=center id="indextag">
 		The Hadith of the Prophet Muhammad (صلى الله عليه و سلم) at your fingertips
 	</div>
-    <div align=center style="font-size: 16px; font-variant: small-caps; font-family: Arial;">
-        in Arabic, English, Bahasa Indonesia*, and Urdu*
+
+	<div style="width: 380px; margin: auto;">
+	<div id="indexsearch" class="idxsblur">
+ 	 	<form name="searchform" action="/search_redirect.php" method=get id="searchform">
+       		<input type="text" class="indexsearchquery" name=query value="Search &#8230;" />
+			<input type="image" src="/images/search.png" class="indexsearchsubmit" value="" />
+		</form>
+	</div>
+	<a class="indexsearchtipslink" style="font-size: 12px;">Search Tips</a>
+    <div id="searchtips" style="width: 98%; height: 275px;">
+        <b>Quotes</b> e.g. "pledge allegiance"<br>
+        Searches for the whole phrase instead of individual words
+        <p>
+        <b>Wildcards</b> e.g. test*<br>
+        Matches any set of one or more characters. For example test* would result in test, tester, testers, etc.
+        <p>
+        <b>Fuzzy Search</b> e.g. swore~<br>
+        Finds terms that are similar in spelling. For example swore~ would result in swore, snore, score, etc.
+        <p>
+        <b>Term Boosting</b> e.g. pledge^4 hijrah<br>
+        Boosts words with higher relevance. Here, the word <i>pledge</i> will have higher weight than <i>hijrah</i>
+        <p>
+        <b>Boolean Operators</b> e.g. ("pledge allegiance" OR "shelter) AND prayer<br>
+        Create complex phrase and word queries by using Boolean logic.
+        <p>
+        <a href="/searchtips">More ...</a>
     </div>
-	<div class=title align=center style="font-size: 15px;">
+	<div class=clear></div>
 	</div>
 
-
-	<div style="margin:auto; text-align:center; padding-top:10px; border: 0px solid;">
-	<!--	<div class="title" style="padding-bottom:12px; font-size: 20px;">Search in collections</div> -->
-	<!--<div class="title" style="padding-bottom:12px; font-size: 14px;">Please bear with us today
-while we finish moving to a new design.</div> -->
-
-            <div>
-			 	<form name="searchform" action="/search_redirect.php" method=get id="searchform">
-                	<input type="text" size="30" class="input_search" style="height: 28px; font-size: 18px;" name=query id="searchBox" />
-                    <input type="submit" class="search_button" style="height: 30px; font-size: 14px; width: 200px;" value="Search" />
-                </form>
-				<span class=collection_intro_short style="margin-left: -200px; text-decoration: underline;"> <a href="/searchtips" style="color: black;">Search Tips</a> </span>
-            </div>
-            <div class="title" style="padding:15px 0 10px 0; font-size: 17px;">
-				Browse collections
-				<br>
-				<span style="font-size: 14px;">(Current hadith count: <b><?php echo $this->_hadithCount; ?></b>)</span>
-			</div>
-            <div align=center><div style="width: 93%;">
-            <div class="collection_titles separator" style="border: 0px solid; padding-right: 6px;">
-				<?php 
-					for ($i = 0; $i < $splitSize; $i++)  {
-						$collection = $collections[$i]; ?>
+	<div class=collections>
+    	<div class="collection_titles" style="padding-right: 6px;">
+			<?php 
+				for ($i = 0; $i < $splitSize; $i++)  {
+					$collection = $collections[$i]; ?>
+					<div class=collection_title>
 						<a href="/<?php echo $collection['name']; ?>" style="display: inline;">
-						  <dd style="display: inline;">
-							<div class=english_collection_title><?php echo $collection['englishTitle']; ?>
-								<?php if (strcmp($collection['status'], "incomplete") == 0) echo "*"?>
-							</div>
-							&nbsp;
+							<div class=english_collection_title><?php echo $collection['englishTitle']; ?></div>
 							<div class="arabic_collection_title"><?php echo $collection['arabicTitle']; ?></div>
-						  </dd>
-                        </a>
-                        <div class=collection_annotation><?php echo $collection['annotation']; ?>&nbsp;</div>
-                        <div style="clear:both"></div>
-				<?php
-					} ?>
-			</div><!-- end collection titles 1 -->
-            <div class="collection_titles" style="float: right;">
-				<?php 
-					for ($i = $splitSize; $i < $num_collections; $i++) {
-						$collection = $collections[$i]; ?>
+                   		</a>
+                    	<div class="clear"></div>
+					</div>
+                    <?php if ($i < $splitSize - 1) echo '<div class="collection_sep"></div>';
+			 } ?>
+		</div><!-- end collection titles 1 -->
+        <div class="collection_titles" style="float: right;">
+			<?php 
+				for ($i = $splitSize; $i < $num_collections; $i++) {
+					$collection = $collections[$i]; ?>
+					<div class=collection_title>			
 						<a href="/<?php echo $collection['name']; ?>" style="display: inline;">
-						  <dd style="display: inline;">
-							<div class=english_collection_title><?php echo $collection['englishTitle']; ?>
-								<?php if (strcmp($collection['status'], "incomplete") == 0) echo "*"?>
-							</div>
-							&nbsp;
+							<div class=english_collection_title><?php echo $collection['englishTitle']; ?></div>
 							<div class="arabic_collection_title"><?php echo $collection['arabicTitle']; ?></div>
-						  </dd>
                         </a>
-                        <div class=collection_annotation><?php echo $collection['annotation']; ?>&nbsp;</div>
-                        <div style="clear:both"></div>
-				<?php
-					} ?>
-			</div><!-- end collection titles 2 -->
-			</div></div> <!-- end center div and width div -->
-			<div style="clear: both;"></div>
-			<font size=2>	*: in progress</font>
-	</div>
-	<div style="clear: both;"></div>
+						<div class="clear"></div>
+					</div>
+                    <?php if ($i < $num_collections - 1) echo '<div class="collection_sep"></div>';
+			 } ?>
+		</div><!-- end collection titles 2 -->
+		<div class="clear"></div>
+	</div> <!-- end collections div -->
+	<br>
+	<div align=center style="color: #75A1A1;">Supported languages: English, Arabic, Urdu, Bahasa Indonesia</div>

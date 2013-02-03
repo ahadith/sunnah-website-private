@@ -24,7 +24,7 @@ function displayBab($chapter) {
 	echo "<div class=\"arabicchapter arabic_basic\">$arabicBabName</div>";
 	echo "<div class=clear></div><div style=\"height: 10px;\"></div><div class=clear></div>\n";
 	echo "</div>\n";
-	if (isset($englishIntro) && strlen($englishIntro) > 0) echo "<div class=\"echapintro text_details\" style=\"width: 75%;\">$englishIntro</div>\n";
+	if (isset($englishIntro) && strlen($englishIntro) > 0) echo "<div class=\"echapintro\">$englishIntro</div>\n";
 	if (isset($arabicIntro) && strlen($arabicIntro) > 0) echo "<div class=\"arabic_basic achapintro\">$arabicIntro</div>\n";
 	echo "<div class=clear></div>\n";
 	echo "\n<div style=\"height: 20px;\"></div>\n";
@@ -54,11 +54,23 @@ else {
 		echo "<div class=bookheading><div class=englishbookheading>".$this->_book->englishBookName."</div><div class=arabicbookheading>".$this->_book->arabicBookName."</div></div>";
 
 		echo "<br><div class=breadcrumbs style=\"margin-left: 55px; margin-right: 23%; font-size: 14px; text-align: justify;\">";
-		if (strcmp($collectionHasBooks, "yes") == 0) {
-			echo "<p align=center><span style=\"font-size: 16px;\">This is ";
-			if ($ourBookID > 0) echo "book $ourBookID ";
-			else echo "the introduction ";
-			echo "of ".$this->_collection->englishTitle.", containing <b>$totalCount</b> hadith.</span></p> ";
+		if (strcmp($collectionHasBooks, "yes") == 0) { // Only for collections with books at the first level
+			if ($ourBookID == -1) {
+				if (strcmp($collection, "muslim") == 0) {
+					echo "<div class=bookintro>".$this->_book->englishBookIntro."</div>";
+					echo "<div class=\"arabic_basic bookintro\">".$this->_book->arabicBookIntro."</div>";
+				}
+				else {
+					echo "<p align=center><span style=\"font-size: 16px;\">This is ";
+					echo "the introduction ";
+					echo "of ".$this->_collection->englishTitle.", containing <b>$totalCount</b> hadith.</span></p> ";
+				}
+			}
+			else {
+				echo "<p align=center><span style=\"font-size: 16px;\">This is ";
+				echo "book $ourBookID ";
+				echo "of ".$this->_collection->englishTitle.", containing <b>$totalCount</b> hadith.</span></p> ";
+			}
 		}
 		else echo "<p align=center><span style=\"font-size: 16px;\">This is ".$this->_collection->englishTitle.", containing <b>$totalCount</b> hadith.</span></p> ";
 
@@ -168,6 +180,7 @@ else {
                             ));	
 
 						/* Check if the chapter ends here  */
+						unset($newBabID);
 						if ($i+1 < $totalCount) {
 	                        $englishEntry = $englishEntries[$pairs[$i+1][0]];
     	                    $arabicEntry = $arabicEntries[$pairs[$i+1][1]];
@@ -181,12 +194,25 @@ else {
 
 						}
  
-						if (isset($newBabID) and $newBabID != $oldChapNo) 
+						if (isset($newBabID) and $newBabID != $oldChapNo) { // Chapter ended and new chapter follows
+							if (isset($chapters[$oldChapNo]->arabicEnding) and strcmp($this->_pageType, "book") == 0) {
+								echo "<div class=hline style=\"height: 2px;\"></div>"; // hadith boundary
+								echo "<div class=\"echapintro\">".$chapters[$oldChapNo]->englishEnding."</div>";
+								echo "<div class=\"arabic_basic achapintro\">".$chapters[$oldChapNo]->arabicEnding."</div>";
+							}
 							echo "<div class=hline style=\"height: 4px;\"></div>";
-						elseif (isset($newBabID) && $status == 4) {
+						}
+						elseif (isset($newBabID) && $status == 4) { // Chapter did NOT end
 							echo "<div class=hline style=\"height: 2px;\"></div>";
 						}
-						else echo "<div class=hline></div>";
+						else { // no more hadith in the book
+							if (isset($chapters[$oldChapNo]->arabicEnding) and strcmp($this->_pageType, "book") == 0) {
+								echo "<div class=hline style=\"height: 2px;\"></div>"; // hadith boundary
+								echo "<div class=\"echapintro\">".$chapters[$oldChapNo]->englishEnding."</div>";
+								echo "<div class=\"arabic_basic achapintro\">".$chapters[$oldChapNo]->arabicEnding."</div>";
+							}
+							echo "<div class=hline style=\"height: 4px;\"></div>"; //chapter boundary
+						}
 					}
 					// Below code for zero-hadith chapters at the end of the book
 					if (isset($babID) and strcmp($this->_pageType, "book") == 0 and $oldChapNo != 0) {
