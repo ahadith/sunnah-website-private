@@ -37,7 +37,7 @@ class CollectionController extends Controller
         	$this->_entries = $this->util->getBook($collectionName);
         }
         if (is_null($this->_collection) || count($this->_entries) == 0) {
-            $this->_errorMsg = "You have entered an incorrect URL. Please use the menu above to navigate the website.";
+            $this->_errorMsg = "There is no such collection on our website. Click <a href=\"/\">here</a> to go to the home page.";
         	$this->render('index');
             return;
         }
@@ -100,7 +100,10 @@ class CollectionController extends Controller
 		}
 
         if (strlen($this->_book->englishBookName) > 0) {
-            $this->pathCrumbs($this->_book->englishBookName." - <span class=arabic_text>".$this->_book->arabicBookName."</span>", "/".$collectionName."/".$ourBookID);
+			if (intval($ourBookID) == -1) $lastlink = "introduction";
+			elseif (intval($ourBookID) == -35) $lastlink = "35b";
+			else $lastlink = $ourBookID;
+            $this->pathCrumbs($this->_book->englishBookName, "/".$collectionName."/".$lastlink);
         }
         $this->pathCrumbs($this->_collection->englishTitle, "/$collectionName");
         $this->render('dispbook');        

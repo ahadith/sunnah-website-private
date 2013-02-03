@@ -85,7 +85,7 @@ WHERE ibook.urdumatchstatus >1;
 
 
 delete from hadithdb.EnglishHadithTable;
-insert into hadithdb.EnglishHadithTable (englishURN, collection, volumeNumber, bookID, bookNumber, bookName, babNumber, babName, hadithNumber, hadithText, grade1, comments) select  englishURN, collection, volumeNumber, bookID, bookNumber, bookName, babNumber, babName, hadithNumber, hadithText, grade, comments from ilmfruit_testhadithdb.muslim_english where bookID > 0;
+insert into hadithdb.EnglishHadithTable (englishURN, collection, volumeNumber, bookID, bookNumber, bookName, babNumber, babName, hadithNumber, hadithText, grade1, comments) select  englishURN, collection, volumeNumber, bookID, bookNumber, bookName, babNumber, babName, hadithNumber, hadithText, grade, comments from ilmfruit_testhadithdb.muslim_english where abs(bookID) > 0;
 insert into hadithdb.EnglishHadithTable (englishURN, collection, volumeNumber, bookID, bookNumber, bookName, babNumber, babName, hadithNumber, hadithText, grade1, comments) select englishURN, collection, volumeNumber, bookID, bookNumber, bookName, babNumber, babName, hadithNumber, hadithText, grade, comments from ilmfruit_testhadithdb.bukhari_english where bookID > 0;
 insert into hadithdb.EnglishHadithTable (englishURN, collection, volumeNumber, bookID, bookNumber, bookName, babNumber, babName, hadithNumber, hadithText, grade1, comments) select englishURN, collection, volumeNumber, bookID, bookNumber, bookName, babNumber, babName, hadithNumber, hadithText, grade, comments from ilmfruit_testhadithdb.malik_english where bookID > 0;
 insert into hadithdb.EnglishHadithTable (englishURN, collection, volumeNumber, bookID, bookNumber, bookName, babNumber, babName, hadithNumber, hadithText, grade1, comments) select englishURN, collection, volumeNumber, bookID, bookNumber, bookName, babNumber, babName, hadithNumber, hadithText, grade, comments from ilmfruit_testhadithdb.nawawi40_english where bookID > 0;
@@ -140,12 +140,12 @@ update hadithdb.matchtable mt inner join ilmfruit_testhadithdb.urdumatchtable um
 
 
 delete from hadithdb.ChapterData;
-insert into hadithdb.ChapterData (collection, englishBookID, arabicBookID, babID, arabicBabNumber, arabicBabName, arabicIntro) select ac.collection as collection, bd.englishBookID as englishBookID, bd.arabicBookID as arabicBookID, ac.babID as babID, ac.babNumber as arabicBabNumber, ac.babName, ac.intro as arabicIntro from hadithdb.BookData as bd, ilmfruit_testhadithdb.arabicChapters as ac where ac.collection = bd.collection and ac.bookID = bd.arabicBookID and bd.status > 3;
+insert into hadithdb.ChapterData (collection, englishBookID, arabicBookID, babID, arabicBabNumber, arabicBabName, arabicIntro, arabicEnding) select ac.collection as collection, bd.englishBookID as englishBookID, bd.arabicBookID as arabicBookID, ac.babID as babID, ac.babNumber as arabicBabNumber, ac.babName, ac.intro as arabicIntro, ac.ending as arabicEnding from hadithdb.BookData as bd, ilmfruit_testhadithdb.arabicChapters as ac where ac.collection = bd.collection and ac.bookID = bd.arabicBookID and bd.status > 3;
 update hadithdb.ChapterData 
 inner join (
-  select collection, bookiD, babID, babNumber, babName, intro from ilmfruit_testhadithdb.englishChapters
+  select collection, bookiD, babID, babNumber, babName, intro, ending from ilmfruit_testhadithdb.englishChapters
 ) as myt
-set hadithdb.ChapterData.englishBabNumber = myt.babNumber, hadithdb.ChapterData.englishBabName = myt.babName, hadithdb.ChapterData.englishIntro = myt.intro
+set hadithdb.ChapterData.englishBabNumber = myt.babNumber, hadithdb.ChapterData.englishBabName = myt.babName, hadithdb.ChapterData.englishIntro = myt.intro, hadithdb.ChapterData.englishEnding = myt.ending
 where myt.babID = hadithdb.ChapterData.babID and myt.collection =  hadithdb.ChapterData.collection and myt.bookID = hadithdb.ChapterData.englishBookID;
 
 update hadithdb.EnglishHadithTable eht join hadithdb.matchtable m on eht.englishURN = m.englishURN
@@ -182,3 +182,8 @@ AND bd.ourBookID = ht.bookID
 SET bd.firstNumber = ht.beginNumber,
 bd.lastNumber = ht.endNumber,
 bd.totalNumber = ht.numHadith WHERE bd.status =4;
+
+/* Update hadith counts in Collections */;
+UPDATE Collections as c JOIN (select count(*) as hcount, collection from EnglishHadithTable group by collection) as eht
+ON c.name = eht.collection
+SET c.numhadith = eht.hcount;

@@ -18,8 +18,73 @@
   // (a) put default input focus on the state field
   // (b) jquery ajax autocomplete implementation
    $(document).ready(function () {  
+
+	$(window).scroll(function() {
+		if ($(window).scrollTop() > 750) $("#back-to-top").addClass('bttenabled');
+		else $("#back-to-top").removeClass('bttenabled');
+
+		if ($(window).scrollTop() > 44) {
+			$("#shortbanner").css('display', 'block');
+			$("#shortheader").css('display', 'block');
+			$("#toolbar").css('display', 'none');
+			$("#topspace").css('display', 'block');
+		}
+		else {
+			$("#shortbanner").css('display', 'none');
+			$("#shortheader").css('display', 'none');
+			$("#toolbar").css('display', 'block');
+			$("#topspace").css('display', 'none');
+		}
+	});
+
+	$(".indexsearchquery").focus(function() {
+		$("#indexsearch").addClass('idxsfocus');
+		$("#indexsearch").removeClass('idxsblur');
+
+		if ($(".indexsearchquery").css('color') == 'rgb(187, 187, 187)') {
+			$(".indexsearchquery").val('');
+			$(".indexsearchquery").css('color', '#000');
+		}
+	});
+
+	$(".indexsearchquery").blur(function() {
+		$("#indexsearch").addClass('idxsblur');
+		$("#indexsearch").removeClass('idxsfocus');
+
+		if ($(".indexsearchquery").val() == '') {
+			$(".indexsearchquery").val('Search …');
+			$(".indexsearchquery").css('color', '#bbb');
+		}
+	});
+
+	$(".searchquery").focus(function() {
+		$("#searchbar").addClass('sfocus');
+		$("#searchbar").removeClass('sblur');
+
+		if ($(".searchquery").css('color') == 'rgb(187, 187, 187)') {
+			$(".searchquery").val('');
+			$(".searchquery").css('color', '#000');
+		}
+	});
+
+	$(".searchquery").blur(function() {
+		$("#searchbar").addClass('sblur');
+		$("#searchbar").removeClass('sfocus');
+
+		if ($(".searchquery").val() == '') {
+			$(".searchquery").val('Search …');
+			$(".searchquery").css('color', '#bbb');
+		}
+	});
+
+	$(".searchtipslink").click(function() {
+		if ($("#searchtips").css('display') == 'none')
+			$("#searchtips").show(400);
+		else $("#searchtips").hide(400);
+	});
+
    // tell the autocomplete function to get its data from our php script
-    
+  
      var $searchBox = $('#searchBox');
 
          $searchBox.autocomplete({
@@ -64,12 +129,12 @@
     	});
 	}
 
-	$("#sidePanelContainer").css('margin-left', parseInt($("#toolbar").position().left)-parseInt($("#sidePanelContainer").css('width').replace("px", "")));
+	//$("#sidePanelContainer").css('margin-left', parseInt($("#toolbar").position().left)-parseInt($("#sidePanelContainer").css('width').replace("px", "")));
   });
 
-	$(window).bind("resize", function(){
-		$("#sidePanelContainer").css('margin-left', parseInt($("#toolbar").position().left)-parseInt($("#sidePanelContainer").css('width').replace("px", "")));
-	});
+	//$(window).bind("resize", function(){
+		//$("#sidePanelContainer").css('margin-left', parseInt($("#toolbar").position().left)-parseInt($("#sidePanelContainer").css('width').replace("px", "")));
+	//});
 
     var langLoaded = new Object();
 

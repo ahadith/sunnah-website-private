@@ -36,23 +36,25 @@
 				echo "<td>&nbsp;:&nbsp;";
 				if (strcmp($collectionHasBooks, "yes") == 0) {
 					if ($ourBookID > 0) echo "Book $ourBookID, ";
-					elseif ($ourBookID < -1) echo "Book ".abs($ourBookID)."b, ";
+					elseif ($ourBookID == -35) echo "Book 35b, ";
 					else echo "Introduction, ";
 				}
-				echo "Hadith ".$ourHadithNumber;
+
+				if (strcmp($collection, "muslim") == 0 and ($ourBookID == -1)) echo "Narration ";
+				else echo "Hadith ";
+				echo $ourHadithNumber;
 				echo "</td></tr>";
 
-				if ($englishEntry and $values[5] != $values[3]) {
+				if ($englishEntry and $values[5] != $values[3] and intval($values[3]) != 0) {
                         echo "<tr><td>";
 						if (strcmp($collection, "bukhari")==0 or strcmp($collection, "muslim")==0 or strcmp($collection, "malik")==0) echo "USC-MSA web (English) reference</td><td>&nbsp;: ";
-                        else echo "English translation</td><td>&nbsp;:&nbsp;";
-                        if (strcmp($collectionHasVolumes, "yes") == 0)
-                            echo "Vol. ".$values[1].", ";
-                        if (strcmp($collectionHasBooks, "yes") == 0) echo "Book ".$values[2].", ";
-                        echo "Hadith ".$values[3];
+                       	else echo "English translation</td><td>&nbsp;:&nbsp;";
+	                       if (strcmp($collectionHasVolumes, "yes") == 0)
+    	                       echo "Vol. ".$values[1].", ";
+        	               if (strcmp($collectionHasBooks, "yes") == 0) echo "Book ".$values[2].", ";
+            	           echo "Hadith ".$values[3];
                         echo "</td></tr>";
                 }
-
 
 				if (strcmp($collectionHasBooks, "yes") == 0) {
 					if ($ourBookID > 0) $permalink = "/$collection/$ourBookID/$ourHadithNumber";

@@ -1,0 +1,502 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+@font-face {
+	font-family: "Akzidenz";
+	src: local("Akzidenz"), url("/css/fonts/akzidenz-grotesk-light.ttf"); 
+}
+
+@font-face {
+	font-family: "Akzidenz Roman";
+	src: local("Akzidenz Roman"), url("/css/fonts/akzidenz-grotesk-roman.ttf"); 
+}
+
+@font-face {
+	font-family: "C&L";
+	src: local("C&L"), url("/css/fonts/cl.ttf"); 
+}
+
+@font-face {
+	font-family: "Akzidenz";
+	font-weight: bold;
+	src: local("Akzidenz"), url("/css/fonts/akzidenz-grotesk-bold.ttf"); 
+}
+
+
+.clear{ clear:both; }
+
+html,body{
+    margin:0;
+    padding:0;
+	height: 100%;
+    font-family: "Akzidenz Roman", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height:1.5;
+}
+
+a {
+	text-decoration: none;
+	color: #75A1A1;
+}
+
+a:hover { text-decoration: underline; }
+
+.arabic {
+    direction: rtl;
+    font-family:  KFGQPC Uthmanic Script HAFS, Scheherazade, /* Traditional Arabic,*/ Trebuchet MS, Arial, Helvetica;
+    font-size: 20px;
+	text-align: justify;
+}
+
+.urdu {
+	direction:rtl;
+    font-family: Jameel Noori Nastaleeq, Nafees Web Naskh, Urdu Naskh Asiatype;
+    font-size: 20px;
+	text-align: justify;
+}
+
+.saws {
+	background-image: url('/images/sallallahu_alaihi_wa_sallam.png');
+	background-size: 15px 15px;
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+	display: inline;
+	height: 0px;
+	width: 0px;
+	padding: 0 7.5px 0 7.5px;
+}
+
+#site{
+	background:url(../images/bg.png);
+	background-position: center top;
+	width:100%;
+	min-width: 1140px;
+	overflow: auto;
+	min-height: 100%;
+	position: relative;
+}
+
+
+#header {
+	width: 100%;
+	background-image: url(../images/banner.png);
+	background-repeat: repeat-x;
+	height: 88px;
+}
+
+#toolbar {
+	z-index: 5;
+	height: 18px;
+	font-size: 12px;
+	font-family: Arial;
+	padding-top: 3px;
+	width: 100%;
+	line-height: normal;
+	background-color: rgba(251, 250, 248, 0.2);
+}
+
+#toolbarRight {
+	color: #fff;
+	float: right;
+	padding-right: 8px;
+}
+
+#toolbarRight a {
+	color: #fff;
+	text-decoration: none;
+	padding:0 2px;
+}
+
+#toolbarRight a:hover {
+	text-decoration: underline;
+}
+
+
+#banner {
+	background-image: url(../images/logo.png);
+	background-repeat: no-repeat;
+	background-position: 60%;
+	background-size: auto 67%;
+	height: 70px;
+	width: 40%;
+	float: left;
+}
+
+
+#back-to-top {
+	display: block;
+	margin: 5px 10px;
+	width: 40px;
+	height: 40px;
+	border-radius: 8px;
+	float: right;
+}
+
+.bttenabled {
+	background-color: rgba(255, 255, 255, 0.35);
+	background-image: url('/images/sprite.png');
+	background-size: 100% 100%;
+}
+
+.bttenabled:hover {
+	background-color: rgba(255, 255, 255, 0.9);
+}
+
+#topspace {
+	height: 35px;
+	width: 100px;
+}
+
+.sidePanelContainer {
+	width: 17.5%; 
+	float: left;
+	overflow: auto;
+}
+
+.mainContainer {
+	width: 70%;
+	float: left;
+}
+
+#main {
+	margin: auto;
+	background-repeat: repeat;
+	padding-left:0px;
+	padding-right:0px;
+	padding-top: 10px;
+	border: 0px solid;
+	float: center;
+	padding-bottom: 50px;
+}
+
+.footer {
+    text-align: center;
+	background-image: url(../images/banner.png);
+	background-repeat: repeat-x;
+    width: 100%;
+    margin: auto;
+    margin-top: 10px;
+    border: 0px solid;
+    font-size: 20px;
+    padding-top: 4px;
+	font-family: "C&L", Helvetica, Verdana, Arial;
+	color: #fff;
+	position: absolute;
+	bottom: 0;
+	height: 30px;
+}
+
+.footer a{
+	color: #fff;
+	text-decoration: none;
+}
+
+#indextag {
+	font-size: 20px; 
+	font-variant: small-caps;
+	font-weight: bold;
+	color: #75A1A1;
+}
+
+#indexsearch {
+	margin:auto;
+	height:40px;
+	margin-top: 15px;
+	position:relative; 
+	width: 380px;
+	background-color: rgba(255, 255, 255, 0.65);
+	border-radius: 8px;
+}
+
+.idxsblur {
+	box-shadow: 0px 0px 9pt 2pt #ccc;
+}
+
+.idxsfocus {
+	box-shadow: 0px 0px 11pt 3pt #75a1a1;
+}
+
+.sfocus {
+	box-shadow: 0px 0px 9pt 2pt #ccc;
+}
+
+.sblur {
+	box-shadow: 0px 0px 9pt 2pt #75a1a1;
+}
+
+#search {
+	margin-top: 10px;
+	float: right;
+}
+
+#searchbar {
+	height:27px;
+	position:relative;
+	float: right;
+	width: 280px;
+	background-color: rgba(255, 255, 255, 0.85);
+	border-radius: 5px;
+	margin-right: 5px;
+}
+
+
+.indexsearchquery {
+	border:0px; 
+	background-color:transparent;
+	position:absolute;
+	top:4px;
+	left:15px;
+	width:320px;
+	height:30px;
+	font-size: 20px;
+	color: #bbb;
+}
+
+.searchquery {
+	border:0px; 
+	background-color:transparent;
+	position:absolute;
+	top:4px;
+	left:10px;
+	width:225px;
+	height:20px;
+	font-size: 14px;
+	color: #bbb;
+}
+
+.indexsearchquery:focus { outline: none; }
+.searchquery:focus { outline: none; }
+
+.indexsearchsubmit {
+	border:0px;
+	background-color:transparent;
+	position:absolute;
+	top:7px;
+	left:345px;
+	height:25px;
+}
+
+.searchsubmit {
+	border:0px;
+	background-color:transparent;
+	position:absolute;
+	top:5px;
+	left:253px;
+	height:17px;
+}
+
+.indexsearchtipslink {
+	float: right;
+	font-size: 12px;
+	padding-right: 10px;
+	padding-top: 5px;
+	cursor: pointer
+}
+
+.indexsearchtipslink:hover {
+    color:#84B8B8;
+}
+
+.searchtipslink {
+	float: right;
+	font-size: 12px;
+	padding-right: 10px;
+	padding-top: 5px;
+	cursor: pointer
+}
+
+.searchtipslink:hover {}
+
+#search a { color: #fff; }
+
+#searchtips {
+	width: 45%;
+	background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 8px;
+    color: #666;
+	float: right;
+	margin-bottom: 10px;
+	display: none;
+	font-size: 12px;
+	padding: 5px;
+}
+
+#searchtips p {
+	margin-top: 5px;
+	margin-bottom: 0;
+}
+
+.collections {
+	width: 100%;
+	margin: auto;
+	margin-top: 15px;
+}
+
+.collection_titles {
+    width: 49%;
+    float: left;
+    border: 0px solid;
+}
+
+.collection_title {
+	background-color: rgba(255, 255, 255, 0.55);
+	width: 87%;
+	margin: auto;
+	border-radius: 5px;
+}
+
+.english_collection_title {
+    font-size: 16px;
+    display: inline;
+    float: left;
+    direction: ltr;
+    padding-top: 5px;
+    margin-top: auto;
+    width: 50%;
+    text-align: right;
+    padding-right: 20px;
+    padding-bottom: 5px;
+    border: 0px solid;
+}
+.arabic_collection_title {
+	vertical-align: center;
+    font-size: 26px;
+    display: inline;
+    float: left;
+    direction: rtl;
+    width: 42%;
+    text-align: left;
+    padding-left: 0px;
+	padding-top: 5px;
+    border: 0px solid;
+    font-family: 'Trebuchet MS', Arial, Helvetica;
+}
+
+.collection_titles a {
+    text-decoration: none;
+    color:#75A1A1;
+    line-height: 30px;
+}
+
+.collection_titles a:hover {
+    text-decoration: none;
+    color:#84B8B8;
+}
+
+.collection_sep {
+	background-color: #ccc;
+	height: 1px;
+	opacity: 0.3;
+	width: 85%;
+	margin: auto;
+	box-shadow: 0px 1px 2px 1px rgba(204, 204, 204, 0.5);
+	-webkit-box-shadow: 0px 1px 2px 1px rgba(204, 204, 204, 0.5);
+	-moz-box-shadow: 0px 1px 2px 1px rgba(204, 204, 204, 0.5);
+}
+
+.crumbs{
+    font-size: 14px;
+    color: #666;
+	padding: 5px; 0px 10px 5px;
+	max-width: 66%;
+	float: left;
+}
+
+.crumbs a:visited { color: #75A1A1; }
+
+.collection_info {
+	width: 100%;
+	background-color: rgba(255, 255, 255, 0.5);
+	border-radius: 5px;
+	color: #666;
+	margin-top: 7px;
+}
+
+.colindextitle {
+	float: left;
+	padding: 10px;
+	text-align: justify;
+}
+
+.col_progress {
+	width: 29%;
+	float: right;
+	font-size: 18px;
+	padding-top: 15px;
+}
+
+.progress_full {
+	background-image: url('/images/progress_full.png');
+	background-size: 13px 30px;
+	background-repeat: repeat-x;
+	height: 30px;
+	float: left;
+}
+
+.progress_half {
+	background-image: url('/images/progress_half.png');
+	background-size: 9px 30px;
+	background-repeat: repeat-x;
+	height: 30px;
+	float: left;
+}
+
+.book_titles {
+	margin-top: 25px;
+	border-radius: 8px;
+	font-size: 17px;
+}
+
+.list_first {
+	background-color: rgba(255, 255, 255, 0.6);
+}
+
+.list_second {
+	background-color: rgba(255, 255, 255, 0.4);
+}
+
+.book_title {
+	padding: 5px 0 0 10px;
+}
+
+.book_title a:hover {
+	color:#84B8B8;
+}
+
+.book_number {
+	float: left;
+	min-width: 15px;
+	height: 30px;
+	padding-top: 6px;
+	padding-right: 10px;
+}
+
+.english_book_name {
+	width: 30%;
+	float: left;
+	min-height: 30px;
+	padding-top: 6px;
+}
+
+.arabic_book_name {
+	width: 37%;
+	float: left;
+	font-size: 24px;
+	text-align: right;
+}
+
+.book_range {
+	float: left;
+	color: #666;
+	padding: 6px 0 0 30px;
+	vertical-align: middle;
+	margin: auto;
+}
+
+.book_range_from {
+	padding-left: 25px;
+	width: 60px;
+	float: left;
+}
+

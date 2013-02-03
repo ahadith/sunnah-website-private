@@ -52,11 +52,10 @@ class Controller extends CController
         for ($i = 0; $i < count($this->_pageNames); $i++) {
             $link = $this->_pageLinks[$i];
             $name = $this->_pageNames[$i];
-            if ($i > 0) $crumbString .= "&gt; ";
+            if ($i > 0) $crumbString .= "&#187; ";
             if ($i == count($this->_pageNames)-1) $crumbString .= $name;
             else $crumbString .= "<a href=\"".$link."\">".$name."</a> ";
         }
-        $crumbString = "<div class=breadcrumbs>\n".$crumbString."</div>";
         return $crumbString;
     }
 
