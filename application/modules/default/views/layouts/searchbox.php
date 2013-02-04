@@ -6,9 +6,7 @@
             <input type="image" src="/images/search.png" class="searchsubmit" value="" />
         </form>
     </div>
-	<div class=clear></div>
 
-</div>
 	<div id="searchtips">
 		<div class=clear></div>
 		<b>Quotes</b> e.g. "pledge allegiance"<br>
@@ -29,3 +27,4 @@
 		<a href="/searchtips">More ...</a>
 	<div class=clear></div>
 	</div>
+</div>

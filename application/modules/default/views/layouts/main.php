@@ -48,6 +48,13 @@
 		<a href="http://sunnah.com"><div id="banner"></div></a>
 		<a href="#"><div id=back-to-top></div></a>
 		<?php if (strcmp($this->_pageType, "home") != 0) $this->renderPartial('/layouts/searchbox'); ?>
+		<div class=clear></div>
+		<?php
+			  if (strcmp($this->_pageType, "home")) {
+					echo "<div class=crumbs>".$this->pathCrumbs("Home", "/")."</div>";
+					echo "<div class=clear></div>";
+				}
+		?>
 	</div>
 
 	<div class=clear></div>
@@ -66,10 +73,6 @@
 	</div><!-- sidePanelContainer close -->
 	<div class="mainContainer"><div id="main">
 	        <?php 
-				if (strcmp($this->_pageType, "home")) {
-					echo "<div class=crumbs>".$this->pathCrumbs("Home", "/")."</div>";
-					echo "<div class=clear></div>";
-				}
 				echo "<div class=clear></div>";
 				echo $content; 
 			?>

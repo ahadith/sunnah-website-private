@@ -16,7 +16,7 @@
 		</form>
 	</div>
 	<a class="indexsearchtipslink" style="font-size: 12px;">Search Tips</a>
-    <div id="searchtips" style="width: 98%; height: 275px;">
+    <div id="indexsearchtips" style="width: 98%; height: 275px;">
         <b>Quotes</b> e.g. "pledge allegiance"<br>
         Searches for the whole phrase instead of individual words
         <p>

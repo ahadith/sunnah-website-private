@@ -23,17 +23,20 @@
 		if ($(window).scrollTop() > 750) $("#back-to-top").addClass('bttenabled');
 		else $("#back-to-top").removeClass('bttenabled');
 
-		if ($(window).scrollTop() > 44) {
-			$("#shortbanner").css('display', 'block');
-			$("#shortheader").css('display', 'block');
-			$("#toolbar").css('display', 'none');
+		if ($(window).scrollTop() > 37) {
+			$("#banner").css('height', '50px');
+			$("#header").css('position', 'fixed');
+			$("#header").css('top', '0');
 			$("#topspace").css('display', 'block');
+			$("#toolbar").css('display', 'none');
+			$("#search").css('bottom', '35px');
 		}
 		else {
-			$("#shortbanner").css('display', 'none');
-			$("#shortheader").css('display', 'none');
-			$("#toolbar").css('display', 'block');
+			$("#banner").css('height', '70px');
+			$("#header").css('position', 'relative');
 			$("#topspace").css('display', 'none');
+			$("#toolbar").css('display', 'block');
+			$("#search").css('bottom', '45px');
 		}
 	});
 
@@ -78,10 +81,19 @@
 	});
 
 	$(".searchtipslink").click(function() {
-		if ($("#searchtips").css('display') == 'none')
+		if ($("#searchtips").css('display') == 'none') {
 			$("#searchtips").show(400);
+		}
 		else $("#searchtips").hide(400);
 	});
+
+    $(".indexsearchtipslink").click(function() {
+        if ($("#indexsearchtips").css('display') == 'none') {
+            $("#indexsearchtips").show(400);
+        }
+        else $("#indexsearchtips").hide(400);
+    });
+
 
    // tell the autocomplete function to get its data from our php script
   
