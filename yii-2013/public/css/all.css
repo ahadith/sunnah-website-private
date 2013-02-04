@@ -82,7 +82,8 @@ a:hover { text-decoration: underline; }
 	width: 100%;
 	background-image: url(../images/banner.png);
 	background-repeat: repeat-x;
-	height: 88px;
+	position: relative;
+	z-index: 20;
 }
 
 #toolbar {
@@ -116,10 +117,10 @@ a:hover { text-decoration: underline; }
 #banner {
 	background-image: url(../images/logo.png);
 	background-repeat: no-repeat;
-	background-position: 60%;
+	background-position: 40%;
 	background-size: auto 67%;
 	height: 70px;
-	width: 40%;
+	width: 50%;
 	float: left;
 }
 
@@ -134,18 +135,19 @@ a:hover { text-decoration: underline; }
 }
 
 .bttenabled {
-	background-color: rgba(255, 255, 255, 0.35);
+	background-color: rgba(255, 255, 255, 0.45);
 	background-image: url('/images/sprite.png');
 	background-size: 100% 100%;
 }
 
 .bttenabled:hover {
-	background-color: rgba(255, 255, 255, 0.9);
+	background-color: #fff;
 }
 
 #topspace {
-	height: 35px;
+	height: 123px; /* This needs to be height of whole header + height of short header - visible height of tall header on length change + crumbs height*/
 	width: 100px;
+	display: none;
 }
 
 .sidePanelContainer {
@@ -226,7 +228,9 @@ a:hover { text-decoration: underline; }
 }
 
 #search {
-	margin-top: 10px;
+	position: absolute;
+	bottom: 47px;
+	right: 160px;
 	float: right;
 }
 
@@ -311,8 +315,11 @@ a:hover { text-decoration: underline; }
 #search a { color: #fff; }
 
 #searchtips {
-	width: 45%;
+	width: 400px;
+	background:url(../images/bg.png);
+	background-repeat: repeat-x repeat-y;
 	background-color: rgba(255, 255, 255, 0.5);
+	z-index: 10;
     border-radius: 8px;
     color: #666;
 	float: right;
@@ -320,6 +327,22 @@ a:hover { text-decoration: underline; }
 	display: none;
 	font-size: 12px;
 	padding: 5px;
+	position: absolute;
+	top: 30px;
+	border: 2px solid;
+	right: 50px;
+}
+
+#indexsearchtips {
+    width: 45%;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 8px;
+    color: #666;
+    float: right;
+    margin-bottom: 10px;
+    display: none;
+    font-size: 12px;
+    padding: 5px;
 }
 
 #searchtips p {
@@ -396,14 +419,17 @@ a:hover { text-decoration: underline; }
 }
 
 .crumbs{
-    font-size: 14px;
-    color: #666;
-	padding: 5px; 0px 10px 5px;
-	max-width: 66%;
+    font-size: 13px;
+    color: #fff;
+	background-color: rgba(251, 250, 248, 0.2);
+	padding: 3px; 0px 5px 5px;
+	width: 100%;
 	float: left;
+	padding-left: 17.5%;
 }
 
-.crumbs a:visited { color: #75A1A1; }
+.crumbs a {color: #fff; }
+.crumbs a:visited { color: #eee; }
 
 .collection_info {
 	width: 100%;
