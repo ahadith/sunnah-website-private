@@ -21,13 +21,13 @@ function displayBab($chapter) {
 		echo "<div class=englishchapter>".$eprefix.$englishBabName."</div>\n";
 	}
 	echo "<div class=achapno>($arabicBabNumber)</div>\n";
-	echo "<div class=\"arabicchapter arabic_basic\">$arabicBabName</div>";
-	echo "<div class=clear></div><div style=\"height: 10px;\"></div><div class=clear></div>\n";
+	echo "<div class=\"arabicchapter arabic\">$arabicBabName</div>";
+	echo "<div class=clear></div>\n";
 	echo "</div>\n";
 	if (isset($englishIntro) && strlen($englishIntro) > 0) echo "<div class=\"echapintro\">$englishIntro</div>\n";
-	if (isset($arabicIntro) && strlen($arabicIntro) > 0) echo "<div class=\"arabic_basic achapintro\">$arabicIntro</div>\n";
+	if (isset($arabicIntro) && strlen($arabicIntro) > 0) echo "<div class=\"arabic achapintro\">$arabicIntro</div>\n";
 	echo "<div class=clear></div>\n";
-	echo "\n<div style=\"height: 20px;\"></div>\n";
+	echo "\n<div style=\"height: 10px;\"></div>\n";
 }
 
 if (isset($this->_errorMsg)) echo $this->_errorMsg;
@@ -50,46 +50,32 @@ else {
 		$otherlangs = $this->_otherlangs;
 	}
 	
-	if (strcmp($this->_pageType, "book") == 0) {
-		echo "<div class=bookheading><div class=englishbookheading>".$this->_book->englishBookName."</div><div class=arabicbookheading>".$this->_book->arabicBookName."</div></div>";
+?>
+	<div class="book_info">
+    	<div class=colindextitle style="width: 90%;">
+    		<div class="book_page_arabic_name arabic"><?php echo $this->_book->arabicBookName; ?></div>
+    		<div class="book_page_english_name">
+			<?php if (intval($ourBookID) > 0) echo "$ourBookID"."&nbsp;&nbsp;&nbsp; ";
+				  elseif ($ourBookID == -35) echo "35b&nbsp;&nbsp; "; 
+				  echo $this->_book->englishBookName; ?>
+			</div>
+    		<div class=clear></div>
+		</div>
+		<!-- <div style="width: 20%; float: left; text-align: center; font-size: 20px; padding-top: 16px;"><b><?php echo $totalCount; ?></b> hadith</div> -->
 
-		echo "<br><div class=breadcrumbs style=\"margin-left: 55px; margin-right: 23%; font-size: 14px; text-align: justify;\">";
-		if (strcmp($collectionHasBooks, "yes") == 0) { // Only for collections with books at the first level
-			if ($ourBookID == -1) {
-				if (strcmp($collection, "muslim") == 0) {
+	<?php
+		if (strcmp($collectionHasBooks, "yes") == 0 and !is_null($this->_book->englishBookIntro)) {
 					echo "<div class=bookintro>".$this->_book->englishBookIntro."</div>";
-					echo "<div class=\"arabic_basic bookintro\">".$this->_book->arabicBookIntro."</div>";
-				}
-				else {
-					echo "<p align=center><span style=\"font-size: 16px;\">This is ";
-					echo "the introduction ";
-					echo "of ".$this->_collection->englishTitle.", containing <b>$totalCount</b> hadith.</span></p> ";
-				}
-			}
-			else {
-				echo "<p align=center><span style=\"font-size: 16px;\">This is ";
-				echo "book $ourBookID ";
-				echo "of ".$this->_collection->englishTitle.", containing <b>$totalCount</b> hadith.</span></p> ";
-			}
+					echo "<div class=\"arabic bookintro\">".$this->_book->arabicBookIntro."</div>";
 		}
-		else echo "<p align=center><span style=\"font-size: 16px;\">This is ".$this->_collection->englishTitle.", containing <b>$totalCount</b> hadith.</span></p> ";
+	?>
 
+	<div class=clear></div>
+	</div>
 
-
-		// Blurb about references and verification
-		if ($status == 4) {
-			echo "<br>The Arabic text and reference numbering in this book has been checked to correspond with standard publications to the best of our ability. ";
-			if (strlen($this->_collection->numberinginfodesc) > 0) {
-				echo $this->_collection->numberinginfodesc;
-				echo " <a style=\"color: #634614;\" href=\"/$collection/about#numbering\">Numbering scheme details</a>";
-			}
-		}
-		echo "</div>\n\n";
-		echo "<div class=\"hline\" style=\"width: 71%; margin-left: 6%; height: 4px;\"></div>";
-	}
-
-    echo "<a name=\"0\"></a>";
-	echo "<div class=AllHadith>\n";
+    <a name="0"></a>
+	<div class=AllHadith>
+	<?php
 					$oldChapNo = 0;
 					for ($i = 0; $i < $totalCount; $i++) {
 						$englishEntry = $englishEntries[$pairs[$i][0]];
@@ -160,8 +146,10 @@ else {
 							}
 						}
 						else $otherlangshadith = NULL;
-
-						echo $this->renderPartial('/collection/disphadith', array(
+						echo "<div class=hadith_icon style=\"float: left; margin-left: -23px;\"></div>";
+			            echo "<div class=hadith_icon style=\"float: right; margin-right: -23px;\"></div>";
+						echo "<div class=actualHadithContainer id=h".$arabicEntry->arabicURN.">\n";
+						echo $this->renderPartial('/collection/printhadith', array(
 							'arabicEntry' => $arabicEntry,
 							'englishText' => $englishEntry->hadithText,
 							'arabicText' => $arabicEntry->hadithText,
@@ -178,6 +166,8 @@ else {
 											$arabicEntry->hadithNumber,
 											$ourHadithNumber, $collection, $ourBookID, $collectionHasBooks, $collectionHasVolumes, $status, $this->_collection->englishTitle, $englishEntry->grade1, $arabicEntry->grade1)
                             ));	
+						echo "<div class=clear></div></div><!-- end actual hadith container -->";
+						echo "<div class=clear></div>";
 
 						/* Check if the chapter ends here  */
 						unset($newBabID);
