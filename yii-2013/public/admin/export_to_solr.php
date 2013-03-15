@@ -28,6 +28,7 @@
 
 	$hadithText = $hadith['hadithText'];
 	$hadithText = strip_tags($hadithText);
+	$hadithText = preg_replace("/\&nbsp;/", " ", $hadithText);
 
     $fullString = "  <doc>\n";
     $fullString = $fullString."    <field name=\"URN\">".$hadith['arabicURN']."</field>\n";

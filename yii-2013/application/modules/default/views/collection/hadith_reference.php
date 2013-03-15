@@ -120,7 +120,7 @@
 			echo "</table>";
 
 			echo "<div class=\"hadith_permalink\">
-                    <span class=top_link><a class=\"action_toTop\" href=\"#0\"><span></span>to top</a></span>
+					  <a href=\"javascript:sharethis()\">Share</a>
 					| <a href=\"$permalink\">Permalink</a>
 					| <a href=\"javascript: void(0);\" onclick=\"reportHadith(".$values[0].")\">Report Error</a>
 				  </div>";

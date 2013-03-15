@@ -90,6 +90,15 @@ class Util extends CModel {
         return $chapters;
     }
 
+    public function getChapter($collectionName, $bookID, $babID) {
+        $chapter = Yii::app()->cache->get("chapter:".$collectionName."_".$bookID."_".$babID);
+        if ($chapter === false) {
+            $chapter = Chapter::model()->findAll(array("condition" => "collection = :collection AND arabicBookID = :bookID AND babID = :babID", "params" => array(":collection" => $collectionName, ":bookID" => intval($bookID), ":babID" => $babID), "order" => "babID ASC"));
+            Yii::app()->cache->set("chapter:".$collectionName."_".$bookID."_".$babID, $chapter, Yii::app()->params['cacheTTL']);
+        }
+        return $chapter;
+    }
+
 	public function getHadith($urn, $language = "english") {
 		$hadith = Yii::app()->cache->get("urn:".$urn);
 		if ($hadith === false) {

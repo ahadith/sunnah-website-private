@@ -35,6 +35,7 @@ html,body{
     line-height:1.5;
 }
 
+
 a {
 	text-decoration: none;
 	color: #75A1A1;
@@ -127,9 +128,9 @@ a:hover { text-decoration: underline; }
 
 #back-to-top {
 	display: block;
-	margin: 5px 10px;
-	width: 40px;
-	height: 40px;
+	margin: 3px 10px;
+	width: 35px;
+	height: 35px;
 	border-radius: 8px;
 	float: right;
 }
@@ -145,7 +146,7 @@ a:hover { text-decoration: underline; }
 }
 
 #topspace {
-	height: 123px; /* This needs to be height of whole header + height of short header - visible height of tall header on length change + crumbs height*/
+	height: 117px; /* This needs to be height of whole header + height of short header - visible height of tall header on length change + crumbs height*/
 	width: 100px;
 	display: none;
 }
@@ -154,10 +155,40 @@ a:hover { text-decoration: underline; }
 	width: 17.5%; 
 	float: left;
 	overflow: auto;
+	height: 100%;
+	margin-right: 15px;
+	top: 0;
+	left: 0;
 }
 
+#sidePanel { 
+	float: right;  
+    margin-left: 20px;
+    margin-right: 20px;
+	background-image: url(../images/banner.png);
+	background-repeat: repeat-x;
+    margin-top: 20px;
+    border-radius:10px;
+}
+
+#languagePanel {
+    border-radius:10px;
+    padding: 15px;
+    padding-top: 15px;
+    color: #fff;
+    padding-bottom: 15px;
+    /* height: 100px; */
+    /*position: fixed;*/
+    text-align: left;
+	background-color: rgba(251, 250, 248, 0.2);
+    font-size: 12px;
+    font-family: Arial, Verdana;
+    font-weight: bold;
+}
+
+
 .mainContainer {
-	width: 70%;
+	width: 68%;
 	float: left;
 }
 
@@ -253,7 +284,7 @@ a:hover { text-decoration: underline; }
 	left:15px;
 	width:320px;
 	height:30px;
-	font-size: 20px;
+	font-size: 18px;
 	color: #bbb;
 }
 
@@ -387,13 +418,11 @@ a:hover { text-decoration: underline; }
     font-size: 26px;
     display: inline;
     float: left;
-    direction: rtl;
     width: 42%;
     text-align: left;
     padding-left: 0px;
 	padding-top: 5px;
     border: 0px solid;
-    font-family: 'Trebuchet MS', Arial, Helvetica;
 }
 
 .collection_titles a {
@@ -423,8 +452,6 @@ a:hover { text-decoration: underline; }
     color: #fff;
 	background-color: rgba(251, 250, 248, 0.2);
 	padding: 3px; 0px 5px 5px;
-	width: 100%;
-	float: left;
 	padding-left: 17.5%;
 }
 
@@ -524,5 +551,262 @@ a:hover { text-decoration: underline; }
 	padding-left: 25px;
 	width: 60px;
 	float: left;
+}
+
+.book_page_english_name {
+	float: left;
+	font-size: 26px;
+	padding-top: 5px;
+	padding-left: 10px;
+}
+
+.book_page_arabic_name {
+	float: right;
+	font-size: 30px;
+	padding-right: 10px;
+}
+
+.chapter {
+    background-color: rgba(255, 255, 255, 0.5);
+    color: #666;
+    width: 96%;
+    padding: 0 15px 10px 15px;
+	border-radius: 10px;
+	margin-top: 10px;
+}
+
+.englishchapter {
+    float: left;
+    max-width: 43%;
+    font-size: 13pt;
+    border: 0px solid;
+	padding-top: 3px;
+}
+
+.echapno {
+    float: left;
+    padding-right: 10px;
+    font-size: 20px;
+    border: 0px solid;
+}
+
+.arabicchapter {
+    float: right;
+    padding-left: 10px;
+    max-width: 42%;
+    font-size: 16pt;
+    border: 0px solid;
+}
+
+.achapno {
+    float: right;
+    padding-left: 8px;
+    font-size: 20px;
+    border: 0px solid;
+}
+
+.achapintro {
+	padding: 15px 15px 10px 20px;
+    font-size: 22px;
+    text-align: justify;
+}
+
+.echapintro {
+    padding-bottom: 10px;
+    padding-top: 15px;
+    text-align: justify;
+    font-size: 13px;
+}
+
+.bookintro p { margin:1em; }
+
+.AllHadith {
+    padding-left:10px;
+    padding-top: 20px;
+    margin:0;
+	width: 90%;
+}
+
+
+.actualHadithContainer {
+	background-color: rgba(255, 255, 255, 0.5);
+	border-radius: 10px;
+	float: left;
+	margin: 0 3px 10px 3px;
+}
+
+.hadith_narrated {
+    font-size:14px;
+    font-weight:bold;
+    color:#5d8080;
+    text-decoration:none;
+    padding-bottom:8px;
+}
+
+.text_details{
+    font-size:13px;
+    color:#08081a;
+    text-decoration:none;
+    text-align: justify;
+    padding-bottom: 10px;
+}
+
+.hadith_icon {
+    background-image:url(../images/hadith_icon2.png);
+    background-repeat:no-repeat;
+    background-position: 0px 8px;
+	width: 21px;
+	height: 28px;
+}
+
+.english_hadith_full {
+    padding-left:15px;
+	padding-top: 10px;
+    text-align:justify;
+    font-size: 24px;
+    width: 47%;
+    float: left;
+}
+
+.english_hadith_full p{ padding:0; margin:0}
+
+.arabic_hadith_full {
+    padding-right: 15px;
+	padding-top: 7px;
+    text-align:justify;
+    font-size: 24px;
+	width: 47%;
+	float: right;
+}
+
+.urdu_hadith_full {
+    padding-left:28px;
+    text-align:justify;
+    direction:rtl;
+    font-family: Jameel Noori Nastaleeq, Nafees Web Naskh, Urdu Naskh Asiatype;
+    font-size: 24px;
+    text-decoration:none;
+    padding-bottom: 10px;
+    color:#08081a;
+}
+
+.indonesian_hadith_full{
+    font-size:13px;
+    color:#08081a;
+    text-decoration:none;
+    padding-left:28px;
+    text-align: justify;
+    padding-bottom: 10px;
+}
+
+.arabic_annotation {
+    padding-left:28px;
+    text-align:justify;
+    direction:rtl;
+    font-size: 18px;
+}
+
+.arabic_sanad {
+    text-align:justify;
+    direction:rtl;
+    color: gray;
+}
+
+.arabic_text_details {
+     text-align:justify;
+     direction:rtl;
+}
+
+.urdu_sanad {
+    color: gray;
+}
+
+.hadith_annotation {
+    width: 80%;
+    font-size:13px;
+    color:#08081a;
+    text-decoration:none;
+    text-align: justify;
+    padding-right: 20%;
+    border: 0px solid;
+}
+
+.hadith_permalink {
+    font-size: 11px;
+    text-decoration: none;
+    line-height: 11px;
+    text-align: left;
+    font-family: Verdana, sans-serif;
+    border-width: 0px;
+    border-style: solid;
+    padding-left: 15px;
+    padding-top: 15px;
+    padding-right: 25px;
+    float: right;
+    padding-bottom: 10px;
+    border: 0px solid;
+	color: #75A1A1;
+}
+
+.hadith_permalink a {
+    text-decoration: none;
+    line-height: 11px;
+    text-align: left;
+    font-family: Verdana, sans-serif;
+    border-width: 0px;
+    border-style: solid;
+}
+
+.hadith_permalink a:hover {
+    text-decoration: underline;
+}
+
+.hadith_reference {
+    font-size: 11px;
+    text-decoration: none;
+    line-height: 15px;
+    text-align: left;
+    font-family: Verdana, sans-serif;
+    padding-left: 15px;
+    padding-top: 15px;
+    padding-right: 5px;
+    padding-bottom: 10px;
+    /* color: #96691e; */
+    float: left;
+    /* width: 50%; */
+    overflow: auto;
+    border: 0px solid;
+}
+
+.reference_value {
+    max-width: 55%;
+    float: left;
+    display: inline
+}
+.reference_type {
+    max-width: 45%;
+    min-width: 28%;
+    float: left;
+}
+
+
+.bottomItems {
+    width: 100%;
+    overflow: auto;
+	padding-top: 7px;
+}
+
+.english_grade {
+    vertical-align: top;
+    font-size: 14px;
+    font-family: Verdana;
+    padding-top: 10px;
+    text-align: left;
+}
+
+.arabic_grade {
+    vertical-align: top;
+    direction: rtl;
+    text-align: right;
 }
 

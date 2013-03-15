@@ -60,6 +60,7 @@
 	<div class=clear></div>
 	<div id="topspace"></div>
 
+	<div id=nonheader" style="position: relative;">
 	<div class="sidePanelContainer">
 		<div style="height: 1px;"></div>
 		<div id="sidePanel">
@@ -80,6 +81,7 @@
     </div><!-- main close -->
 	</div> <!-- mainContainer close -->
 	<div class="clear"></div>
+	</div> <!-- nonheader close -->
     <?php $this->renderPartial('//layouts/footer') ?>
 	<div class="clear"></div>
 
