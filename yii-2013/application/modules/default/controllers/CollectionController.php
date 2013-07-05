@@ -6,6 +6,8 @@ class CollectionController extends Controller
 	protected $_book;
 	protected $_entries;
 	protected $_chapters;
+	protected $_collections;
+	protected $_books;
 	protected $_collectionName;
 	protected $_ourBookID;
 	protected $_otherlangs;
@@ -107,6 +109,110 @@ class CollectionController extends Controller
         }
         $this->pathCrumbs($this->_collection->englishTitle, "/$collectionName");
         $this->render('dispbook');        
+	}
+
+	public function actionTce() {
+		$aURNs = array(100010, 100020, 100030, 100040, 100050, 100060, 100070, 100080, 100610, 109660, 109670, 109720, 109740, 129070, 129100, 171070, 171150, 132790, 132800, 133900, 138910, 138920, 138930, 138940, 138950, 138960, 183040, 183050, 183060, 143020, 144840, 144850, 151341, 174620, 174640, 174660, 174700, 174710, 156010, 160700, 160770, 161260, 163480, 163810, 164280, 176060, 177450);
+		$this->_viewVars->pageTitle = "The Collector's Edition";
+        $this->pathCrumbs($this->_viewVars->pageTitle, "");
+		$this->customSelect($aURNs, true, true);
+	}
+
+	public function actionRamadan() {
+		$aURNs = $this->util->getRamadanURNs();
+		$this->_viewVars->pageTitle = "Ramadan Selection";
+        $this->pathCrumbs($this->_viewVars->pageTitle, "");
+		$this->customSelect($aURNs, false, false);
+	}
+
+	public function actionRamadandata() {
+        $aURNs = $this->util->getRamadanURNs();
+		shuffle($aURNs);
+        $retval = $this->util->customSelect($aURNs);
+        $collections = $retval[0];
+        $books = $retval[1];
+        $chapters = $retval[2];
+        $entries = $retval[3];
+	    $englishEntries = $entries[0];
+	    $arabicEntries = $entries[1];
+    	$pairs = $entries[2];
+
+		$s = "";
+		foreach ($pairs as $pair) {
+			$s .= "\n<li><div class=carouselitem>\n";
+			$englishEntry = $englishEntries[$pair[0]];
+			$arabicEntry = $arabicEntries[$pair[1]];
+
+			$arabicText = $arabicEntry->hadithText;
+			$englishText = $englishEntry->hadithText;
+			$truncation = false;
+
+			if (strlen($arabicText) <= 600) $arabicSnippet = $arabicText;
+            else {
+            	$pos = strpos($arabicText, ' ', 600);
+                if ($pos === FALSE) $arabicSnippet = $arabicText;
+                else {
+					$arabicSnippet = substr($arabicText, 0, $pos)." &hellip;";
+					$truncation = true;
+				}
+            }
+
+			if (strlen($englishText) <= 300) $englishSnippet = $englishText;
+            else {
+            	$pos = strpos($englishText, ' ', 300);
+                if ($pos === FALSE) $englishSnippet = $englishText;
+                else {
+					$englishSnippet = substr($englishText, 0, $pos)." &hellip;";
+					$truncation = true;
+				}
+            }
+
+			$s .= "<div class=arabic>".$arabicSnippet."</div>";
+
+			$englishText = $englishSnippet;
+			$s .= "<div class=\"english_hadith_full\" style=\"padding-left: 0;\">";
+            if (strpos($englishText, ":") === FALSE) {
+                $s .= "<div class=text_details>\n
+                     ".$englishText."</div><br />\n";
+            }
+            else {
+                $s .= "<div class=hadith_narrated>".strstr($englishText, ":", true).":</div>";
+                $s .= "<div class=text_details>
+                     ".substr(strstr($englishText, ":", false), 1)."</div>\n";
+            }
+            $s .= "<div class=clear></div></div>";
+
+			//$s .= "<div class=text_details style=\"margin-top: 10px;\">".$englishSnippet."</div>";
+
+			if ($truncation) {
+				$permalink = "/".$arabicEntry->collection."/".$books[$arabicEntry->arabicURN]->ourBookID."/".$arabicEntry->ourHadithNumber;
+				$s .= "<div style=\"text-align: right; width: 100%;\"><a href=\"$permalink\">Full hadith &hellip;</a></div>";
+			}
+
+			$s .= "<div class=hadith_reference style=\"padding: 5px 0 0 0; font-size: 12px;\">";
+			$s .= $collections[$arabicEntry->collection]['englishTitle'];
+			$s .= " ".$arabicEntry->hadithNumber;
+			$s .= "</div>";
+
+			$s .= "\n</div></li>\n";
+		}
+
+		echo $s;
+	}
+
+    public function customSelect($aURNs, $showBookNames, $showChapterNumbers) {
+		$retval = $this->util->customSelect($aURNs);
+		$this->_collections = $retval[0];
+		$this->_books = $retval[1];
+		$this->_chapters = $retval[2];
+		$this->_entries = $retval[3];
+
+		$this->_viewVars->showBookNames = $showBookNames;
+		$this->_viewVars->showChapterNumbers = $showChapterNumbers;
+
+        $this->_pageType = "book";
+
+        $this->render('tce');
 	}
 	
 	public function actionUrn($urn) {

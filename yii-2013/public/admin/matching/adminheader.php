@@ -53,6 +53,7 @@ if (!isset($delay_headers)) {
         <li><a href="qudsi.php?lang=<?php echo $lang;?>" target="_self">40 Hadith Qudsi</a></li>
         <li><a href="bulugh.php?lang=<?php echo $lang;?>" target="_self">Bulugh al-Maram</a></li>
         <li><a href="adab.php?lang=<?php echo $lang;?>" target="_self">Al-Adab al-Mufrad</a></li>
+        <li><a href="hisn.php?lang=<?php echo $lang;?>" target="_self">Hisn al-Muslim</a></li>
       </ul>
     <li><a href="howto.php?lang=<?php echo $lang;?>">Howto</a></li>
     <li><a href="about.php?lang=<?php echo $lang;?>">About</a></li>

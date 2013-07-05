@@ -1,3 +1,6 @@
+AddType font/ttf .ttf
+AddType font/otf .otf
+
 RewriteEngine on
 
 RewriteRule ^view/(.*)$ /$1 [R,L]

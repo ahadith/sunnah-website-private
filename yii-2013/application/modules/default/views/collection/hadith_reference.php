@@ -9,15 +9,20 @@
 			$collectionEnglishTitle = $values[12];
 			$permalink = "/urn/".$values[0];
 			$englishGrade1 = $values[13]; $arabicGrade1 = $values[14];
+			if (isset($values[15])) $hideReportError = $values[15];
 
 			echo "<div class=bottomItems>\n";
 	    if (strlen($englishGrade1) > 0 or strlen($arabicGrade1) > 0) {
     	    echo "<div class=hadith_annotation>";
-			echo "<table cellspacing=0 cellpadding=0 width=100% style=\"padding-left: 28px;\" border=0>";
+			echo "<table class=gradetable cellspacing=0 cellpadding=0 border=0>";
 	        echo "<tr>";
-			if (strlen($englishGrade1) > 0) echo "<td height=100% class=english_grade><b>Grade:&nbsp;</b></td><td width=36% class=english_grade><b>".ucfirst(trim($englishGrade1))."</b> (".$this->_collection->englishgrade1.")</td>";
+			if (strlen($englishGrade1) > 0) echo "<td class=english_grade width=\"107px\"><b>Grade</b></td><td class=english_grade width=\"36%\">:&nbsp;<b>".ucfirst(trim($englishGrade1))."</b> (".$this->_collection->englishgrade1.")</td>";
 			else echo "<td height=100% width=40% class=english_grade></td>";
-    	    if (strlen($arabicGrade1) > 0) echo "<td class=\"arabic_grade arabic_hadith_full\" width=60%><b> ".$arabicGrade1."</b> (".$this->_collection->arabicgrade1.") </td><td class=\"arabic_grade arabic_hadith_full\" width=60%><b>حكم:</b></td>";
+    	    if (strlen($arabicGrade1) > 0) {
+				echo "<td class=\"arabic_grade arabic\">&nbsp;<b> ".$arabicGrade1."</b>";
+				echo "&nbsp;&nbsp; (".$this->_collection->arabicgrade1.") </td>";
+				echo "<td class=\"arabic_grade arabic\" width=\"57px\"><b>حكم</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</td>";
+			}
 			else echo "<td height=100% width=60% class=arabic_grade></td>";
 			echo "</tr></table>";
 	        echo "</div>";
@@ -32,27 +37,28 @@
 				echo "$collectionEnglishTitle ".$values[5]."";
 				echo "</b></td></tr>";
 
-				echo "<tr><td>In-book reference</td>";
-				echo "<td>&nbsp;:&nbsp;";
 				if (strcmp($collectionHasBooks, "yes") == 0) {
+					echo "<tr><td>In-book reference</td>";
+					echo "<td>&nbsp;:&nbsp;";
 					if ($ourBookID > 0) echo "Book $ourBookID, ";
 					elseif ($ourBookID == -35) echo "Book 35b, ";
 					else echo "Introduction, ";
+					if (strcmp($collection, "muslim") == 0 and ($ourBookID == -1)) echo "Narration ";
+					else echo "Hadith ";
+					echo $ourHadithNumber;
+					echo "</td></tr>";
 				}
-
-				if (strcmp($collection, "muslim") == 0 and ($ourBookID == -1)) echo "Narration ";
-				else echo "Hadith ";
-				echo $ourHadithNumber;
-				echo "</td></tr>";
 
 				if ($englishEntry and $values[5] != $values[3] and intval($values[3]) != 0) {
                         echo "<tr><td>";
 						if (strcmp($collection, "bukhari")==0 or strcmp($collection, "muslim")==0 or strcmp($collection, "malik")==0) echo "USC-MSA web (English) reference</td><td>&nbsp;: ";
                        	else echo "English translation</td><td>&nbsp;:&nbsp;";
-	                       if (strcmp($collectionHasVolumes, "yes") == 0)
-    	                       echo "Vol. ".$values[1].", ";
-        	               if (strcmp($collectionHasBooks, "yes") == 0) echo "Book ".$values[2].", ";
-            	           echo "Hadith ".$values[3];
+	                    if (strcmp($collectionHasVolumes, "yes") == 0)
+    	                	echo "Vol. ".$values[1].", ";
+        	            if (strcmp($collectionHasBooks, "yes") == 0) echo "Book ".$values[2].", ";
+            	        echo "Hadith ".$values[3];
+                        echo "</td></tr>";
+						if (strcmp($collection, "bukhari")==0 or strcmp($collection, "muslim")==0 or strcmp($collection, "malik")==0) echo " <tr><td>&nbsp;&nbsp;<i>(deprecated)</i>";
                         echo "</td></tr>";
                 }
 
@@ -119,11 +125,12 @@
 			
 			echo "</table>";
 
-			echo "<div class=\"hadith_permalink\">
-					  <a href=\"javascript:sharethis()\">Share</a>
-					| <a href=\"$permalink\">Permalink</a>
-					| <a href=\"javascript: void(0);\" onclick=\"reportHadith(".$values[0].")\">Report Error</a>
-				  </div>";
+			echo "<div class=\"hadith_permalink\">";
+			//echo "<a href=\"javascript:sharethis()\">Share</a>";
+			//echo "<a href=\"javascript:permalink('$permalink');\">Permalink</a>";
+			echo "<a href=\"$permalink\">Permalink</a>";
+			if (!isset($hideReportError) or !$hideReportError) echo " | <a href=\"javascript: void(0);\" onclick=\"reportHadith(".$values[0].")\">Report Error</a>";
+			echo "</div>";
 
 			echo "\n</div>";
 ?>

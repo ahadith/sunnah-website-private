@@ -6,6 +6,48 @@ class Util extends CModel {
 
 	public function attributeNames() {}
 
+	public function getRamadanURNs() {
+		$aURNs = array(1121150, /* 118110, */118130, 118150, 118350, 118710, 327590, 327600, 327580, 327620, 327650, 327660, 328170, 1339810);
+		return $aURNs;
+	}
+
+	public function customSelect($aURNs) {
+        $eURNs = array();
+        $collections_a = $this->getCollectionsInfo();
+        foreach ($collections_a as $collection)
+            $collections[$collection['name']] = $collection;
+
+        $crit = new CDbCriteria;
+        $crit->select = '*';
+        $crit->addInCondition('arabicURN', $aURNs);
+        $arabicSet = ArabicHadith::model()->findAll($crit);
+        foreach ($arabicSet as $arabicHadith) $arabicHadith->process_text();
+        foreach ($arabicSet as $row) $arabicEntries[$row->arabicURN] = $row;
+
+        for ($i = 0; $i < count($aURNs); $i++) {
+            $eURNs[$i] = $arabicEntries[$aURNs[$i]]->matchingEnglishURN;
+        }
+        $crit = new CDbCriteria;
+        $crit->select = '*';
+        $crit->addInCondition('englishURN', $eURNs);
+        $englishSet = EnglishHadith::model()->findAll($crit);
+        foreach ($englishSet as $englishHadith) $englishHadith->process_text();
+        foreach ($englishSet as $row) $englishEntries[$row->englishURN] = $row;
+
+        $pairs = array_map(NULL, $eURNs, $aURNs);
+        $entries = array($englishEntries, $arabicEntries, $pairs);
+
+        $chapters = array();
+        $books = array();
+        foreach ($arabicEntries as $arabicEntry) {
+            $chapters[$arabicEntry->arabicURN] = $this->getChapter($arabicEntry->collection, $arabicEntry->bookID, $arabicEntry->babNumber);
+            $books[$arabicEntry->arabicURN] = $this->getBook($arabicEntry->collection, $arabicEntry->bookID, "arabic");
+        }
+
+		$retval = array($collections, $books, $chapters, $entries);
+		return $retval;
+	}
+
 	public function getHadithCount() {
 		$count = Yii::app()->cache->get("hadithCount");
 		if ($count === false) {
@@ -96,7 +138,7 @@ class Util extends CModel {
             $chapter = Chapter::model()->findAll(array("condition" => "collection = :collection AND arabicBookID = :bookID AND babID = :babID", "params" => array(":collection" => $collectionName, ":bookID" => intval($bookID), ":babID" => $babID), "order" => "babID ASC"));
             Yii::app()->cache->set("chapter:".$collectionName."_".$bookID."_".$babID, $chapter, Yii::app()->params['cacheTTL']);
         }
-        return $chapter;
+        return $chapter[0];
     }
 
 	public function getHadith($urn, $language = "english") {

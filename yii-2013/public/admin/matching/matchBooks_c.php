@@ -10,6 +10,8 @@ include "adminheader.php";
 
 include "util.php";
 
+if (!isset($logged_in) or !$logged_in) { header('Location: /admin?the'); exit(); }
+
 	if (isset($_GET['coll'])) $collection = $_GET['coll'];
 	else $collection = "bukhari";
 

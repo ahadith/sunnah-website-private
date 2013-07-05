@@ -42,11 +42,18 @@ else {
 		$beginResult = ($pageNumber-1)*$resultsPerPage+1;
 		$endResult = min($pageNumber*$resultsPerPage, $this->_numFound);
 		echo "<div class=\"AllHadith\">\n";
-		echo "$beginResult-$endResult of ".$this->_numFound." results:<br><br>";
+		echo "<span style=\"color: #75A1A1;\">&nbsp;Showing $beginResult-$endResult of ".$this->_numFound."</span>";
 		//echo $this->paginationControl($this->paginator, 'Sliding', 'index/pagination.phtml');
-		echo "<div align=center>";
-		$this->widget('CLinkPager', array('pages' => $this->_pages));
-		echo "</div><br>";
+		echo "<div align=right style=\"float: right;\">";
+		$this->widget('CLinkPager', array(
+			'pages' => $this->_pages,
+			'prevPageLabel' => '&#x25C0;',
+			'nextPageLabel' => '&#x25B6;',
+			'header' => '',
+		));
+		echo "</div>";
+
+		echo "<div style=\"height: 20px;\"></div>";
 
 		if (strcmp($language, "english") == 0) {
 			$util = new Util();
@@ -60,19 +67,22 @@ else {
 				$collection = $util->getCollection($hadith->collection);
 				$hasbooks = $collection->hasbooks;
 
-				echo "<div class=hadithEnv>\n";
+				echo "<div class=\"boh\" style=\"margin-bottom: 10px;\">\n";
 				echo "<!-- URN $eurn -->";
 				// Print the path of the hadith
-				echo "<div class=\"breadcrumbs_search\">\n";
+				echo "<div class=\"bc_search\">\n";
 				$e_hadith = $english_hadith[array_search($eurn, $eurns)];
-				echo "<a href=\"/".$e_hadith['collection']."\">".$this->_collections[$e_hadith['collection']]['englishTitle']."</a> &gt; ";
-				echo "<a href=\"/".$e_hadith['collection']."/".$ourBookID."\">".$e_hadith['bookName']."</a> &gt; ";
+				echo "<a class=nounderline href=\"/".$e_hadith['collection']."\">".$this->_collections[$e_hadith['collection']]['englishTitle']."</a> » ";
+				echo "<a class=nounderline href=\"/".$e_hadith['collection']."/".$ourBookID."\">".$e_hadith['bookName']."</a>";
 				if ($e_hadith['ourHadithNumber'] > 0) {
-					if (strcmp($hasbooks, "yes") == 0) $permalink = "/".$e_hadith['collection']."/".$ourBookID."#".$e_hadith['ourHadithNumber'];
-					else $permalink = "/".$e_hadith['collection']."#".$e_hadith['ourHadithNumber'];
+					if (strcmp($hasbooks, "yes") == 0) $permalink = "/".$e_hadith['collection']."/".$ourBookID."/".$e_hadith['ourHadithNumber'];
+					else $permalink = "/".$e_hadith['collection']."/".$e_hadith['ourHadithNumber'];
 				}
 				else $permalink = "/urn/$eurn";
-				echo "<a href=\"$permalink\">Hadith permalink</a></div>";
+				//echo "<a href=\"$permalink\">Hadith permalink</a>";
+				echo "</div>";
+				echo "<div class=collection_sep style=\"width: 98%;\"></div>";
+				$truncation = false;
 
 				if (isset($highlighted[$eurn][$prefix.'hadithText'][0])) 
 					$text = $highlighted[$eurn][$prefix.'hadithText'][0];
@@ -81,7 +91,7 @@ else {
 				$text = preg_replace("/<em>/", "<b><i>", $text);
 				$text = preg_replace("/<\/em>/", "</b></i>", $text);
 				
-				echo "<div class=\"search_english_text\">... ".$text." ...</div><br />";
+				//echo "<div class=\"search_english_text\">... ".$text." ...</div><br />";
 
 				if ($aurn > 0) {
 					$arabicText = $arabic_hadith[array_search($aurn, $aurns)]['hadithText'];
@@ -89,48 +99,66 @@ else {
 					else {
 						$pos = strpos($arabicText, ' ', 2500);
 						if ($pos === FALSE) $arabicSnippet = $arabicText;
-						else $arabicSnippet = substr($arabicText, 0, $pos)." ...";
+						else {
+							$arabicSnippet = substr($arabicText, 0, $pos)." ...";
+							$truncation = true;
+						}
 					}
 
-					echo "<div class=\"search_arabic_text arabic_basic\">".$arabicSnippet."</a></div>";
+					//echo "<div class=\"search_arabic_text arabic_basic\">".$arabicSnippet."</a></div>";
 				}
-				echo "</div>";
+				echo "<div class=\"actualHadithContainer\" style=\"position: relative; border-radius: 0 0 10px 10px; margin-bottom: 0px; padding-bottom: 10px; background-color: rgba(255, 255, 255, 0);\">";
+				echo "<a style=\"display: block;\" href=\"$permalink\"><span class=searchlink></span></a>";
+				echo $this->renderPartial('/collection/printhadith', array(
+                            'arabicEntry' => NULL,
+                            'englishText' => $text,
+                            'arabicText' => $arabicSnippet,
+                            'ourHadithNumber' => NULL, 'counter' => NULL, 'otherlangs' => NULL));
+
+				echo "</div>"; // actual hadith container
+				if ($truncation) echo "<div class=searchmore><a href=\"$permalink\">Read more &hellip;</a></div>";
+				echo "<div class=clear></div>";
+				echo "</div>"; // hadithEnv
 				echo "<div class=clear></div>";
 				echo "<div class=hline></div>";
 			}
     	}
 		elseif (strcmp($language, "arabic") == 0) {
 			$util = new Util();
-			foreach ($this->_pairs as $pair) {
+			foreach ($this->_pairs as $pair) {	
 				$eurn = $pair[0]; $aurn = $pair[1];
 				$hadith = ArabicHadith::model()->find("arabicURN = :aurn", array(':aurn' => $aurn));
+				if (is_null($hadith)) continue;
 				$book = Book::model()->find("arabicBookID = :abid AND collection = :collection", array(':abid' => $hadith->bookID, ':collection' => $hadith->collection));
 				$ourBookID = $book->ourBookID;
 				$collection = $util->getCollection($hadith->collection);
 				$hasbooks = $collection->hasbooks;
 
-				echo "<div class=hadithEnv>\n";
+				echo "<div class=\"boh\" style=\"margin-bottom: 10px;\">\n";
 				
 				// Print the path of the hadith
-				echo "<div class=\"breadcrumbs_search\">\n";
+				echo "<div class=\"bc_search\">\n";
 				$a_hadith = $arabic_hadith[array_search($aurn, $aurns)];
 				$e_hadith = $english_hadith[array_search($aurn, $aurns)];
-				echo "<a href=\"/".$a_hadith['collection']."\">".$this->_collections[$a_hadith['collection']]['englishTitle']."</a> &gt; ";
-				echo "<a href=\"/".$a_hadith['collection']."/".$ourBookID."\">".$e_hadith['bookName']." - ".$a_hadith['bookName']."</a> &gt; ";
+				echo "<a class=nounderline href=\"/".$a_hadith['collection']."\">".$this->_collections[$a_hadith['collection']]['englishTitle']."</a> » ";
+				echo "<a class=nounderline href=\"/".$a_hadith['collection']."/".$ourBookID."\">".$e_hadith['bookName']." - ".$a_hadith['bookName']."</a>";
 				if ($a_hadith['ourHadithNumber'] > 0) {
-					if (strcmp($hasbooks, "yes") == 0) $permalink = "/".$a_hadith['collection']."/".$ourBookID."#".$a_hadith['ourHadithNumber'];
-					else $permalink = "/".$a_hadith['collection']."#".$a_hadith['ourHadithNumber'];
+					if (strcmp($hasbooks, "yes") == 0) $permalink = "/".$a_hadith['collection']."/".$ourBookID."/".$a_hadith['ourHadithNumber'];
+					else $permalink = "/".$a_hadith['collection']."/".$a_hadith['ourHadithNumber'];
 				}
 				else $permalink = "/urn/$aurn";
-				echo "<a href=\"$permalink\">Hadith permalink</a></div>";
-				
+				//echo "<a href=\"$permalink\">Hadith permalink</a></div>";
+				echo "</div>";
+				echo "<div class=collection_sep style=\"width: 98%;\"></div>";
+				$truncation = false;
+
 				if (isset($highlighted[$aurn][$prefix.'hadithText'])) {
 					$text = $highlighted[$aurn][$prefix.'hadithText'][0];
 					$text = preg_replace("/<em>/", "<b>", $text);
 					$text = preg_replace("/<\/em>/", "</b>", $text);
 				}
 		
-				echo "<div class=\"search_arabic_text arabic_basic\" dir=rtl>... ".$text." ...</a></div>";
+				//echo "<div class=\"search_arabic_text arabic_basic\" dir=rtl>... ".$text." ...</a></div>";
 				
 				$englishSnippet = "";
 				if (isset($english_hadith[array_search($eurn, $eurns)]['hadithText'])) {
@@ -139,13 +167,28 @@ else {
 					else {
 						$pos = strpos($englishText, ' ', 2500);
 						if ($pos === FALSE) $englishSnippet = $englishText;
-						else $englishSnippet = substr($englishText, 0, $pos)." ...";
+						else {
+							$englishSnippet = substr($englishText, 0, $pos)." ...";
+							$truncation = true;
+						}
 					}
 				}
-				echo "<div class=\"search_english_text\" >".$englishSnippet."</div>";
-				echo "</div>";
-				echo "<div class=clear></div>";
-				echo "<div class=hline></div>";
+				//echo "<div class=\"search_english_text\" >".$englishSnippet."</div>";
+				
+				echo "<div class=\"actualHadithContainer\" style=\"position: relative; border-radius: 0 0 10px 10px; margin-bottom: 0px; padding-bottom: 10px; background-color: rgba(255, 255, 255, 0);\">";
+                echo "<a style=\"display: block;\" href=\"$permalink\"><span class=searchlink></span></a>";
+                echo $this->renderPartial('/collection/printhadith', array(
+                            'arabicEntry' => NULL,
+                            'englishText' => $englishSnippet,
+                            'arabicText' => $text,
+                            'ourHadithNumber' => NULL, 'counter' => NULL, 'otherlangs' => NULL));
+
+                echo "</div>"; // actual hadith container
+                if ($truncation) echo "<div class=searchmore><a href=\"$permalink\">Read more &hellip;</a></div>";
+                echo "<div class=clear></div>";
+                echo "</div>"; // hadithEnv
+                echo "<div class=clear></div>";
+                echo "<div class=hline></div>";
 			}
     	}
 

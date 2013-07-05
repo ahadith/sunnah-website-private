@@ -44,6 +44,13 @@ return array(
 
 	// application components
 	'components'=>array(
+		'widgetFactory' => array (
+			'widgets' => array (
+				'CLinkPager' => array (
+					'cssFile' => '/css/pager.css',
+				)
+			)
+		),
 		'user'=>array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
@@ -67,6 +74,8 @@ return array(
 				'changelog' => 'default/index/changelog',
 				'support' => 'default/index/support',
 				'searchtips' => 'default/index/searchtips',
+				'tce' => 'default/collection/tce',
+				'ramadan' => 'default/collection/ramadan',
 				'urn/<urn:\d+>' => 'default/collection/urn',
 
 				'ajax/<lang:\w+>/<collection>/<ourBookID>' => 'default/collection/ajaxHadith/collectionName/<collection>/ourBookID/<ourBookID>/lang/<lang>',
