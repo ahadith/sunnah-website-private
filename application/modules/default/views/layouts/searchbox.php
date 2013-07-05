@@ -1,8 +1,16 @@
+<?php if (strcmp($this->_pageType, "home")) {
+            $searchQuery = NULL;
+            if (strcmp($this->_pageType, "search") == 0) $searchQuery = $this->_searchQuery;
+			if (isset($searchQuery)) $stextval = htmlspecialchars($searchQuery);
+			else $stextval = "Search …";
+		}
+?>
+
 <div id=search>
     <a class="searchtipslink">Search Tips</a>
     <div id="searchbar" class="sblur">
         <form name="searchform" action="/search_redirect.php" method=get id="searchform">
-            <input type="text" class="searchquery" name=query value="Search …" />
+            <input type="text" class="searchquery" name=query value="<?php echo $stextval; ?>" />
             <input type="image" src="/images/search.png" class="searchsubmit" value="" />
         </form>
     </div>

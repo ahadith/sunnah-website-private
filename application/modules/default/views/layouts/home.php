@@ -1,7 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-  <?php if (isset($this->_book) and ($this->_book->indonesianBookID > 0 or $this->_book->urduBookID > 0)) echo "<meta name=\"fragment\" content=\"!\">\n"; ?>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="Content-Language" content="EN"/>
   <meta name="description" content="Hadith of the Prophet Muhammad (saws) in English and Arabic"/>
@@ -19,21 +18,38 @@
   <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
   <script src="/js/jquery.cookie.js"></script>
 
-  <?php if (isset($this->_book)) { 
-	$langarray = array();
-	if ($this->_book->indonesianBookID > 0) $langarray[] = 'indonesian';
-	if ($this->_book->urduBookID > 0) $langarray[] = 'urdu'; ?>
+  <script src="/js/jquery.jcarousel.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="/css/jcskin.css" />
+  <script type="text/javascript">
 
-	<script>
-	    var collection = '<?php echo $this->_collectionName; ?>';
-	    var bookID = '<?php echo $this->_ourBookID; ?>';
-		var pageType = 'hadithtext';
-		var spshowing = <?php if (count($langarray) > 0) echo "true"; else echo "false"; ?>;
-	</script>
-  <?php } ?>
-	<script>
-	<?php if (strcmp($this->_pageType, "search") == 0) echo "var searchQuery = '".addslashes($this->_searchQuery)."';";  ?>
-	</script>
+	jQuery(document).ready(function() {
+
+	//$('#ramadancarousel').load('/default/collection/ramadandata');
+
+	//$.get('/default/collection/ramadandata', function(data) {
+	//	$("#ramadancarousel").innerHTML(data);
+	//});
+
+	$.ajax({
+		url: '/default/collection/ramadandata',
+		async: false,
+		success: function (data) { $("#ramadancarousel").append(data); },
+	});
+
+    jQuery('#ramadancarousel').jcarousel({
+        size: 13,
+		vertical: false,
+		visible: 1,
+		scroll: 1,
+		auto: 15,
+		wrap: "circular",
+		buttonNextHTML: null,
+		buttonPrevHTML: null,
+    });
+  });
+  </script>
+
+
   <script src="/js/sunnah.js"></script>
  
   <title>
@@ -53,29 +69,13 @@
     	</div>
 
 		<a href="http://sunnah.com"><div id="banner" class=bannerTop></div></a>
-		<!-- <a href="#"><div id=back-to-top></div></a> -->
-		<?php if (strcmp($this->_pageType, "home") != 0) $this->renderPartial('/layouts/searchbox'); ?>
 		<div class=clear></div>
-		<?php
-			  if (strcmp($this->_pageType, "home")) {
-					echo "<div class=crumbs>".$this->pathCrumbs("Home", "/")."</div>";
-					echo "<div class=clear></div>";
-				}
-		?>
 	</div>
 
 	<div class=clear></div>
 	<div id="topspace"></div>
 
-	<div id=nonheader" style="position: relative;">
-	<div class="sidePanelContainer">
-		<div style="height: 1px;"></div>
-		<div id="sidePanel">
-			<?php if (isset($this->_book)) {
-		    	if (count($langarray) > 0) $this->renderPartial('/layouts/side_panel', array('langarray' => $langarray));
-			 } ?>
-    	</div>
-	</div><!-- sidePanelContainer close -->
+	<div id=nonheader" style="position: relative; margin: 0 10px 0 30px;">
 	<div class="mainContainer"><div id="main">
 	        <?php 
 				echo "<div class=clear></div>";
@@ -84,7 +84,9 @@
 	<div class="clear"></div>
     </div><!-- main close -->
 	</div> <!-- mainContainer close -->
-	<a href="#"><div id=back-to-top></div></a>
+	<div id=rightPanel>
+		<?php $this->renderPartial('/index/ramadancarousel') ?>
+	</div>
 	<div class="clear"></div>
 	</div> <!-- nonheader close -->
     <?php $this->renderPartial('//layouts/footer') ?>

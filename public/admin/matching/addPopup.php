@@ -159,6 +159,8 @@ else {
    <input type=hidden name=bookid value=".$bookID.">
    <input type=hidden name=lang value=".$lang.">
    <input type=hidden name=otherurn value=".$otherurn.">
+   <input type=hidden name=otherbookid value=".$otherbookID.">
+   <input type=hidden name=otherlang value=".$otherlang.">
 
 
    <tr>

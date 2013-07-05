@@ -1059,9 +1059,9 @@ function mergeHadith($urn1, $urn2, $collection, $lang, $live, $username, $pagela
 	$volumeNumber = $hadith1['volumeNumber'];
 	$bookID = $hadith1['bookID'];
 	$bookNumber = $hadith1['bookNumber'];
-	$bookName = $hadith1['bookName'];
+	$bookName = addslashes($hadith1['bookName']);
 	$babNumber = $hadith1['babNumber'];
-	$babName = $hadith1['babName'];
+	$babName = addslashes($hadith1['babName']);
 	$hadithNumber = $hadith1['hadithNumber'];
 	$grade = $hadith1['grade'];
 	addHadith($newurn, $volumeNumber, $bookID, $bookNumber, $bookName, $babNumber, $babName, $hadithNumber, $newText, $collection, $lang, $live, $username, $newComments, $grade);

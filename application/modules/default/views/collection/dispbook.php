@@ -51,13 +51,25 @@ else {
 	}
 	
 ?>
+	<div id="fuzz">  
+		<div class="permalinkbox">
+			<div class="permalinkboxcontent"></div>
+			<a class="ppclose" href="#" ><img src="/images/close.png"/></a>  
+		</div>  
+	</div>  
+
 	<div class="book_info">
-    	<div class=colindextitle style="width: 90%;">
+    	<div class=book_page_colindextitle>
     		<div class="book_page_arabic_name arabic"><?php echo $this->_book->arabicBookName; ?></div>
+    		<div class="book_page_number">
+			<?php if (strcmp($collectionHasBooks, "yes") == 0) {
+					if (intval($ourBookID) > 0) echo "$ourBookID";
+				  	elseif ($ourBookID == -35) echo "35b&nbsp;&nbsp; "; 
+				  }
+			?>
+			</div>
     		<div class="book_page_english_name">
-			<?php if (intval($ourBookID) > 0) echo "$ourBookID"."&nbsp;&nbsp;&nbsp; ";
-				  elseif ($ourBookID == -35) echo "35b&nbsp;&nbsp; "; 
-				  echo $this->_book->englishBookName; ?>
+				<?php echo $this->_book->englishBookName; ?>
 			</div>
     		<div class=clear></div>
 		</div>
@@ -146,8 +158,8 @@ else {
 							}
 						}
 						else $otherlangshadith = NULL;
-						echo "<div class=hadith_icon style=\"float: left; margin-left: -23px;\"></div>";
-			            echo "<div class=hadith_icon style=\"float: right; margin-right: -23px;\"></div>";
+						if ($englishExists) echo "<div class=hadith_icon style=\"float: left; margin-left: -23px;\"></div>";
+			            if ($arabicExists) echo "<div class=hadith_icon style=\"float: right; margin-right: -23px;\"></div>";
 						echo "<div class=actualHadithContainer id=h".$arabicEntry->arabicURN.">\n";
 						echo $this->renderPartial('/collection/printhadith', array(
 							'arabicEntry' => $arabicEntry,

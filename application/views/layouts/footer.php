@@ -7,7 +7,6 @@
 <div class=clear></div>
 </div>
 
-<!---
 <script type="text/javascript">
 var pkBaseURL = (("https:" == document.location.protocol) ? "https://sunnah.com/piwik/" : "http://sunnah.com/piwik/");
 document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
@@ -32,4 +31,3 @@ href="http://statcounter.com/drupal/" target="_blank"><img
 class="statcounter"
 src="http://c.statcounter.com/7148282/0/63a57073/1/"
 alt="drupal statistics" ></a></div></noscript>
--->

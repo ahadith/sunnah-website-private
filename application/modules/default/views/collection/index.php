@@ -27,7 +27,7 @@ else {
 		</div>
 		<?php }
 			if (strlen($this->_collection->shortintro) > 0) { ?>
-				<div class=colindextitle>
+				<div class=colindextitle style="padding-right: 20px;">
 				<?php
 				echo $this->_collection->shortintro; 
 				echo "<br><a href=\"/$collectionName/about\">More information</a>\n\n"; ?>

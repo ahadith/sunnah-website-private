@@ -23,18 +23,27 @@ class EnglishHadith extends Hadith
     public function process_text() {
         $processed_text = trim($this->hadithText);
         $processed_text .= "</b>";
+		$oldsawstext = "<img src=\"/images/sallallahu_alaihi_wa_sallam.png\" height=\"15px\" alt=\"sallallahu 'alaihi wa sallam\">";
+		$sawstext = "<span class=saws></span>";
+		$to_be_replaced_nb = array (
+							"/PBUH/",
+							"/P.B.U.H./",
+							"/peace_be_upon_him/",
+						);
+		$to_be_replaced_b = array (
+							"/\(may peace be upon him\)/",
+							"/\(saws\)/",
+							"/\(SAW\)/",
+							"/\(saw\)/",
+						);
 
-        $processed_text = preg_replace("/PBUH/", "<img src=\"/images/sallallahu_alaihi_wa_sallam.png\" height=\"15px\" alt=\"sallallahu 'alaihi wa sallam\">", $processed_text);
-        $processed_text = preg_replace("/P.B.U.H./", "<img src=\"/images/sallallahu_alaihi_wa_sallam.png\" height=\"15px\" alt=\"sallallahu 'alaihi wa sallam\">", $processed_text);
-        $processed_text = preg_replace("/peace_be_upon_him/", "<img src=\"/images/sallallahu_alaihi_wa_sallam.png\" height=\"15px\" alt=\"sallallahu 'alaihi wa sallam\">", $processed_text);
-        $processed_text = preg_replace("/\(saws\)/", "(<img src=\"/images/sallallahu_alaihi_wa_sallam.png\" height=\"15px\" alt=\"sallallahu 'alaihi wa sallam\">)", $processed_text);
-        $processed_text = preg_replace("/\(SAW\)/", "(<img src=\"/images/sallallahu_alaihi_wa_sallam.png\" height=\"15px\" alt=\"sallallahu 'alaihi wa sallam\">)", $processed_text);
-        $processed_text = preg_replace("/\(saw\)/", "(<img src=\"/images/sallallahu_alaihi_wa_sallam.png\" height=\"15px\" alt=\"sallallahu 'alaihi wa sallam\">)", $processed_text);
+        $processed_text = preg_replace($to_be_replaced_nb, $sawstext, $processed_text);
+        $processed_text = preg_replace($to_be_replaced_b, "(".$sawstext.")", $processed_text);
 
         // Collection-specific processing of text
 		if (strcmp($this->collection, "bukhari") == 0) {
-			$processed_text = preg_replace("/Allah's Apostle(?!\s*<)/", "Allah's Messenger (<img src=\"/images/sallallahu_alaihi_wa_sallam.png\" height=\"15px\" alt=\"sallallahu 'alaihi wa sallam\">)", $processed_text);
-			$processed_text = str_replace("he Prophet ", "he Prophet (<img src=\"/images/sallallahu_alaihi_wa_sallam.png\" height=\"15px\" alt=\"sallallahu 'alaihi wa sallam\">) ", $processed_text);
+			$processed_text = preg_replace("/Allah's Apostle(?!\s*<)/", "Allah's Messenger (".$sawstext.")", $processed_text);
+			$processed_text = str_replace("he Prophet ", "he Prophet (".$sawstext.") ", $processed_text);
 		}
         elseif (strcmp($this->collection, "qudsi") == 0) {
             $processed_text = preg_replace("/\n/", "<br><p>\n", $processed_text);

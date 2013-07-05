@@ -5,6 +5,12 @@
         window.open("/report.php?urn="+urn, "reportWindow", "scrollbars = yes, resizable = 1, fullscreen = 1, location = 0, toolbar = 0, width = 500, height = 700");
     }
 
+	function permalink(link) {
+		$(".permalinkboxcontent").load("/permalink_pp.php?link="+link);
+		$("#fuzz").show();
+	}
+
+
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-22385858-2']);
   _gaq.push(['_trackPageview']);
@@ -19,23 +25,30 @@
   // (b) jquery ajax autocomplete implementation
    $(document).ready(function () {  
 
+	$("#fuzz").css("height", $(document).height());
+
+	$(".ppclose").click(function(){  
+      $("#fuzz").hide();
+	});
+
+
 	$(window).scroll(function() {
 		if ($(window).scrollTop() > 750) $("#back-to-top").addClass('bttenabled');
 		else $("#back-to-top").removeClass('bttenabled');
 
 		if ($(window).scrollTop() > 25) { // this number is height of short banner + breadcrumbs - 40
-			$("#banner").css('height', '36px');
-			$("#banner").css('background-image', 'url(../images/logo-small.png)');
+			$("#banner").removeClass('bannerTop');
+			$("#banner").addClass('bannerMiddle');
 			$("#header").css('position', 'fixed');
 			$("#header").css('top', '0');
 			$("#topspace").css('display', 'block');
 			$("#toolbar").css('display', 'none');
-			$("#search").css('bottom', '33px'); // crumbs height + 10 bottom padding
+			$("#search").css('bottom', '29px'); // crumbs height + 10 bottom padding
 			$("#sidePanel").css({'position': 'fixed', 'top': '65px', 'left': $(".mainContainer").position().left - $("#sidePanel").width() - 55}); // last number is sidePanelContainer padding
 		}
 		else {
-			$("#banner").css('height', '70px'); // full banner height
-			$("#banner").css('background-image', 'url(../images/logo.png)');
+			$("#banner").removeClass('bannerMiddle');
+			$("#banner").addClass('bannerTop');
 			$("#header").css('position', 'relative');
 			$("#topspace").css('display', 'none');
 			$("#toolbar").css('display', 'block');
@@ -43,6 +56,11 @@
 			$("#sidePanel").css('position', 'static');
 		}
 	});
+
+	if ("searchQuery" in window) {
+		$(".searchquery").val(searchQuery);
+		$(".searchquery").css('color', '#000');
+	}
 
 	$(".indexsearchquery").focus(function() {
 		$("#indexsearch").addClass('idxsfocus');
@@ -126,9 +144,12 @@
     
     });
 
+	
 	setLangCBs();
-	if ("pageType" in window)
-		for (var lang in langDisplay) setLanguageDisplay(lang, langDisplay[lang]);
+	if ("pageType" in window && spshowing) {
+		if (langDisplay != 'english') setLanguageDisplay('english', false);
+		setLanguageDisplay(langDisplay, true);
+	}
 
 /*	if ($("#sidePanel").position()) {
 		var top_pos = $("#sidePanel").position().top;
@@ -160,16 +181,16 @@
 				text = "<div class=\""+lang+"_hadith_full\">";
 				if (elt["hadithSanad"]) text = text + "<span class=\""+lang+"_sanad\">"+elt["hadithSanad"]+"</span> ";
 				text = text + elt["hadithText"]+"</div>"
-				$("#h"+elt["matchingArabicURN"]).append(text);
+				$("#t"+elt["matchingArabicURN"]).append(text);
 			});
             langLoaded[lang] = true;
         });
     }
 
     function toggleLanguageDisplay(lang) {
-        langDisplay[lang] = !langDisplay[lang];
-        if (!langDisplay[lang]) setLanguageDisplay(lang, false);
-        else setLanguageDisplay(lang, true);
+		setLanguageDisplay(langDisplay, false);
+        langDisplay = lang;
+        setLanguageDisplay(lang, true);
 		setLangCookie();
 	}
 
@@ -182,25 +203,22 @@
 	}
 
 	function setLangCookie() {
-		$.cookie('langprefs', JSON.stringify(langDisplay, null, 2), {path: '/'});
+		$.cookie('langprefs13', JSON.stringify(langDisplay, null, 2), {path: '/'});
 	}
 
 	function setLangCBs() {
-		for (var lang in langDisplay) $("#ch_"+lang).prop("checked", langDisplay[lang]);
+		$("#ch_"+langDisplay).prop("checked", true);
 	}
 
     langLoaded['english'] = true;
     langLoaded['indonesian'] = false;
     langLoaded['urdu'] = false;
 
-	if ($.cookie('langprefs') == null) {
-		var langDisplay = new Object();
-		langDisplay['english'] = true;
-		langDisplay['indonesian'] = false;
-		langDisplay['urdu'] = false;
+	if ($.cookie('langprefs13') == null) {
+		langDisplay = 'english';
 		setLangCookie();
 	}
 	else {
-		langDisplay = JSON.parse($.cookie('langprefs'));
+		langDisplay = JSON.parse($.cookie('langprefs13'));
 	}
 
