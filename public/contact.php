@@ -3,110 +3,96 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="Content-Language" content="EN"/>
   <meta name="description" content="Hadith of the Prophet Muhammad (saws) in English and Arabic"/>
   <meta name="keywords" content="hadith, sunnah, bukhari, muslim, sahih, sunan, tirmidhi, nawawi, holy, arabic, iman, islam, Allah, book, english"/>
   <meta name="Charset" content="UTF-8"/> 
   <meta name="Distribution" content="Global"/>
   <meta name="Rating" content="General"/>
+ 
+  <link href="/css/all.css" media="screen" rel="stylesheet" type="text/css" />
 
-  <link href="/css/header.css" media="screen" rel="stylesheet" type="text/css" />
-  <link href="/css/banner.css" media="screen" rel="stylesheet" type="text/css" />
-  <link href="/css/toolbar.css" media="screen" rel="stylesheet" type="text/css" />
-  <link href="/css/index.css" media="screen" rel="stylesheet" type="text/css" />
-  <link href="/css/common.css" media="screen" rel="stylesheet" type="text/css" />
-  <link href="/css/collection.css" media="screen" rel="stylesheet" type="text/css" />
-  <link href="/css/hadith.css" media="screen" rel="stylesheet" type="text/css" />
-  <link href="/css/search.css" media="screen" rel="stylesheet" type="text/css" />
-  <link href="/css/footer.css" media="screen" rel="stylesheet" type="text/css" />
+  <link rel="shortcut icon" href="/favicon.ico" >
 
-  <title>Sunnah.com - Sayings and Teachings of Prophet Muhammad (صلى الله عليه و سلم)</title>  <link rel="shortcut icon" href="/favicon.ico" >
-  <script type="text/javascript">
-  	function openquran(surah, beginayah, endayah) {
-    	window.open("http://quran.com/"+(surah+1)+"/"+beginayah+"-"+endayah, "quranWindow", "resizable = 1, fullscreen = 1");
-  	}
-  	function reportHadith(urn) {
-    	window.open("/report.php?urn="+urn, "reportWindow", "scrollbars = yes, resizable = 1, fullscreen = 1, location = 0, toolbar = 0, width = 500, height = 700");
-  	}
-  </script>
+  <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+  <script src="/js/jquery.cookie.js"></script>
 
-<script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-22385858-2']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
-
+  	<script>
+		</script>
+  <script src="/js/sunnah.js"></script>
+ 
+  <title>
+	Sahih al-Bukhari - 	Sunnah.com - Sayings and Teachings of Prophet Muhammad (صلى الله عليه و سلم)
+  </title>
 </head>
+
 <body>
 <div id="site">
-	<div id="toolbar"> 
-		<div id="toolbarRight"> 
-			<a href="http://quran.com">Qur'an</a> |
-			<a href="http://corpus.quran.com/wordbyword.jsp">Word by Word</a> | 
-			<a href="http://quranicaudio.com">Audio</a> | 
-			<span>New: sunnah.com</span> | 
-			<a href="http://salah.com">Prayer Times</a> |
-			<a href="http://android.quran.com">Android</a> |
-			<a href="http://beta.quran.com"><b style="font-weight: normal; padding-right: 18px; position: relative;"><strong>New&nbsp;:</strong>&nbsp;beta.quran.com
-				<!-- <img style="position: absolute; top: -6px; right: -12px;" src="http://c222770.r70.cf1.rackcdn.com/labs.png"> -->
-				<img style="position: absolute; top: -6px; right: 0px;" src="/images/labs.png">
-			</b></a>
-		</div>
-	</div> 
 
-	
-	<a href="http://sunnah.com/"><div id="header"></div></a>
-    <div style="width:100%; height:5px; background-color:#867044"></div>
+	<div id="header">
+    	<div id="toolbar">
+       		<div id="toolbarRight">
+				            <a href="http://quran.com">Qur'an</a> |
+            <a href="http://corpus.quran.com/wordbyword.jsp">Word by Word</a> |
+            <a href="http://quranicaudio.com">Audio</a> |
+            <a href="http://sunnah.com"><b>sunnah.com</b></a> |
+            <a href="http://salah.com">Prayer Times</a> |
+            <a href="http://android.quran.com">Android</a> |
+            <a href="http://beta.quran.com" style="position: relative; padding-right: 18px;">beta.quran.com <img style="position: absolute; top: -6px; right: -10px;" src="/images/labs.png"></a>
 
-	<link href="/css/nav_menu.css" media="screen" rel="stylesheet" type="text/css" />
+	        </div>
+    	</div>
 
-<div class="menu">
-  <ul>
-	<li><a href="/">Home</a></li>
-<li><a href="/" target="_self" >Collections</a>
-      <ul>
-        <li><a href="/bukhari" target="_self">Sahih al-Bukhari</a></li>
-        <li><a href="/muslim" target="_self">Sahih Muslim</a></li>
-        <li><a href="/nasai" target="_self">Sunan an-Nasa'i*</a></li>
-        <li><a href="/tirmidhi" target="_self">Jami` at-Tirmidhi*</a></li>
-        <li><a href="/abudawud" target="_self">Sunan Abi Dawud*</a></li>
-        <li><a href="/ibnmajah" target="_self">Sunan Ibn Majah*</a></li>
-        <li><a href="/malik" target="_self">Muwatta Imam Malik</a></li>
-        <li><a href="/nawawi40" target="_self">Imam Nawawi's 40 Hadith</a></li>
-        <li><a href="/riyadussaliheen" target="_self">Riyad as-Salihin</a></li>
-        <li><a href="/qudsi40" target="_self">40 Hadith Qudsi</a></li>
-        <li><a href="/shamail" target="_self">Shama'il Muhammadiyah</a></li>
-      </ul></li>
-	<li><a href="/about">About</a><ul>
-<li><a href="/about">The Website</a>
-<li><a href="/support">Support Us</a></li>
-<li><a href="/news">News</a></li>
-<li><a href="/changelog">Change Log</a></li>
-</ul></li><li><span class="selectedMenuItem"><a href="/contact">Contact</a></span></li>
+		<a href="http://sunnah.com"><div id="banner" class=bannerTop></div></a>
+		<!-- <a href="#"><div id=back-to-top></div></a> -->
+		
+<div id=search>
+    <a class="searchtipslink">Search Tips</a>
+    <div id="searchbar" class="sblur">
+        <form name="searchform" action="/search_redirect.php" method=get id="searchform">
+            <input type="text" class="searchquery" name=query value="Search …" />
+            <input type="image" src="/images/search.png" class="searchsubmit" value="" />
+        </form>
+    </div>
 
-				<div style="float: right; display: inline; padding-right: 10px; padding-top: 2px; vertical-align: center; height: 100%;">
-			<form name="searchform" action="/search_redirect.php" method=get style="height: 100%;" id="searchform">
-                <input type="text" size="25" class="input_search" name=query value="" id="searchBox"/>
-            	<input type="submit" class="search_button" value="Search" />
-           	</form>	
-		</div>
-		        <div class="clear"></div>
-	</ul>
+	<div id="searchtips">
+		<div class=clear></div>
+		<b>Quotes</b> e.g. "pledge allegiance"<br>
+		Searches for the whole phrase instead of individual words
+		<p>
+		<b>Wildcards</b> e.g. test*<br>
+		Matches any set of one or more characters. For example test* would result in test, tester, testers, etc.
+		<p>
+		<b>Fuzzy Search</b> e.g. swore~<br>
+		Finds terms that are similar in spelling. For example swore~ would result in swore, snore, score, etc.
+		<p>
+		<b>Term Boosting</b> e.g. pledge^4 hijrah<br>
+		Boosts words with higher relevance. Here, the word <i>pledge</i> will have higher weight than <i>hijrah</i>
+		<p>
+		<b>Boolean Operators</b> e.g. ("pledge allegiance" OR "shelter) AND prayer<br>
+		Create complex phrase and word queries by using Boolean logic.
+		<p>
+		<a href="/searchtips">More ...</a>
+	<div class=clear></div>
+	</div>
 </div>
+		<div class=clear></div>
+		<div class=crumbs><a href="/">Home</a> &#187; Sahih al-Bukhari</div><div class=clear></div>	</div>
 
-    <div id="wrapper">
-        <div class="breadcrumbs">
-    <a href="/">Home</a>&nbsp;&gt;&nbsp;Contact</div>
+	<div class=clear></div>
+	<div id="topspace"></div>
 
+	<div id=nonheader" style="position: relative;">
+	<div class="sidePanelContainer">
+		<div style="height: 1px;"></div>
+		<div id="sidePanel">
+			    	</div>
+	</div><!-- sidePanelContainer close -->
+	<div class="mainContainer"><div id="main">
+	        <div class=clear></div>
 <?php
 $url = $_SERVER['SCRIPT_NAME'];
 
@@ -204,22 +190,21 @@ else {
 }
 
 ?>
-<br />
-<div style="display: none; width:100%; height:2px; background-color:#867044; margin-top: 30px;"></div>
+
+	<div class="clear"></div>
+    </div><!-- main close -->
+	</div> <!-- mainContainer close -->
+	<a href="#"><div id=back-to-top></div></a>
+	<div class="clear"></div>
+	</div> <!-- nonheader close -->
+    
 <div class=footer>
-<div class=footer_left>Sunnah.com &copy; 2011</div>
-<div class=footer_right>
 	<a href="/about">About</a> |
+	<a href="/news">News</a> |
 	<a href="/contact">Contact</a> |
 	<a href="/support">Support</a>
+<div class=clear></div>
 </div>
-<div class=footer_center>Sunnah.com supports <a href="http://www.islamic-relief.com/">Islamic Relief</a></div>
-<div class=clear />
-</div>
-<div style="width:100%; height:4px; background-color:#867044; margin-top: 0px; margin-bottom: 0px;"></div>
-
-
-
 
 <script type="text/javascript">
 var pkBaseURL = (("https:" == document.location.protocol) ? "https://sunnah.com/piwik/" : "http://sunnah.com/piwik/");
@@ -245,7 +230,9 @@ href="http://statcounter.com/drupal/" target="_blank"><img
 class="statcounter"
 src="http://c.statcounter.com/7148282/0/63a57073/1/"
 alt="drupal statistics" ></a></div></noscript>
+	<div class="clear"></div>
 
+</div><!-- site div close -->
 </body>
 </html>
 

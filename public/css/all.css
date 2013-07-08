@@ -948,3 +948,16 @@ a:hover { text-decoration: underline; }
 .permalinktext {
 	cursor: text;
 }
+
+.about {
+    width: 60%;
+    padding-left: 10%;
+    text-align: justify;
+    padding-top: 10px;
+    font-size: 14px;
+}
+
+.about a {
+	color: #5d8080;
+}
+
