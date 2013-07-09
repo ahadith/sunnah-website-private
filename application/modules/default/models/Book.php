@@ -52,6 +52,7 @@ class Book extends CActiveRecord
         if ($englishSet === false) {
 			if (strcmp($lang, "indonesian") == 0) $englishSet = IndonesianHadith::model()->findAll($crit);
 			elseif (strcmp($lang, "urdu") == 0) $englishSet = UrduHadith::model()->findAll($crit);
+			elseif (strcmp($lang, "arabic") == 0) $englishSet = ArabicHadith::model()->findAll($crit);
 			else $englishSet = EnglishHadith::model()->findAll($crit);
             foreach ($englishSet as $englishHadith) $englishHadith->process_text();
             Yii::app()->cache->set($cacheID, $englishSet, Yii::app()->params['cacheTTL']);
@@ -127,12 +128,13 @@ class Book extends CActiveRecord
 			$cacheID .= ":".$beginIndex."-".$endIndex;
 		}
 		$crit->order = 'arabicURN';
-		$arabicSet = Yii::app()->cache->get($cacheID);
+		$arabicSet = Yii::app()->cache->get($cacheID); 
 		if ($arabicSet === false) {
         	$arabicSet = ArabicHadith::model()->findAll($crit);
 			foreach ($arabicSet as $arabicHadith) $arabicHadith->process_text();
 			Yii::app()->cache->set($cacheID, $arabicSet, Yii::app()->params['cacheTTL']);
         }
+		else Yii::trace("$cacheID was hit in cache");
         
         if (count($englishSet) == 0 && count($arabicSet) == 0) return NULL;
 

@@ -156,8 +156,8 @@ return array(
 	// using Yii::app()->params['paramName']
 	'params'=>array(
 		// this is used in contact page
-		'adminEmail'=>'webmaster@example.com',
-		'cacheTTL' => 1, // time to leave objects in cache
+		'adminEmail'=>'sunnah@iman.net',
+		'cacheTTL' => 7200, // time to leave objects in cache
 		'pageSize' => 100,
 	),
 );
