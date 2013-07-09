@@ -47,7 +47,7 @@ a:hover { text-decoration: underline; }
 
 .arabic {
     direction: rtl;
-    font-family:  KFGQPC Uthmanic Script HAFS, Scheherazade, /* Traditional Arabic,*/ Trebuchet MS, Arial, Helvetica;
+    font-family: KFGQPC Uthman Taha Naskh, KFGQPC Uthmanic Script HAFS, Scheherazade, /* Traditional Arabic,*/ Trebuchet MS, Arial, Helvetica;
     font-size: 19px;
 	text-align: justify;
 }

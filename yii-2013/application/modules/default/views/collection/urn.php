@@ -25,7 +25,7 @@
 		
 		echo "<div class=AllHadith>\n";
 		
-		echo $this->renderPartial('/collection/disphadith', array(
+		echo $this->renderPartial('/collection/printhadith', array(
 		   'arabicEntry' => $arabicEntry,
 	       'englishText' => $englishEntry->hadithText,
            'grade' => $englishEntry->grade1,
