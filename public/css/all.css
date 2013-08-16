@@ -217,7 +217,8 @@ a:hover { text-decoration: underline; }
 
 .mainContainer {
 	width: 70%;
-	float: left;
+	/* float: left; */
+	margin: auto;
 }
 
 #main {
