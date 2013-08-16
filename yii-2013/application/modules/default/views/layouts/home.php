@@ -84,9 +84,11 @@
 	<div class="clear"></div>
     </div><!-- main close -->
 	</div> <!-- mainContainer close -->
-	<div id=rightPanel>
-		<?php $this->renderPartial('/index/ramadancarousel') ?>
+
+	<div id=rightPanel style="display: none;">
+		<?php // $this->renderPartial('/index/ramadancarousel') ?>
 	</div>
+
 	<div class="clear"></div>
 	</div> <!-- nonheader close -->
     <?php $this->renderPartial('//layouts/footer') ?>
