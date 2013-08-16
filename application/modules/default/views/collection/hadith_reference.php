@@ -58,7 +58,7 @@
         	            if (strcmp($collectionHasBooks, "yes") == 0) echo "Book ".$values[2].", ";
             	        echo "Hadith ".$values[3];
                         echo "</td></tr>";
-						if (strcmp($collection, "bukhari")==0 or strcmp($collection, "muslim")==0 or strcmp($collection, "malik")==0) echo " <tr><td>&nbsp;&nbsp;<i>(deprecated)</i>";
+						if (strcmp($collection, "bukhari")==0 or strcmp($collection, "muslim")==0 or strcmp($collection, "malik")==0) echo " <tr><td>&nbsp;&nbsp;<i>(deprecated numbering scheme)</i>";
                         echo "</td></tr>";
                 }
 
