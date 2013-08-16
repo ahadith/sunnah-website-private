@@ -93,6 +93,7 @@ else {
 				
 				//echo "<div class=\"search_english_text\">... ".$text." ...</div><br />";
 
+				$arabicSnippet = "";
 				if ($aurn > 0) {
 					$arabicText = $arabic_hadith[array_search($aurn, $aurns)]['hadithText'];
 					if (strlen($arabicText) <= 2500) $arabicSnippet = $arabicText;

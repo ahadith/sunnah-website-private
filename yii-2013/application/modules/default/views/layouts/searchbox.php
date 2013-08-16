@@ -11,7 +11,7 @@
     <div id="searchbar" class="sblur">
         <form name="searchform" action="/search_redirect.php" method=get id="searchform">
             <input type="text" class="searchquery" name=query value="<?php echo $stextval; ?>" />
-            <input type="image" src="/images/search.png" class="searchsubmit" value="" />
+            <input type="image" src="/images/search_small.png" class="searchsubmit" value="" />
         </form>
     </div>
 

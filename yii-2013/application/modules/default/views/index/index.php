@@ -12,7 +12,7 @@
 	<div id="indexsearch" class="idxsblur">
  	 	<form name="searchform" action="/search_redirect.php" method=get id="searchform">
        		<input type="text" class="indexsearchquery" name=query value="Search &#8230;" />
-			<input type="image" src="/images/search.png" class="indexsearchsubmit" value="" />
+			<input type="image" src="/images/search_small.png" class="indexsearchsubmit" value="" />
 		</form>
 	</div>
 	<a class="indexsearchtipslink" style="font-size: 12px;">Search Tips</a>

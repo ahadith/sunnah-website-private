@@ -24,7 +24,7 @@
 		else $urn = $arabicEntry->arabicURN;
 		
 		echo "<div class=AllHadith>\n";
-		
+		echo "<div class=actualHadithContainer id=h".$arabicEntry->arabicURN.">\n";		
 		echo $this->renderPartial('/collection/printhadith', array(
 		   'arabicEntry' => $arabicEntry,
 	       'englishText' => $englishEntry->hadithText,
@@ -56,7 +56,7 @@
 						
 		echo "<div class=hline></div>";
 		echo "<div style=\"clear: both;\"></div>";
-		echo "</div>";
+		echo "</div></div>";
     }
 
 
