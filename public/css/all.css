@@ -71,7 +71,7 @@ a:hover { text-decoration: underline; }
 }
 
 #site{
-	background:url(../images/bg.png);
+	background:url(../images/bg_small.png);
 	background-position: center top;
 	width:100%;
 	min-width: 1170px;
@@ -83,7 +83,7 @@ a:hover { text-decoration: underline; }
 
 #header {
 	width: 100%;
-	background-image: url(../images/banner.png);
+	background-image: url(../images/banner_small.png);
 	background-repeat: repeat-x;
 	position: relative;
 	z-index: 20;
@@ -124,7 +124,7 @@ a:hover { text-decoration: underline; }
 
 .bannerTop {
 	height: 70px;
-	background-image: url(../images/equal-logo.png);
+	background-image: url(../images/equal-logo_small.png);
 	background-repeat: no-repeat;
 	background-position: 64%;
 	background-size: auto 70%;
@@ -193,7 +193,7 @@ a:hover { text-decoration: underline; }
 	float: right;  
     margin-left: 20px;
     margin-right: 20px;
-	background-image: url(../images/banner.png);
+	background-image: url(../images/banner_small.png);
 	background-repeat: repeat-x;
     margin-top: 20px;
     border-radius:10px;
@@ -246,7 +246,7 @@ a:hover { text-decoration: underline; }
 
 .footer {
     text-align: center;
-	background-image: url(../images/banner.png);
+	background-image: url(../images/banner_small.png);
 	background-repeat: repeat-x;
     width: 100%;
     margin: auto;
@@ -389,7 +389,7 @@ a:hover { text-decoration: underline; }
 
 #searchtips {
 	width: 400px;
-	background:url(../images/bg.png);
+	background:url(../images/bg_small.png);
 	background-repeat: repeat-x repeat-y;
 	background-color: rgba(255, 255, 255, 0.5);
 	z-index: 10;
@@ -756,7 +756,7 @@ a:hover { text-decoration: underline; }
 	padding-top: 10px;
     direction:rtl;
     font-family: Jameel Noori Nastaleeq, Nafees Web Naskh, Urdu Naskh Asiatype;
-    font-size: 24px;
+    font-size: 20px;
     text-decoration:none;
     padding-bottom: 10px;
     color:#08081a;
