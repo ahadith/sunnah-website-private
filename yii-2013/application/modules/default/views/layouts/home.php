@@ -75,8 +75,8 @@
 	<div class=clear></div>
 	<div id="topspace"></div>
 
-	<div id=nonheader" style="position: relative; margin: 0 10px 0 30px;">
-	<div class="mainContainer"><div id="main">
+	<div id=nonheader style="position: relative; margin: 0 10px 0 30px;">
+	<div class="mainCont" style="width: 70%; margin: auto;"><div id="main">
 	        <?php 
 				echo "<div class=clear></div>";
 				echo $content; 
@@ -85,9 +85,9 @@
     </div><!-- main close -->
 	</div> <!-- mainContainer close -->
 
-	<div id=rightPanel style="display: none;">
+	<!--<div id=rightPanel style="display: none;">
 		<?php // $this->renderPartial('/index/ramadancarousel') ?>
-	</div>
+	</div>-->
 
 	<div class="clear"></div>
 	</div> <!-- nonheader close -->
