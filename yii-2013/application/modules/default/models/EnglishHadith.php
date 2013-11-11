@@ -45,6 +45,10 @@ class EnglishHadith extends Hadith
 			$processed_text = preg_replace("/Allah's Apostle(?!\s*<)/", "Allah's Messenger (".$sawstext.")", $processed_text);
 			$processed_text = str_replace("he Prophet ", "he Prophet (".$sawstext.") ", $processed_text);
 		}
+		elseif (strcmp($this->collection, "muslim") == 0) {
+			$processed_text = str_replace("the Apostle of Allah", "the Messenger of Allah", $processed_text);
+			$processed_text = str_replace("he Holy Prophet ", "he Prophet ", $processed_text);
+		}
         elseif (strcmp($this->collection, "qudsi") == 0) {
             $processed_text = preg_replace("/\n/", "<br><p>\n", $processed_text);
         }

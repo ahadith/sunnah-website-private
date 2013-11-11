@@ -52,9 +52,9 @@ else {
 
                         echo "<div class=\"book_title ".$bgclass."\" ".$style." id=\"obi".$entry->ourBookID."\">\n";
 
-						if ($entry->ourBookID == -1) echo "<a href=\"".$entry->collection."/introduction\">\n";
-						elseif ($entry->ourBookID == -35 and strcmp($collectionName, "nasai") == 0) echo "<a href=\"".$entry->collection."/35b\">\n";
-						else echo "<a href=\"".$entry->collection."/".$entry->ourBookID."\">\n";
+						if ($entry->ourBookID == -1) echo "<a href=\"/".$entry->collection."/introduction\">\n";
+						elseif ($entry->ourBookID == -35 and strcmp($collectionName, "nasai") == 0) echo "<a href=\"/".$entry->collection."/35b\">\n";
+						else echo "<a href=\"/".$entry->collection."/".$entry->ourBookID."\">\n";
 
 						echo "<div class=book_number>";
 						if ($entry->ourBookID == -1) echo "&nbsp;";

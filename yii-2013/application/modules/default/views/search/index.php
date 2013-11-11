@@ -75,7 +75,12 @@ else {
 				echo "<a class=nounderline href=\"/".$e_hadith['collection']."\">".$this->_collections[$e_hadith['collection']]['englishTitle']."</a> » ";
 				echo "<a class=nounderline href=\"/".$e_hadith['collection']."/".$ourBookID."\">".$e_hadith['bookName']."</a>";
 				if ($e_hadith['ourHadithNumber'] > 0) {
-					if (strcmp($hasbooks, "yes") == 0) $permalink = "/".$e_hadith['collection']."/".$ourBookID."/".$e_hadith['ourHadithNumber'];
+					if (strcmp($hasbooks, "yes") == 0) {
+						$booklink = $ourBookID;
+						if ($ourBookID == -1) $booklink = "introduction";
+						elseif ($ourBookID == -35) $booklink = "35b";
+						$permalink = "/".$e_hadith['collection']."/".$booklink."/".$e_hadith['ourHadithNumber'];
+					}
 					else $permalink = "/".$e_hadith['collection']."/".$e_hadith['ourHadithNumber'];
 				}
 				else $permalink = "/urn/$eurn";
