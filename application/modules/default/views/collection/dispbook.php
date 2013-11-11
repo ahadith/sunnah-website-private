@@ -1,6 +1,7 @@
 <?php 
 
 function displayBab($chapter) {
+	if ($chapter->babID == 0.1 && intval($chapter->arabicBabNumber) == 0) return;
 	$arabicBabNumber = $chapter->arabicBabNumber;
 	$arabicBabName = $chapter->arabicBabName;
 	$englishBabNumber = $chapter->englishBabNumber;
@@ -24,8 +25,11 @@ function displayBab($chapter) {
 	echo "<div class=\"arabicchapter arabic\">$arabicBabName</div>";
 	echo "<div class=clear></div>\n";
 	echo "</div>\n";
+
+	$acstyle = "";
 	if (isset($englishIntro) && strlen($englishIntro) > 0) echo "<div class=\"echapintro\">$englishIntro</div>\n";
-	if (isset($arabicIntro) && strlen($arabicIntro) > 0) echo "<div class=\"arabic achapintro\">$arabicIntro</div>\n";
+	else $acstyle = "style = \"width: 80%; margin-right: 5%;\"";
+	if (isset($arabicIntro) && strlen($arabicIntro) > 0) echo "<div class=\"arabic achapintro\" $acstyle >$arabicIntro</div>\n";
 	echo "<div class=clear></div>\n";
 	echo "\n<div style=\"height: 10px;\"></div>\n";
 }
@@ -77,8 +81,11 @@ else {
 
 	<?php
 		if (strcmp($collectionHasBooks, "yes") == 0 and !is_null($this->_book->englishBookIntro)) {
-					echo "<div class=bookintro>".$this->_book->englishBookIntro."</div>";
-					echo "<div class=\"arabic bookintro\">".$this->_book->arabicBookIntro."</div>";
+					if (strcmp($collection, "muslim") == 0 and $ourBookID == -1) include("muslimintro.txt");
+					echo "<div class=bookintro>";
+					echo "<div class=ebookintro>".$this->_book->englishBookIntro."</div>";
+					echo "<div class=\"arabic abookintro\">".$this->_book->arabicBookIntro."</div>";
+					echo "</div>\n";
 		}
 	?>
 

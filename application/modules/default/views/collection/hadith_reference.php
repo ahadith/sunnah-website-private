@@ -49,7 +49,7 @@
 					echo "</td></tr>";
 				}
 
-				if ($englishEntry and $values[5] != $values[3] and intval($values[3]) != 0) {
+				if ($englishEntry and /* $values[5] != $values[3] and */ intval($values[3]) != 0) {
                         echo "<tr><td>";
 						if (strcmp($collection, "bukhari")==0 or strcmp($collection, "muslim")==0 or strcmp($collection, "malik")==0) echo "USC-MSA web (English) reference</td><td>&nbsp;: ";
                        	else echo "English translation</td><td>&nbsp;:&nbsp;";

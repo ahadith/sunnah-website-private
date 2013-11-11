@@ -85,19 +85,19 @@ WHERE ibook.urdumatchstatus >1;
 
 
 delete from hadithdb.EnglishHadithTable;
-insert into hadithdb.EnglishHadithTable (englishURN, collection, volumeNumber, bookID, bookNumber, bookName, babNumber, babName, hadithNumber, hadithText, grade1, comments) select  englishURN, collection, volumeNumber, bookID, bookNumber, bookName, babNumber, babName, hadithNumber, hadithText, grade, comments from ilmfruit_testhadithdb.muslim_english where abs(bookID) > 0;
-insert into hadithdb.EnglishHadithTable (englishURN, collection, volumeNumber, bookID, bookNumber, bookName, babNumber, babName, hadithNumber, hadithText, grade1, comments) select englishURN, collection, volumeNumber, bookID, bookNumber, bookName, babNumber, babName, hadithNumber, hadithText, grade, comments from ilmfruit_testhadithdb.bukhari_english where bookID > 0;
-insert into hadithdb.EnglishHadithTable (englishURN, collection, volumeNumber, bookID, bookNumber, bookName, babNumber, babName, hadithNumber, hadithText, grade1, comments) select englishURN, collection, volumeNumber, bookID, bookNumber, bookName, babNumber, babName, hadithNumber, hadithText, grade, comments from ilmfruit_testhadithdb.malik_english where bookID > 0;
-insert into hadithdb.EnglishHadithTable (englishURN, collection, volumeNumber, bookID, bookNumber, bookName, babNumber, babName, hadithNumber, hadithText, grade1, comments) select englishURN, collection, volumeNumber, bookID, bookNumber, bookName, babNumber, babName, hadithNumber, hadithText, grade, comments from ilmfruit_testhadithdb.nawawi40_english where bookID > 0;
-insert into hadithdb.EnglishHadithTable (englishURN, collection, volumeNumber, bookID, bookNumber, bookName, babNumber, babName, hadithNumber, hadithText, grade1, comments) select englishURN, collection, volumeNumber, bookID, bookNumber, bookName, babNumber, babName, hadithNumber, hadithText, grade, comments from ilmfruit_testhadithdb.tirmidhi_english where bookID in (SELECT englishBookID FROM ilmfruit_testhadithdb.tirmidhibookmatch WHERE englishmatchstatus IS NOT NULL AND englishmatchstatus >1);
-insert into hadithdb.EnglishHadithTable (englishURN, collection, volumeNumber, bookID, bookNumber, bookName, babNumber, babName, hadithNumber, hadithText, grade1, comments) select englishURN, collection, volumeNumber, bookID, bookNumber, bookName, babNumber, babName, hadithNumber, hadithText, grade, comments from ilmfruit_testhadithdb.riyadussaliheen_english where bookID in (SELECT englishBookID FROM ilmfruit_testhadithdb.riyadussaliheenbookmatch WHERE englishmatchstatus IS NOT NULL AND englishmatchstatus >1);
-insert into hadithdb.EnglishHadithTable (englishURN, collection, volumeNumber, bookID, bookNumber, bookName, babNumber, babName, hadithNumber, hadithText, grade1, comments) select englishURN, collection, volumeNumber, bookID, bookNumber, bookName, babNumber, babName, hadithNumber, hadithText, grade, comments from ilmfruit_testhadithdb.qudsi40_english where bookID in (SELECT englishBookID FROM ilmfruit_testhadithdb.qudsi40bookmatch WHERE englishmatchstatus IS NOT NULL AND englishmatchstatus >1);
-insert into hadithdb.EnglishHadithTable (englishURN, collection, volumeNumber, bookID, bookNumber, bookName, babNumber, babName, hadithNumber, hadithText, grade1, comments) select englishURN, collection, volumeNumber, bookID, bookNumber, bookName, babNumber, babName, hadithNumber, hadithText, grade, comments from ilmfruit_testhadithdb.nasai_english where bookID in (SELECT englishBookID FROM ilmfruit_testhadithdb.nasaibookmatch WHERE englishmatchstatus IS NOT NULL AND englishmatchstatus >1);
-insert into hadithdb.EnglishHadithTable (englishURN, collection, volumeNumber, bookID, bookNumber, bookName, babNumber, babName, hadithNumber, hadithText, grade1, comments) select englishURN, collection, volumeNumber, bookID, bookNumber, bookName, babNumber, babName, hadithNumber, hadithText, grade, comments from ilmfruit_testhadithdb.shamail_english where bookID in (SELECT englishBookID FROM ilmfruit_testhadithdb.shamailbookmatch WHERE englishmatchstatus IS NOT NULL AND englishmatchstatus >1);
-insert into hadithdb.EnglishHadithTable (englishURN, collection, volumeNumber, bookID, bookNumber, bookName, babNumber, babName, hadithNumber, hadithText, grade1, comments) select englishURN, collection, volumeNumber, bookID, bookNumber, bookName, babNumber, babName, hadithNumber, hadithText, albanigrade, comments from ilmfruit_testhadithdb.abudawud_english where bookID in (SELECT englishBookID FROM ilmfruit_testhadithdb.abudawudbookmatch WHERE englishmatchstatus IS NOT NULL AND englishmatchstatus >1);
-insert into hadithdb.EnglishHadithTable (englishURN, collection, volumeNumber, bookID, bookNumber, bookName, babNumber, babName, hadithNumber, hadithText, grade1, comments) select englishURN, collection, volumeNumber, bookID, bookNumber, bookName, babNumber, babName, hadithNumber, hadithText, grade, comments from ilmfruit_testhadithdb.ibnmajah_english where bookID in (SELECT englishBookID FROM ilmfruit_testhadithdb.ibnmajahbookmatch WHERE englishmatchstatus IS NOT NULL AND englishmatchstatus >1);
-insert into hadithdb.EnglishHadithTable (englishURN, collection, volumeNumber, bookID, bookNumber, bookName, babNumber, babName, hadithNumber, hadithText, grade1, comments) select englishURN, collection, volumeNumber, bookID, bookNumber, bookName, babNumber, babName, hadithNumber, hadithText, albanigrade, comments from ilmfruit_testhadithdb.adab_english where bookID in (SELECT englishBookID FROM ilmfruit_testhadithdb.adabbookmatch WHERE englishmatchstatus IS NOT NULL AND englishmatchstatus >1);
-insert into hadithdb.EnglishHadithTable (englishURN, collection, volumeNumber, bookID, bookNumber, bookName, babNumber, babName, hadithNumber, hadithText, grade1, comments) select englishURN, collection, volumeNumber, bookID, bookNumber, bookName, babNumber, babName, hadithNumber, hadithText, grade, comments from ilmfruit_testhadithdb.bulugh_english where bookID in (SELECT englishBookID FROM ilmfruit_testhadithdb.bulughbookmatch WHERE englishmatchstatus IS NOT NULL AND englishmatchstatus >1);
+insert into hadithdb.EnglishHadithTable (englishURN, collection, volumeNumber, bookID, bookNumber, bookName, babNumber, babName, hadithNumber, hadithText, grade1, comments, last_updated) select englishURN, collection, volumeNumber, bookID, bookNumber, bookName, babNumber, babName, hadithNumber, hadithText, grade, comments, last_updated from ilmfruit_testhadithdb.muslim_english where abs(bookID) > 0;
+insert into hadithdb.EnglishHadithTable (englishURN, collection, volumeNumber, bookID, bookNumber, bookName, babNumber, babName, hadithNumber, hadithText, grade1, comments, last_updated) select englishURN, collection, volumeNumber, bookID, bookNumber, bookName, babNumber, babName, hadithNumber, hadithText, grade, comments, last_updated from ilmfruit_testhadithdb.bukhari_english where bookID > 0;
+insert into hadithdb.EnglishHadithTable (englishURN, collection, volumeNumber, bookID, bookNumber, bookName, babNumber, babName, hadithNumber, hadithText, grade1, comments, last_updated) select englishURN, collection, volumeNumber, bookID, bookNumber, bookName, babNumber, babName, hadithNumber, hadithText, grade, comments, last_updated from ilmfruit_testhadithdb.malik_english where bookID > 0;
+insert into hadithdb.EnglishHadithTable (englishURN, collection, volumeNumber, bookID, bookNumber, bookName, babNumber, babName, hadithNumber, hadithText, grade1, comments, last_updated) select englishURN, collection, volumeNumber, bookID, bookNumber, bookName, babNumber, babName, hadithNumber, hadithText, grade, comments, last_updated from ilmfruit_testhadithdb.nawawi40_english where bookID > 0;
+insert into hadithdb.EnglishHadithTable (englishURN, collection, volumeNumber, bookID, bookNumber, bookName, babNumber, babName, hadithNumber, hadithText, grade1, comments, last_updated) select englishURN, collection, volumeNumber, bookID, bookNumber, bookName, babNumber, babName, hadithNumber, hadithText, grade, comments, last_updated from ilmfruit_testhadithdb.tirmidhi_english where bookID in (SELECT englishBookID FROM ilmfruit_testhadithdb.tirmidhibookmatch WHERE englishmatchstatus IS NOT NULL AND englishmatchstatus >1);
+insert into hadithdb.EnglishHadithTable (englishURN, collection, volumeNumber, bookID, bookNumber, bookName, babNumber, babName, hadithNumber, hadithText, grade1, comments, last_updated) select englishURN, collection, volumeNumber, bookID, bookNumber, bookName, babNumber, babName, hadithNumber, hadithText, grade, comments, last_updated from ilmfruit_testhadithdb.riyadussaliheen_english where bookID in (SELECT englishBookID FROM ilmfruit_testhadithdb.riyadussaliheenbookmatch WHERE englishmatchstatus IS NOT NULL AND englishmatchstatus >1);
+insert into hadithdb.EnglishHadithTable (englishURN, collection, volumeNumber, bookID, bookNumber, bookName, babNumber, babName, hadithNumber, hadithText, grade1, comments, last_updated) select englishURN, collection, volumeNumber, bookID, bookNumber, bookName, babNumber, babName, hadithNumber, hadithText, grade, comments, last_updated from ilmfruit_testhadithdb.qudsi40_english where bookID in (SELECT englishBookID FROM ilmfruit_testhadithdb.qudsi40bookmatch WHERE englishmatchstatus IS NOT NULL AND englishmatchstatus >1);
+insert into hadithdb.EnglishHadithTable (englishURN, collection, volumeNumber, bookID, bookNumber, bookName, babNumber, babName, hadithNumber, hadithText, grade1, comments, last_updated) select englishURN, collection, volumeNumber, bookID, bookNumber, bookName, babNumber, babName, hadithNumber, hadithText, grade, comments, last_updated from ilmfruit_testhadithdb.nasai_english where bookID in (SELECT englishBookID FROM ilmfruit_testhadithdb.nasaibookmatch WHERE englishmatchstatus IS NOT NULL AND englishmatchstatus >1);
+insert into hadithdb.EnglishHadithTable (englishURN, collection, volumeNumber, bookID, bookNumber, bookName, babNumber, babName, hadithNumber, hadithText, grade1, comments, last_updated) select englishURN, collection, volumeNumber, bookID, bookNumber, bookName, babNumber, babName, hadithNumber, hadithText, grade, comments, last_updated from ilmfruit_testhadithdb.shamail_english where bookID in (SELECT englishBookID FROM ilmfruit_testhadithdb.shamailbookmatch WHERE englishmatchstatus IS NOT NULL AND englishmatchstatus >1);
+insert into hadithdb.EnglishHadithTable (englishURN, collection, volumeNumber, bookID, bookNumber, bookName, babNumber, babName, hadithNumber, hadithText, grade1, comments, last_updated) select englishURN, collection, volumeNumber, bookID, bookNumber, bookName, babNumber, babName, hadithNumber, hadithText, albanigrade, comments, last_updated from ilmfruit_testhadithdb.abudawud_english where bookID in (SELECT englishBookID FROM ilmfruit_testhadithdb.abudawudbookmatch WHERE englishmatchstatus IS NOT NULL AND englishmatchstatus >1);
+insert into hadithdb.EnglishHadithTable (englishURN, collection, volumeNumber, bookID, bookNumber, bookName, babNumber, babName, hadithNumber, hadithText, grade1, comments, last_updated) select englishURN, collection, volumeNumber, bookID, bookNumber, bookName, babNumber, babName, hadithNumber, hadithText, grade, comments, last_updated from ilmfruit_testhadithdb.ibnmajah_english where bookID in (SELECT englishBookID FROM ilmfruit_testhadithdb.ibnmajahbookmatch WHERE englishmatchstatus IS NOT NULL AND englishmatchstatus >1);
+insert into hadithdb.EnglishHadithTable (englishURN, collection, volumeNumber, bookID, bookNumber, bookName, babNumber, babName, hadithNumber, hadithText, grade1, comments, last_updated) select englishURN, collection, volumeNumber, bookID, bookNumber, bookName, babNumber, babName, hadithNumber, hadithText, albanigrade, comments, last_updated from ilmfruit_testhadithdb.adab_english where bookID in (SELECT englishBookID FROM ilmfruit_testhadithdb.adabbookmatch WHERE englishmatchstatus IS NOT NULL AND englishmatchstatus >1);
+insert into hadithdb.EnglishHadithTable (englishURN, collection, volumeNumber, bookID, bookNumber, bookName, babNumber, babName, hadithNumber, hadithText, grade1, comments, last_updated) select englishURN, collection, volumeNumber, bookID, bookNumber, bookName, babNumber, babName, hadithNumber, hadithText, grade, comments, last_updated from ilmfruit_testhadithdb.bulugh_english where bookID in (SELECT englishBookID FROM ilmfruit_testhadithdb.bulughbookmatch WHERE englishmatchstatus IS NOT NULL AND englishmatchstatus >1);
 
 
 
@@ -161,8 +161,8 @@ set aht.ourHadithNumber = m.ourHadithNumber, aht.matchingEnglishURN = m.englishU
 
 
 delete from HadithTable;
-insert into HadithTable (collection, arabicURN, englishURN, arabicText, hadithNumber, ourHadithNumber, babNumber, bookID, englishText, arabicBabName, englishBabName)
-select aht.collection, aht.arabicURN, aht.matchingEnglishURN, aht.hadithText, aht.hadithNumber, aht.ourHadithNumber, aht.babNumber, bd.ourBookID, eht.hadithText, cd.arabicBabName, englishBabName
+insert into HadithTable (collection, arabicURN, englishURN, arabicText, hadithNumber, ourHadithNumber, babNumber, bookID, englishText, arabicBabName, englishBabName, last_updated)
+select aht.collection, aht.arabicURN, aht.matchingEnglishURN, aht.hadithText, aht.hadithNumber, aht.ourHadithNumber, aht.babNumber, bd.ourBookID, eht.hadithText, cd.arabicBabName, englishBabName, eht.last_updated
 from ArabicHadithTable as aht 
 	left outer join BookData as bd on aht.collection = bd.collection and aht.bookID = bd.arabicBookID
 	left outer join ChapterData as cd on aht.collection = cd.collection and aht.bookID = cd.arabicBookID and aht.babNumber = cd.babID
@@ -182,6 +182,41 @@ AND bd.ourBookID = ht.bookID
 SET bd.firstNumber = ht.beginNumber,
 bd.lastNumber = ht.endNumber,
 bd.totalNumber = ht.numHadith WHERE bd.status =4;
+/* Now manually fix the begin/end numbers for some books in Sahih Muslim due to unique numbering scheme */
+update BookData set firstNumber = 377 where collection = 'muslim' and arabicBookID = 4;
+update BookData set firstNumber = 520 where collection = 'muslim' and arabicBookID = 5;
+update BookData set firstNumber = 685 where collection = 'muslim' and arabicBookID = 6;
+update BookData set firstNumber = 979 where collection = 'muslim' and arabicBookID = 12;
+update BookData set firstNumber = 1079 where collection = 'muslim' and arabicBookID = 13;
+update BookData set firstNumber = 1177 where collection = 'muslim' and arabicBookID = 15;
+update BookData set firstNumber = 1400 where collection = 'muslim' and arabicBookID = 16;
+update BookData set firstNumber = 1444 where collection = 'muslim' and arabicBookID = 17;
+update BookData set firstNumber = 1471 where collection = 'muslim' and arabicBookID = 18;
+update BookData set firstNumber = 1501 where collection = 'muslim' and arabicBookID = 20;
+update BookData set firstNumber = 1511 where collection = 'muslim' and arabicBookID = 21;
+update BookData set firstNumber = 1551 where collection = 'muslim' and arabicBookID = 22;
+update BookData set firstNumber = 1627 where collection = 'muslim' and arabicBookID = 25;
+update BookData set firstNumber = 1646 where collection = 'muslim' and arabicBookID = 27;
+update BookData set firstNumber = 1711 where collection = 'muslim' and arabicBookID = 30;
+update BookData set firstNumber = 1722 where collection = 'muslim' and arabicBookID = 31;
+update BookData set firstNumber = 1730 where collection = 'muslim' and arabicBookID = 32;
+update BookData set firstNumber = 1818 where collection = 'muslim' and arabicBookID = 33;
+update BookData set firstNumber = 1929 where collection = 'muslim' and arabicBookID = 34;
+update BookData set firstNumber = 1979 where collection = 'muslim' and arabicBookID = 36;
+update BookData set firstNumber = 2160 where collection = 'muslim' and arabicBookID = 39;
+update BookData set firstNumber = 2276 where collection = 'muslim' and arabicBookID = 43;
+update BookData set firstNumber = 2381 where collection = 'muslim' and arabicBookID = 44;
+update BookData set firstNumber = 2548 where collection = 'muslim' and arabicBookID = 45;
+update BookData set firstNumber = 2643 where collection = 'muslim' and arabicBookID = 46;
+update BookData set firstNumber = 2665 where collection = 'muslim' and arabicBookID = 47;
+update BookData set firstNumber = 2675 where collection = 'muslim' and arabicBookID = 48;
+update BookData set firstNumber = 2744 where collection = 'muslim' and arabicBookID = 50;
+update BookData set firstNumber = 2822 where collection = 'muslim' and arabicBookID = 53;
+update BookData set firstNumber = 2880 where collection = 'muslim' and arabicBookID = 54;
+update BookData set firstNumber = 2956 where collection = 'muslim' and arabicBookID = 55;
+update BookData set lastNumber = 3014 where collection = 'muslim' and arabicBookID = 55;
+
+
 
 /* Update hadith counts in Collections */;
 UPDATE Collections as c JOIN (select count(*) as hcount, collection from EnglishHadithTable group by collection) as eht
