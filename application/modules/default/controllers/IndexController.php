@@ -29,6 +29,11 @@ class IndexController extends Controller
 		$this->render('index');
 	}
 
+	public function actionMaint() {
+		$this->layout = "/layouts/home";
+		$this->render('maint');
+	}
+
 	public function actionAbout() {
         $this->pathCrumbs('About', "/about");
         $this->_pageType = "about";
