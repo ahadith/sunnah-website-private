@@ -70,6 +70,15 @@ a:hover { text-decoration: underline; }
 	padding: 0 7.5px 0 7.5px;
 }
 
+.sawsimg {
+	height: 15px;
+	margin-bottom: -3px;
+}
+
+.saws span {
+	display: none;
+}
+
 #site{
 	background:url(../images/bg_small.png);
 	background-position: center top;
