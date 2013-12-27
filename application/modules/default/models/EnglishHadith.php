@@ -23,8 +23,8 @@ class EnglishHadith extends Hadith
     public function process_text() {
         $processed_text = trim($this->hadithText);
         $processed_text .= "</b>";
-		$oldsawstext = "<img src=\"/images/sallallahu_alaihi_wa_sallam.png\" height=\"15px\" alt=\"sallallahu 'alaihi wa sallam\">";
-		$sawstext = "<span class=saws></span>";
+		$sawstext = "<img class=sawsimg src=\"/images/sallallahu_alaihi_wa_sallam.png\" title=\"sallallahu 'alaihi wa sallam\">";
+		$spansawstext = "<span class=saws><span>saws</span></span>";
 		$to_be_replaced_nb = array (
 							"/PBUH/",
 							"/P.B.U.H./",
