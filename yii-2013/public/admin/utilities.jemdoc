@@ -8,6 +8,8 @@
 
 [update-solr.php Update Solr index]
 
+[update-mobiledb.php Refresh mobile app DB]
+
 === Memcached
 [memcached-stats.php Memcached Stats]
 

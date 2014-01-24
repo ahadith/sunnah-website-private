@@ -68,7 +68,7 @@ return array(
 			'urlFormat'=>'path',
 			'showScriptName'=>false,
 			'rules'=>array(
-				//'(.*)' => 'default/index/maint',
+				// '(.*)' => 'default/index/maint',
 				'' => 'default/index',
 				'about' => 'default/index/about',
 				'news' => 'default/index/news',

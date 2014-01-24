@@ -182,7 +182,7 @@ AND bd.ourBookID = ht.bookID
 SET bd.firstNumber = ht.beginNumber,
 bd.lastNumber = ht.endNumber,
 bd.totalNumber = ht.numHadith WHERE bd.status =4;
-/* Now manually fix the begin/end numbers for some books in Sahih Muslim due to unique numbering scheme */
+/* Now manually fix the begin/end numbers for some books in Sahih Muslim due to unique numbering scheme */;
 update BookData set firstNumber = 377 where collection = 'muslim' and arabicBookID = 4;
 update BookData set firstNumber = 520 where collection = 'muslim' and arabicBookID = 5;
 update BookData set firstNumber = 685 where collection = 'muslim' and arabicBookID = 6;

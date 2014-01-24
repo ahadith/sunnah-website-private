@@ -3,15 +3,21 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="Content-Language" content="EN"/>
-  <meta name="description" content="Hadith of the Prophet Muhammad (saws) in English and Arabic"/>
+  <meta name="description" content="Hadith of the Prophet Muhammad (saws) in several languages"/>
   <meta name="keywords" content="hadith, sunnah, bukhari, muslim, sahih, sunan, tirmidhi, nawawi, holy, arabic, iman, islam, Allah, book, english"/>
   <meta name="Charset" content="UTF-8"/> 
   <meta name="Distribution" content="Global"/>
   <meta name="Rating" content="General"/>
+
+  <meta property="og:image" content="http://sunnah.com/images/fb_logo.png" />
+  <meta property="og:url" content="http://sunnah.com/" />
+  <meta property="og:title" content="Sunnah.com - Sayings and Teachings of Prophet Muhammad (صلى الله عليه و سلم)" />
+  <meta property="og:description" content="Hadith of the Prophet Muhammad (saws) in several languages" />
  
   <link href="/css/all.css" media="screen" rel="stylesheet" type="text/css" />
 
   <link rel="shortcut icon" href="/favicon.ico" >
+  <link rel="image_src" href="/images/fb_logo.png" />
 
   <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>

@@ -142,13 +142,13 @@ class Util extends CModel {
     }
 
 	public function getHadith($urn, $language = "english") {
-		$hadith = Yii::app()->cache->get("urn:".$urn);
+		$hadith = Yii::app()->cache->get($language."urn:".$urn);
 		if ($hadith === false) {
 			if (strcmp($language, "english") == 0) $hadith = EnglishHadith::model()->find("englishURN = :urn", array(':urn' => $urn));
 			if (strcmp($language, "arabic") == 0) $hadith = ArabicHadith::model()->find("arabicURN = :urn", array(':urn' => $urn));
 			if ($hadith) {
 				$hadith->process_text();
-				Yii::app()->cache->set("urn:".$urn, $hadith, Yii::app()->params['cacheTTL']);
+				Yii::app()->cache->set($language."urn:".$urn, $hadith, Yii::app()->params['cacheTTL']);
 			}
 		}
 		return $hadith;

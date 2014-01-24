@@ -26,7 +26,7 @@
 <p><?php include "export_to_solr.php"; ?> </p>
 <div id="footer">
 <div id="footer-text">
-Page generated 2012-12-04 19:41:09 PST, by <a href="http://jemdoc.jaboc.net/">jemdoc</a>.
+Page generated 2013-12-08 17:13:59 PST, by <a href="http://jemdoc.jaboc.net/">jemdoc</a>.
 </div>
 </div>
 </td>

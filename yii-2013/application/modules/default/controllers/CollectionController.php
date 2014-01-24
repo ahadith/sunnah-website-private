@@ -12,6 +12,7 @@ class CollectionController extends Controller
 	protected $_ourBookID;
 	protected $_otherlangs;
 	protected $_ajaxCrawler = false;
+	protected $_ogDesc = "";
 
 	public function filters() {
 		return array(
@@ -46,6 +47,7 @@ class CollectionController extends Controller
 
         $this->pathCrumbs($this->_collection->englishTitle, "/$collectionName");
 		$this->_pageType = "collection";
+		if (strlen($this->_collection->shortintro) > 0) $this->_ogDesc = $this->_collection->shortintro;
         $this->render('index');
     }
     
@@ -74,14 +76,20 @@ class CollectionController extends Controller
         if (!(is_null($hadithNumbers))) $hadithRange = addslashes($hadithNumbers);
         else $hadithRange = NULL;
 		$this->_collection = $this->util->getCollection($collectionName);
-        if (is_null($hadithRange)) $this->_pageType = "book";
+        $this->_ourBookID = $ourBookID;
+		$this->_book = $this->util->getBook($collectionName, $ourBookID);
+        if ($this->_book) $this->_entries = $this->_book->fetchHadith($hadithRange);
+
+        if (is_null($hadithRange)) {
+			$this->_pageType = "book";
+		}
         else {
             $this->_pageType = "hadith";
             $this->pathCrumbs('Hadith', "");
         }
-        $this->_ourBookID = $ourBookID;
-		$this->_book = $this->util->getBook($collectionName, $ourBookID);
-        if ($this->_book) $this->_entries = $this->_book->fetchHadith($hadithRange);
+
+		$pairs = $this->_entries[2];
+		if (isset($this->_entries[0][$pairs[0][0]])) $this->_ogDesc = substr(strip_tags($this->_entries[0][$pairs[0][0]]->hadithText), 0, 300);
 
 		if (strcmp($_escaped_fragment_, "default") != 0) {
 			if ($this->_book->indonesianBookID > 0) $this->_otherlangs['indonesian'] = $this->_book->fetchLangHadith("indonesian");
@@ -105,7 +113,10 @@ class CollectionController extends Controller
 			if (intval($ourBookID) == -1) $lastlink = "introduction";
 			elseif (intval($ourBookID) == -35) $lastlink = "35b";
 			else $lastlink = $ourBookID;
-            $this->pathCrumbs($this->_book->englishBookName, "/".$collectionName."/".$lastlink);
+			$bookTitlePrefix = "";
+			if (strcmp(substr($this->_book->englishBookName, 0, 4), "Book") != 0 && strcmp(substr($this->_book->englishBookName, 0, 7), "Chapter") != 0 && strcmp(substr($this->_book->englishBookName, 0, 4), "The ") != 0)
+				$bookTitlePrefix = "Book of ";
+            $this->pathCrumbs($bookTitlePrefix.$this->_book->englishBookName, "/".$collectionName."/".$lastlink);
         }
         $this->pathCrumbs($this->_collection->englishTitle, "/$collectionName");
         $this->render('dispbook');        

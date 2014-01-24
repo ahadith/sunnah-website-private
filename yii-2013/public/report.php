@@ -45,6 +45,7 @@ if (isset($_POST['submit'])) {
 	$errortype = $_POST['type'];
 	$errortext = $_POST['errortext'];
 	$email = $_POST['email'];
+	if (strlen($email) <= 3) $email = "sunnah@iman.net";
 
 	$flagError = false;
 	if ($errortype == '') $flagError = true;
