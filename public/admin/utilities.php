@@ -26,6 +26,7 @@
 <h3>Hadith Data</h3>
 <p><a href="refresh.php">Update production tables</a></p>
 <p><a href="update-solr.php">Update Solr index</a></p>
+<p><a href="update-mobiledb.php">Refresh mobile app DB</a></p>
 <h3>Memcached</h3>
 <p><a href="memcached-stats.php">Memcached Stats</a></p>
 <p><a href="flush-cache.php?all">Flush Memcached</a> (be careful, this flushes ALL cache data)</p>
@@ -36,7 +37,7 @@ Or delete a specific key:
 </form>
 <div id="footer">
 <div id="footer-text">
-Page generated 2012-12-04 19:41:09 PST, by <a href="http://jemdoc.jaboc.net/">jemdoc</a>.
+Page generated 2013-12-08 17:13:59 PST, by <a href="http://jemdoc.jaboc.net/">jemdoc</a>.
 </div>
 </div>
 </td>

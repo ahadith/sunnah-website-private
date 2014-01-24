@@ -10,9 +10,13 @@
   <meta name="Distribution" content="Global"/>
   <meta name="Rating" content="General"/>
  
+  <meta property="og:image" content="http://sunnah.com/images/hadith_icon2_huge.png" />
+  <?php if (isset($this->_ogDesc)) echo "<meta property=\"og:description\" content=\"".htmlspecialchars($this->_ogDesc)."\" />"; ?>
+
   <link href="/css/all.css" media="screen" rel="stylesheet" type="text/css" />
 
   <link rel="shortcut icon" href="/favicon.ico" >
+  <link rel="image_src" href="/images/hadith_icon2.png" />
 
   <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>

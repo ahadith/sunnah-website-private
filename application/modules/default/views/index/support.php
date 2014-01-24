@@ -6,7 +6,7 @@
 If you have found this site useful, <b>please</b> consider the following:
 <br><br>1. <b>Submit</b> error reports for erroneous hadith that you see. This includes grammatical mistakes, spelling mistakes or any other type of corrections that are needed, especially in the English translations. This helps us in providing a better experience for everyone.
 <br><br>2. <b>Link</b> to us as a hadith resource if you run a website of your own. This increases our visibility in search rankings.
-<br><br>3. <b>Submit</b> feedback on how we can improve your experience on sunnah.com and <b>volunteer</b> your time by <a href="/contact">contacting us</a>. We are especially interested in hearing from you if you are a mobile app developer.
+<br><br>3. <b>Submit</b> feedback on how we can improve your experience on sunnah.com and <b>volunteer</b> your time by <a href="/contact">contacting us</a>. 
 <br><br>4. <b>Support</b> the original translators and publishers of these works. They went through an incredibly painstaking and expensive process digitizing and translating these works for us, so please support them by purchasing the original hard copies.
 <br><br>5. <b>Donate</b> and <b>assist</b> the poor and needy Muslims around the world by contributing to Islamic charities such as <a href="http://www.islamic-relief.com/donations/" target="_blank">Islamic Relief</a>. We know how important it is to assist those in need:<br><br>
 <p style="padding-left: 20px; padding-right: 20px; font-style: italic;">
