@@ -1,5 +1,5 @@
 <?php 
-	$collections = $this->collections; 
+	$collections = $this->_collections; 
 	$num_collections = count($collections);
 	$splitSize=round($num_collections/2, 0, PHP_ROUND_HALF_UP);
 ?>

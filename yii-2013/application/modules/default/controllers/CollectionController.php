@@ -73,6 +73,7 @@ class CollectionController extends Controller
     
     public function actionDispbook($collectionName, $ourBookID, $hadithNumbers = NULL, $_escaped_fragment_ = "default") {
     	$this->_collectionName = $collectionName;
+		$this->_collections = $this->util->getCollectionsInfo('indexed');
         if (!(is_null($hadithNumbers))) $hadithRange = addslashes($hadithNumbers);
         else $hadithRange = NULL;
 		$this->_collection = $this->util->getCollection($collectionName);
@@ -228,6 +229,7 @@ class CollectionController extends Controller
 	
 	public function actionUrn($urn) {
         $englishHadith = NULL; $arabicHadith = NULL;
+		$this->_collections = $this->util->getCollectionsInfo('indexed');
         if (is_numeric($urn)) {
             $lang = "english";
             $englishHadith = $this->util->getHadith($urn, "english");

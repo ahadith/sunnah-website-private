@@ -139,13 +139,7 @@ class SearchController extends Controller
         $this->_viewVars->pageType = "search";
         $this->_pageNumber = $page;
         $this->_resultsPerPage = Yii::app()->params['pageSize'];
-
-        $collections_a = $this->util->getCollectionsInfo();
-        foreach ($collections_a as $collection)
-        	$collections[$collection['name']] = $collection;
-
-        $this->_collections = $collections;
-
+        $this->_collections = $this->util->getCollectionsInfo("indexed");
 		$this->_pages = new CPagination($numFound);
 		$this->_pages->pageSize = Yii::app()->params['pageSize'];
 

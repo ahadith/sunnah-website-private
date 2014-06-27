@@ -16,7 +16,7 @@
     	    echo "<div class=hadith_annotation>";
 			echo "<table class=gradetable cellspacing=0 cellpadding=0 border=0>";
 	        echo "<tr>";
-			if (strlen($englishGrade1) > 0) echo "<td class=english_grade width=\"107px\"><b>Grade</b></td><td class=english_grade width=\"36%\">:&nbsp;<b>".ucfirst(trim($englishGrade1))."</b> (".$this->_collection->englishgrade1.")</td>";
+			if (strlen($englishGrade1) > 0) echo "<td class=english_grade width=\"107px\"><b>Grade</b></td><td class=english_grade width=\"36%\">:&nbsp;<b>".ucfirst(trim($englishGrade1))."</b> (".$this->_collections[$collection]['englishgrade1'].")</td>";
 			else echo "<td height=100% width=40% class=english_grade></td>";
     	    if (strlen($arabicGrade1) > 0) {
 				echo "<td class=\"arabic_grade arabic\">&nbsp;<b> ".$arabicGrade1."</b>";
