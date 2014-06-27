@@ -40,7 +40,7 @@
 		url: '/default/collection/ramadandata',
 		async: false,
 		success: function (data) { $("#ramadancarousel").append(data); },
-	});
+	}); // this is the one to enable
 
     jQuery('#ramadancarousel').jcarousel({
         size: 13,
@@ -82,7 +82,7 @@
 	<div id="topspace"></div>
 
 	<div id=nonheader style="position: relative; margin: 0 10px 0 30px;">
-	<div class="mainCont" style="width: 70%; margin: auto;"><div id="main">
+	<div class="mainCont" style="width: 70%; float: left"><div id="main">
 	        <?php 
 				echo "<div class=clear></div>";
 				echo $content; 
@@ -91,9 +91,9 @@
     </div><!-- main close -->
 	</div> <!-- mainContainer close -->
 
-	<!--<div id=rightPanel style="display: none;">
-		<?php // $this->renderPartial('/index/ramadancarousel') ?>
-	</div>-->
+	<div id=rightPanel>
+		<?php $this->renderPartial('/index/ramadancarousel') ?>
+	</div>
 
 	<div class="clear"></div>
 	</div> <!-- nonheader close -->

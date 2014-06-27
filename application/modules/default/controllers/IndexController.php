@@ -2,7 +2,7 @@
 
 class IndexController extends Controller
 {
-	protected $collections;
+	protected $_collections;
 	protected $_hadithCount;
 
 	/* This function performs page caching  */
@@ -23,7 +23,7 @@ class IndexController extends Controller
 	public function actionIndex()
 	{
 		$this->layout = "/layouts/home";
-        $this->collections = $this->util->getCollectionsInfo();
+        $this->_collections = $this->util->getCollectionsInfo();
         $this->_hadithCount = $this->util->getHadithCount();
 		$this->_pageType = "home";
 		$this->render('index');

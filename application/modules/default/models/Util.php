@@ -13,10 +13,7 @@ class Util extends CModel {
 
 	public function customSelect($aURNs) {
         $eURNs = array();
-        $collections_a = $this->getCollectionsInfo();
-        foreach ($collections_a as $collection)
-            $collections[$collection['name']] = $collection;
-
+        $collections = $this->getCollectionsInfo("indexed");
         $crit = new CDbCriteria;
         $crit->select = '*';
         $crit->addInCondition('arabicURN', $aURNs);
@@ -62,7 +59,7 @@ class Util extends CModel {
 		return $count;
 	}
 	
-	public function getCollectionsInfo() {
+	public function getCollectionsInfo($mode = 'none') {
 		$this->_collectionsInfo = Yii::app()->cache->get("collectionsInfo");
 		if ($this->_collectionsInfo === false) {
 			$connection = Yii::app()->db;
@@ -71,6 +68,11 @@ class Util extends CModel {
 			$command = $connection->createCommand($query);
 			$this->_collectionsInfo = $command->queryAll();
 			Yii::app()->cache->set("collectionsInfo", $this->_collectionsInfo, Yii::app()->params['cacheTTL']);
+		}
+		if (strcmp($mode, "indexed") == 0) {
+			foreach ($this->collectionsInfo as $collection)
+				$collections[$collection['name']] = $collection;
+			return $collections;
 		}
 		return $this->_collectionsInfo;
 	}
