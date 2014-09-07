@@ -36,6 +36,7 @@
 	//	$("#ramadancarousel").innerHTML(data);
 	//});
 
+	/* This is the one to use 
 	$.ajax({
 		url: '/default/collection/ramadandata',
 		async: false,
@@ -47,11 +48,11 @@
 		vertical: false,
 		visible: 1,
 		scroll: 1,
-		auto: 15,
+		auto: 10,
 		wrap: "circular",
 		buttonNextHTML: null,
 		buttonPrevHTML: null,
-    });
+    }); */
   });
   </script>
 
@@ -82,7 +83,8 @@
 	<div id="topspace"></div>
 
 	<div id=nonheader style="position: relative; margin: 0 10px 0 30px;">
-	<div class="mainCont" style="width: 70%; float: left"><div id="main">
+<!--	<div class="mainCont" style="width: 70%; float: left"><div id="main"> -->
+	<div class="mainCont" style="width: 70%; margin: auto"><div id="main">
 	        <?php 
 				echo "<div class=clear></div>";
 				echo $content; 
@@ -91,9 +93,11 @@
     </div><!-- main close -->
 	</div> <!-- mainContainer close -->
 
+<!--
 	<div id=rightPanel>
 		<?php $this->renderPartial('/index/ramadancarousel') ?>
 	</div>
+-->
 
 	<div class="clear"></div>
 	</div> <!-- nonheader close -->
