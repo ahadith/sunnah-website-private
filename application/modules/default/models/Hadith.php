@@ -21,6 +21,7 @@ class Hadith extends CActiveRecord
 {
 
 	public function toJSON() {
+		$json = new StdClass();
 		foreach ($this as $key => $value) $json->$key = $value; 
     	return $json;
 	}

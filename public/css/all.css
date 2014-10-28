@@ -980,3 +980,7 @@ a:hover { text-decoration: underline; }
 	color: #5d8080;
 }
 
+.section {
+	font-size: 16px;
+	font-weight: bold;
+}

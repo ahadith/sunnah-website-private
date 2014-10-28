@@ -1,9 +1,12 @@
 <div class="about">
 <div class=content>
 <br>
+<p align=center style="font-size: 16px;"><b>View our more detailed <a href="/changelog">changelog</a>.</b></p>
+2 June 2013: <a href="/ibnmajah">Sunan ibn Majah</a> is now complete. The Six Books of Hadith are now complete on sunnah.com, alhamdulillah!<br>
 <br>
 5 December 2012: We are beginning to add <b>Urdu</b> translations of Sahih al-Bukhari! Click on 
 the languages checkbox to the left of the book display page.<br>
+5 December 2012: <a href="/nasai">Sunan an-Nasa'i</a> is now complete.<br>
 <br>
 25 November 2012: Beginning a new collection: <a href="/bulugh">Bulugh al-Maram</a> by Imam Ibn Hajr al-Asqalani (ra).<br>
 <br>

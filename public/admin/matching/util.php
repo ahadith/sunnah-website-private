@@ -330,7 +330,7 @@ function appendSQL($queryData, $live, $username) {
 	  if ($live) $liveval = "true";
 	  else $liveval = "false";
       $fullString = "/* Committed by ".$username." at ".$timestamp." (live = ".$liveval.")*/\n".$queryData."\n";
-      $cumulativeFile = fopen("/var/www/hadith/yii/public/admin/matching/matchdata/all.sql", 'a');
+      $cumulativeFile = fopen("matchdata/all.sql", 'a');
       fwrite($cumulativeFile, $fullString);
       fclose($cumulativeFile);
 
@@ -1002,11 +1002,11 @@ function addHadith($urn, $volumeNumber, $bookID, $bookNumber, $bookName, $babNum
 	if (is_null($grade) || strlen($grade) < 1) $gradeSQL = "NULL";
 	else $gradeSQL = "'".$grade."'";
 
-	if ($lang == "english" || $lang == "arabic" || $lang == "indonesian") {
+	//if ($lang == "english" || $lang == "arabic" || $lang == "indonesian") {
 		$valuesString = "('".$collection."',".$urn.",".$volumeNumber.",".$bookID.",".$bookNumber.",'".$bookNameText."',".$babNumber.",'".$babName."',".$hadithNumber.",".$gradeSQL.",'".$hadithText."',".$commentsSQL.")";
 		$insertQuery = "insert into ".$db_name." (collection, ".$lang."URN, volumeNumber, bookID, bookNumber, bookName, babNumber, babName, hadithNumber, grade, hadithText, comments) values ".$valuesString;
 		$retval = modifyDB($insertQuery, $live, $username);
-	}
+	//}
 	return $retval;
 }
 

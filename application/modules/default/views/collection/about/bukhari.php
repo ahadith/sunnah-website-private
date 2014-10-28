@@ -47,6 +47,6 @@ In the year 864/250, he settled in Nishapur. It was there that he met Muslim ibn
 
 <br><br>
 <div class=section>His Death:</div>
-Political problems led him to move to Khartank, a village near Samarkānd where he died in the year 256 A.H./870 A.D.</div>
+Political problems led him to move to Khartank, a village near Samarkānd where he died in the year 256 A.H./870 A.D.
 
 </div>

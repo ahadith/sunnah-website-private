@@ -18,9 +18,10 @@
 	        echo "<tr>";
 			if (strlen($englishGrade1) > 0) echo "<td class=english_grade width=\"107px\"><b>Grade</b></td><td class=english_grade width=\"36%\">:&nbsp;<b>".ucfirst(trim($englishGrade1))."</b> (".$this->_collections[$collection]['englishgrade1'].")</td>";
 			else echo "<td height=100% width=40% class=english_grade></td>";
-    	    if (strlen($arabicGrade1) > 0) {
+    	    if (strlen($arabicGrade1) > 0 && !is_null($arabicGrade1)) {
+				Yii::trace("our hadith number is ".$ourHadithNumber);
 				echo "<td class=\"arabic_grade arabic\">&nbsp;<b> ".$arabicGrade1."</b>";
-				echo "&nbsp;&nbsp; (".$this->_collection->arabicgrade1.") </td>";
+				echo "&nbsp;&nbsp; (".$this->_collections[$collection]['arabicgrade1'].") </td>";
 				echo "<td class=\"arabic_grade arabic\" width=\"57px\"><b>حكم</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</td>";
 			}
 			else echo "<td height=100% width=60% class=arabic_grade></td>";

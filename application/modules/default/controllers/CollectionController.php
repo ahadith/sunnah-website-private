@@ -130,6 +130,61 @@ class CollectionController extends Controller
 		$this->customSelect($aURNs, true, true);
 	}
 
+	public function actionSocialmedia() {
+		$aURNs = array(158030, 
+			155850, 
+			724820, 
+			100130, 
+			368971, 
+			948360, 
+			721230, 
+			725620, 
+			153320,
+			173800,
+			367980,
+			721100,
+			721130,
+			/* Hadith Musnad Ahmad */
+			302050,
+			/* 1343270 unverified */
+			174310,
+			720550,
+			153400,
+			149460,
+			155870,
+			367820,
+			2304230,
+			303030,
+			/* 1342400 unverified */
+			949930,
+			162970,
+			160180,
+			161590,
+			/* 735080 unverified */
+			153940,
+			728370,
+			948030,
+			1341710,
+			/* 1333750 unverified */
+			123240,
+			144010,
+			155191,
+			725881,
+			/* 726910 unverified */
+
+			350410,
+			172440,
+			/* 1302380 unverified */
+
+			/* Hadith Musnad Ahmad */
+			380090
+ 		);
+		$this->_viewVars->pageTitle = "40 Hadith on Social Media";
+        $this->_viewVars->showChapters = false;
+		$this->pathCrumbs($this->_viewVars->pageTitle, "");
+		$this->customSelect($aURNs, false, false);
+	}
+
 	public function actionRamadan() {
 		$aURNs = $this->util->getRamadanURNs();
 		$this->_viewVars->pageTitle = "Ramadan Selection";
@@ -258,6 +313,7 @@ class CollectionController extends Controller
         	$this->_collection = $this->util->getCollection($this->_collectionName);
         }
 
+		$this->_viewVars = new StdClass();
         $this->_viewVars->englishEntry = $englishHadith;
         $this->_viewVars->arabicEntry = $arabicHadith;
         $this->_viewVars->pageType = "hadith";

@@ -77,6 +77,7 @@ return array(
 				'searchtips' => 'default/index/searchtips',
 				'tce' => 'default/collection/tce',
 				'ramadan' => 'default/collection/ramadan',
+				'socialmedia' => 'default/collection/socialmedia',
 				'urn/<urn:\d+>' => 'default/collection/urn',
 
 				'ajax/<lang:\w+>/<collection>/<ourBookID>' => 'default/collection/ajaxHadith/collectionName/<collection>/ourBookID/<ourBookID>/lang/<lang>',

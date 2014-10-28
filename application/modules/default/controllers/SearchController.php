@@ -43,6 +43,7 @@ class SearchController extends Controller
 	public function actionSearch($query, $page = 1) {
 		$query = stripslashes($this->url_decode($query));
 		//Yii::log("query is ".$query);
+		$this->_viewVars = new StdClass();
         $this->_searchQuery = $query; $this->_pageType = "search";
         $this->pathCrumbs('Search Results - '.htmlspecialchars($query).' (page '.$page.')', '');
         if (strlen($query) < 1) return NULL;
