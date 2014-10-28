@@ -37,8 +37,10 @@ else {
 	$pairs = $this->_entries[2];
 	$totalCount = count($pairs);
 	$chapters = $this->_chapters;
+	$showChapters = true;
 	if (isset($this->_viewVars->showBookNames)) $showBookNames = $this->_viewVars->showBookNames;
 	if (isset($this->_viewVars->showChapterNumbers)) $showChapterNumbers = $this->_viewVars->showChapterNumbers;
+	if (isset($this->_viewVars->showChapters)) $showChapters = $this->_viewVars->showChapters;
 	
 	echo "<div class=bookheading><div align=center style=\"font-size: 30px;\">".$this->_viewVars->pageTitle."</div></div>";
 	echo "<div class=bookintro></div>";
@@ -79,14 +81,16 @@ else {
 							}
 							$oldBookID = $arabicEntry->bookID;
 							Yii::trace("arabicURN is ".$arabicEntry->arabicURN);
-							displayBab($chapters[$arabicEntry->arabicURN], $showChapterNumbers);
+							if ($showChapters) displayBab($chapters[$arabicEntry->arabicURN], $showChapterNumbers);
 							$oldBabID = $chapters[$arabicEntry->arabicURN]->arabicBabNumber;
 						}
 						elseif ($oldBabID != $chapters[$arabicEntry->arabicURN]->arabicBabNumber) {
-							displayBab($chapters[$arabicEntry->arabicURN], $showChapterNumbers);
+							if ($showChapters) displayBab($chapters[$arabicEntry->arabicURN], $showChapterNumbers);
 							$oldBabID = $chapters[$arabicEntry->arabicURN]->arabicBabNumber;
 						}
 
+						echo '<div class="hadith_icon" style="float: left; margin-left: -23px;"></div>';
+						echo '<div class="hadith_icon" style="float: right; margin-right: -23px;"></div>';
 						echo "<div class=actualHadithContainer id=h".$arabicEntry->arabicURN.">\n";				
 						echo $this->renderPartial('/collection/printhadith', array(
 							'arabicEntry' => $arabicEntry,

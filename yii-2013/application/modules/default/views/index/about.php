@@ -10,6 +10,7 @@
 4. <a href="#ImportantNote">Important Note</a><br>
 5. <a href="#SourcesNumbering">Sources, Numbering, and Grading</a><br>
 6. <a href="#Misc">Miscellaneous</a><br>
+7. <a href="#Reproduction">Reproduction, Copying, Scraping</a><br>
 </div>
 
 <br><hr><br>
@@ -88,8 +89,7 @@ scholars and publications (the numbering of Muhammad Fuad Abdul Baaqi is one suc
 slowly. You can see an example <a href="http://sunnah.com/bukhari/2/">here</a>.
 <br><br>
 
-If the text numbering in a book has been checked and verified, it will say so
-at the top of the book page. If there is no mention of this, it means it is still
+If the text and numbering in a book has been checked and verified, it will display a reference number in bold. Otherwise it means it is still
 in progress and the Arabic references numbers may not be exact in that case.<br>
 
 <!--For a more concrete example, Book 9 in the English translation by Shaykh Muhsin Khan
@@ -114,4 +114,10 @@ al-Arna'ut, Ahmad Shakir, and Abu Ghuddah wherever applicable.<br>
 We ask that you to keep all those people who worked on this website in your du'a and help by <a href="/support">supporting us</a>.
 </div>
 
+<br>
+<a name="Reproduction"><div class=section>7. Reproduction, Copying, Scraping</div></a>
+<div class=content>
+We do not permit the scraping of our data, nor mass reproduction of entire books or collections on other websites. Our data is undergoing continuous refinement.
+Reproducing individual hadith or selections of hadith for a teaching/didactic/presentation purpose is permitted. 
+</div>
 </div>

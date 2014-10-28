@@ -28,19 +28,19 @@
 <ul>
 <li><p>Hadith Typing project</p>
 <ul>
-<li><p>Jami&lsquo; at-Tirmidhi (hyaziz, abumaahi) <tt>in progress</tt></p>
+<li><p>Jami&lsquo; at-Tirmidhi (hyaziz, abumaahi, Alperen) <tt>complete</tt></p>
 </li>
-<li><p>Sunan an-Nasai (hyaziz, snwahdy) <tt>in progress</tt></p>
+<li><p>Sunan an-Nasai (hyaziz, snwahdy) <tt>complete</tt></p>
 </li>
-<li><p>Sunan Abi Dawud (abumaahi) <tt>in progress</tt></p>
+<li><p>Sunan Abi Dawud (abumaahi) <tt>complete</tt></p>
 </li>
-<li><p>Bulugh al-Mar'am (Karim, mansoor) <tt>in progress</tt></p>
+<li><p>Bulugh al-Mar'am (Karim, mansoor, Hira, Alperen) <tt>in progress</tt></p>
 </li>
-<li><p>Muqaddimah of Sahih Muslim <tt>to begin</tt></p>
+<li><p>Muqaddimah of Sahih Muslim <tt>acquired, complete</tt></p>
 </li>
 <li><p>Hisn ul Muslim <tt>to begin</tt></p>
 </li>
-<li><p>110 Hadith Qudsi</p>
+<li><p>110 Hadith Qudsi <tt>under consideration</tt></p>
 </li>
 </ul>
 
@@ -51,26 +51,28 @@
 <ul>
 <li><p>Sunan an-Nasai (Karim) <tt>complete</tt></p>
 </li>
-<li><p>Sunan ibn Majah (Karim) <tt>in progress</tt></p>
+<li><p>Sunan ibn Majah (Karim, Hidayath) <tt>complete</tt></p>
 </li>
 </ul>
 
 </li>
 </ul>
 <ul>
-<li><p>Importing Arabic and English for Al-Adab al-Mufrad (Karim) <tt>in progress</tt></p>
+<li><p>Importing Arabic and English for Al-Adab al-Mufrad (Karim) <tt>complete</tt></p>
 </li>
 </ul>
 <ul>
 <li><p>Arabic re-numbering project</p>
 <ul>
-<li><p>Sahih Muslim (Hussam, Ahmad) <tt>in progress, volunteers needed</tt></p>
+<li><p>Sahih Muslim (Hussam, Ahmad) <tt>complete</tt></p>
 </li>
 <li><p>Sahih al-Bukhari (ansari) <tt>in progress</tt></p>
 </li>
 <li><p>Jami&lsquo; at-Tirmidhi (ansari) <tt>in progress</tt></p>
 </li>
 <li><p>Sunan an-Nasa'i (ansari) <tt>in progress</tt></p>
+</li>
+<li><p>Sunan ibn Majah (ansari) <tt>in progress</tt></p>
 </li>
 </ul>
 
@@ -83,9 +85,9 @@
 <ul>
 <li><p>Add/Verify chapter names</p>
 <ul>
-<li><p>Sahih Muslim (Hussam, Ahmad) <tt>in progress, volunteers needed</tt></p>
+<li><p>Sahih Muslim (Hussam, Ahmad) <tt>complete</tt></p>
 </li>
-<li><p>Sahih al-Bukhari (Raffiqu, Khalid) <tt>in progress, volunteers needed</tt></p>
+<li><p>Sahih al-Bukhari (Raffiqu, Khalid) <tt>complete</tt></p>
 </li>
 <li><p>Sunan Abi Dawud (farzana) <tt>complete</tt></p>
 </li>
@@ -104,7 +106,7 @@
 <ul>
 <li><p>Adding cross-references to ahadith</p>
 <ul>
-<li><p>Nawawi's 40 Hadith (Abdul Aziz Khawaja) <tt>in progress</tt></p>
+<li><p>Nawawi's 40 Hadith (Abdul Aziz Khawaja, Khalid) <tt>complete</tt></p>
 </li>
 </ul>
 
@@ -113,7 +115,7 @@
 <ul>
 <li><p>English Matching project</p>
 <ul>
-<li><p>Jami&lsquo; at-Tirmidhi (ansari) <tt>in progress</tt></p>
+<li><p>Jami&lsquo; at-Tirmidhi (ansari) <tt>complete</tt></p>
 </li>
 </ul>
 
@@ -168,12 +170,12 @@
 </li>
 </ul>
 <ul>
-<li><p>Locate translations in Urdu</p>
+<li><p>Locate translations in Urdu <tt>in progress</tt></p>
 </li>
 </ul>
 <div id="footer">
 <div id="footer-text">
-Page generated 2012-12-04 19:41:10 PST, by <a href="http://jemdoc.jaboc.net/">jemdoc</a>.
+Page generated 2014-09-11 20:58:54 PST, by <a href="http://jemdoc.jaboc.net/">jemdoc</a>.
 </div>
 </div>
 </td>
