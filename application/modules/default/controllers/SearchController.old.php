@@ -39,24 +39,10 @@ class SearchController extends Controller
 
         $this->render('advanced'); /* This line goes at the end*/
 	}
-
-	public function actionOldsearch($query, $page = 1) {
-		$query = stripslashes($this->url_decode($query));
-		$this->processSearch($query, $page);
-	}
     
-	public function actionSearch() {
-		$page = 1;
-		if (isset($_GET['q'])) {
-			$query = $_GET['q'];
-			if (isset($_GET['page'])) $page = $_GET['page'];
-			$this->processSearch($query, $page);
-		}
-		else $this->render('/index/index');
-
-	}
-
-	public function processSearch($query, $page) {
+	public function actionSearch($query, $page = 1) {
+		$query = stripslashes($this->url_decode($query));
+		//Yii::log("query is ".$query);
 		$this->_viewVars = new StdClass();
         $this->_searchQuery = $query; $this->_pageType = "search";
         $this->pathCrumbs('Search Results - '.htmlspecialchars($query).' (page '.$page.')', '');
@@ -158,7 +144,7 @@ class SearchController extends Controller
 		$this->_pages = new CPagination($numFound);
 		$this->_pages->pageSize = Yii::app()->params['pageSize'];
 
-        $this->render('/search/index');
+        $this->render('index');
 	}
 
 	public function url_decode($link) {

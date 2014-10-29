@@ -10,8 +10,8 @@
 
 	<div style="width: 380px; margin: auto;">
 	<div id="indexsearch" class="idxsblur">
- 	 	<form name="searchform" action="/search_redirect.php" method=get id="searchform">
-       		<input type="text" class="indexsearchquery" name=query value="Search &#8230;" />
+ 	 	<form name="searchform" action="/search/" method=get id="searchform">
+       		<input type="text" class="indexsearchquery" name=q value="Search &#8230;" />
 			<input type="image" src="/images/search_small.png" class="indexsearchsubmit" value="" />
 		</form>
 	</div>

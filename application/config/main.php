@@ -92,8 +92,9 @@ return array(
 				'qudsi40/<hadithNumbers:\d+>' => array('default/collection/dispbook/collectionName/qudsi40/ourBookID/1/hadithNumbers/<hadithNumbers>', 'defaultParams' => array('_escaped_fragment_' => 'default')),
 				'qudsi40' => array('default/collection/dispbook/collectionName/qudsi40/ourBookID/1', 'defaultParams' => array('_escaped_fragment_' => 'default')),
 		
-				'search/<query>/<page:\d+>' => 'default/search/search',
-				'search/<query>' => 'default/search/search',
+				'search/<query>/<page:\d+>' => 'default/search/oldsearch',
+				'search/<query>' => 'default/search/oldsearch',
+				'search/' => 'default/search/search',
 				'advanced' => 'default/search/advanced',
 
 				'yiiadmin/flushcache' => 'default/index/flushcache',
