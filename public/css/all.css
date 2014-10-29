@@ -368,10 +368,13 @@ a:hover { text-decoration: underline; }
 .searchsubmit {
 	border:0px;
 	background-color:transparent;
+        background-size: 17px 17px;
+        cursor: pointer;
 	position:absolute;
 	top:5px;
 	left:253px;
 	height:17px;
+	width:17px;
 }
 
 .indexsearchtipslink {
