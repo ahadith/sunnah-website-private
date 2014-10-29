@@ -11,6 +11,7 @@ if (!isset($delay_headers)) {
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
     <title><?php echo $page_title; ?></title>
     <link href="style.css" rel="stylesheet" type="text/css" />
+    <link href="menu_style.css" rel="stylesheet" type="text/css" />
 
   <script type="text/javascript">
     var _gaq = _gaq || [];
@@ -33,7 +34,6 @@ if (!isset($delay_headers)) {
 <div class="contentPane">
 
 
-<style media="all" type="text/css">@import "menu_style.css";</style>
 <div class="menu">
   <ul>
     <li><a href="/admin/matching/?lang=<?php echo $lang;?>">Home</a></li>

@@ -12,7 +12,7 @@
 	<div id="indexsearch" class="idxsblur">
  	 	<form name="searchform" action="/search/" method=get id="searchform">
        		<input type="text" class="indexsearchquery" name=q value="Search &#8230;" />
-			<input type="image" src="/images/search_small.png" class="indexsearchsubmit" value="" />
+                <input type="submit" style="background-image: url('/images/search_small.png'); border: solid 0px #000000;" class="indexsearchsubmit" value="" />
 		</form>
 	</div>
 	<a class="indexsearchtipslink" style="font-size: 12px;">Search Tips</a>
