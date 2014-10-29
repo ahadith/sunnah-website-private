@@ -1,0 +1,9 @@
+# jemdoc: menu{MENU}{utilities.php}
+{{<?php include "matching/checklogin.php"; ?> }}
+
+== Update Mobile App DB
+
+{{<?php include "sendmobiledbupdatecommand.php"; ?> }}
+
+
+
