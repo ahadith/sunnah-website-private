@@ -51,13 +51,15 @@ class CollectionController extends Controller
         $this->render('index');
     }
     
-    public function actionAbout($collectionName) {
+    public function actionAbout($collectionName, $splpage = NULL) {
 		$this->_collection = $this->util->getCollection($collectionName);
     	$this->_collectionName = $collectionName;
         $this->_pageType = "about";
         $this->pathCrumbs("About", "");
         $this->pathCrumbs($this->_collection->englishTitle, "/$collectionName");
+		$this->_viewVars = new StdClass();
         $this->_viewVars->aboutInfo = $this->_collection->about;
+		if (!is_null($splpage)) $this->_viewVars->splpage = $splpage;
         $this->render('about');
     }
 
@@ -313,7 +315,7 @@ class CollectionController extends Controller
         	$this->_collection = $this->util->getCollection($this->_collectionName);
         }
 
-		$this->_viewVars = new StdClass();
+		//$this->_viewVars = new StdClass();
         $this->_viewVars->englishEntry = $englishHadith;
         $this->_viewVars->arabicEntry = $arabicHadith;
         $this->_viewVars->pageType = "hadith";
