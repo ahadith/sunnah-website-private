@@ -1,11 +1,16 @@
     function openquran(surah, beginayah, endayah) {
         window.open("http://quran.com/"+(surah+1)+"/"+beginayah+"-"+endayah, "quranWindow", "resizable = 1, fullscreen = 1");
     }
+
     function reportHadith(urn) {
         window.open("/report.php?urn="+urn, "reportWindow", "scrollbars = yes, resizable = 1, fullscreen = 1, location = 0, toolbar = 0, width = 500, height = 700");
     }
 
-	function permalink(link) {
+    function reportHadith2(urn) {
+        window.open("/report.php?urn="+urn, "reportWindow", "scrollbars = yes, resizable = 1, fullscreen = 1, location = 0, toolbar = 0, width = 500, height = 700");
+    }
+
+    function permalink(link) {
 		$(".permalinkboxcontent").load("/permalink_pp.php?link="+link);
 		$("#fuzz").show();
 	}
