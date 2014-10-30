@@ -7,7 +7,7 @@
     }
 
     function reportHadith2(urn) {
-        window.open("/report.php?urn="+urn, "reportWindow", "scrollbars = yes, resizable = 1, fullscreen = 1, location = 0, toolbar = 0, width = 500, height = 700");
+        
     }
 
     function permalink(link) {
@@ -224,6 +224,8 @@
 		setLangCookie();
 	}
 	else {
-		langDisplay = JSON.parse($.cookie('langprefs13'));
+		cookieLang = JSON.parse($.cookie('langprefs13'));
+		if ("avbl_languages" in window && $.inArray(cookieLang, avbl_languages) == -1) langDisplay = "english"
+		else langDisplay = cookieLang;
 	}
 

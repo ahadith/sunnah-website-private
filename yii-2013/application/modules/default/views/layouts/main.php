@@ -35,7 +35,9 @@
 	    var bookID = '<?php echo $this->_ourBookID; ?>';
 		var pageType = 'hadithtext';
 		var spshowing = <?php if (count($langarray) > 0) echo "true"; else echo "false"; ?>;
-	</script>
+		<?php
+            if (count($langarray) > 0) echo "var avbl_languages = ".json_encode($langarray).";\n";
+        ?>	</script>
   <?php } ?>
 	<script>
 	<?php if (strcmp($this->_pageType, "search") == 0) echo "var searchQuery = '".addslashes($this->_searchQuery)."';";  ?>
