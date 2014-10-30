@@ -16,7 +16,7 @@ class SearchController extends Controller
     protected $_pageNumber;
     protected $_resultsPerPage;
     protected $_message;
-	protected $_pages;
+    protected $_pages;
 
 /*	Commenting out the caching while Karim makes advanced search */
 /*

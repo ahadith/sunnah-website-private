@@ -983,7 +983,13 @@ a:hover { text-decoration: underline; }
 }
 
 .about a {
-	color: #5d8080;
+    color: #5d8080;
+}
+
+.abouttitle {
+	text-align: center;
+	font-weight: bold;
+	font-size: 17px;
 }
 
 .section {
