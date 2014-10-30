@@ -11,6 +11,7 @@ class Controller extends CController
 	public function __construct($id, $module = NULL) {
 		parent::__construct($id, $module);
 		$this->util = new Util();
+		$this->_viewVars = new StdClass();
 	}
 
 	/**

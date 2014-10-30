@@ -105,6 +105,7 @@ return array(
 				'<collectionName:\w+>/about' => 'default/collection/about',
 				'muslim/introduction' => array('default/collection/dispbook/collectionName/muslim/ourBookID/-1', 'defaultParams' => array('_escaped_fragment_' => 'default')),
 				'ibnmajah/introduction' => array('default/collection/dispbook/collectionName/ibnmajah/ourBookID/-1', 'defaultParams' => array('_escaped_fragment_' => 'default')),
+				'abudawud/letter' => array('default/collection/about/collectionName/abudawud/splpage/adletter', 'defaultParams' => array('_escaped_fragment_' => 'default')),
 				'nasai/35b' => array('default/collection/dispbook/collectionName/nasai/ourBookID/-35', 'defaultParams' => array('_escaped_fragment_' => 'default')),
 				'<collectionName:\w+>/index' => 'default/collection/colindex',
 				'<collectionName:\w+>/<ourBookID:\d+>' => array('default/collection/dispbook', 'defaultParams' => array('_escaped_fragment_' => 'default')),
