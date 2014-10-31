@@ -6,6 +6,9 @@
 	else $aboutpath = "about/".$this->_collectionName.".php";
  
 	$path = dirname(__FILE__)."/".$aboutpath;
-	if (realpath($path)) include $aboutpath;
+	if (realpath($path)) {
+		echo "<div class=abouttitle>About ".$this->_collection->englishTitle."</div>";
+		include $aboutpath;
+	}
 	else echo "Either the collection name is invalid, or we haven't yet added information for this collection yet. Please bear with us. ".$aboutpath;
 ?>

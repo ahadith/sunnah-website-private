@@ -990,6 +990,9 @@ a:hover { text-decoration: underline; }
 	text-align: center;
 	font-weight: bold;
 	font-size: 17px;
+	padding-left: 10%;
+	padding-top: 10px;
+	width: 70%;
 }
 
 .section {
