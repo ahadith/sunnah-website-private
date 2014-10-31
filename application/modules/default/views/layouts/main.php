@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="Content-Language" content="EN"/>
   <meta name="description" content="Hadith of the Prophet Muhammad (saws) in English and Arabic"/>
-  <meta name="keywords" content="hadith, sunnah, bukhari, muslim, sahih, sunan, tirmidhi, nawawi, holy, arabic, iman, islam, Allah, book, english"/>
+  <meta name="keywords" content="hadith, hadeeth, sunnah, bukhari, muslim, sahih, sunan, tirmidhi, nawawi, holy, arabic, iman, islam, Allah, book, english"/>
   <meta name="Charset" content="UTF-8"/> 
   <meta name="Distribution" content="Global"/>
   <meta name="Rating" content="General"/>

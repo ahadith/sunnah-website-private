@@ -30,7 +30,7 @@ else {
 				<div class=colindextitle style="padding-right: 20px;">
 				<?php
 				echo $this->_collection->shortintro; 
-				echo "<br><a href=\"/$collectionName/about\">More information</a>\n\n"; ?>
+				echo "<br><div align=right><a href=\"/$collectionName/about\">More information</a></div>\n\n"; ?>
 				</div>
 				<?php
 			}

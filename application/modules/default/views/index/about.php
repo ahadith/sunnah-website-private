@@ -7,10 +7,11 @@
 1. <a href="#SiteObjective">Site Objective</a><br>
 2. <a href="#AboutHadith">About Hadith</a><br>
 3. <a href="#AboutTheWebsite">About The Website</a><br>
-4. <a href="#ImportantNote">Important Note</a><br>
-5. <a href="#SourcesNumbering">Sources, Numbering, and Grading</a><br>
-6. <a href="#Misc">Miscellaneous</a><br>
-7. <a href="#Reproduction">Reproduction, Copying, Scraping</a><br>
+4. <a href="#Fonts">Fonts</a><br>
+5. <a href="#ImportantNote">Important Note</a><br>
+6. <a href="#SourcesNumbering">Sources, Numbering, and Grading</a><br>
+7. <a href="#Misc">Miscellaneous</a><br>
+8. <a href="#Reproduction">Reproduction, Copying, Scraping</a><br>
 </div>
 
 <br><hr><br>
@@ -38,12 +39,12 @@ and not all hadith in all collections are necessarily authentic.
 <a name="AboutTheWebsite"><div class=section>3. About the Website</div></a>
 <div class=content>
 The hadith collections currently available can be seen on the <a href="/">homepage</a>.
-We are working on importing hadith from other major collections as well, 
-such as the sunans of Imams Ibn Majah, Tirmidhi, An-Nasai, and Abu Dawud. 
+We are working on importing hadith from other major collections as well. 
 <br><br> 
-We currently support full search of both the English text of the hadith as well as the Arabic through
-a powerful search engine based on <a href="http://lucene.apache.org">Lucene</a>. 
-Feel free to try out Lucene's <a href="http://lucene.apache.org/java/2_4_0/queryparsersyntax.html">query syntax</a> 
+We support full search of both the English text of the hadith as well as the Arabic through
+a powerful search engine based on <a href="http://lucene.apache.org">Lucene</a>. To improve your
+search experience, browse through our <a href="/searchtips">Search Tips</a> and 
+Lucene's <a href="http://lucene.apache.org/java/2_4_0/queryparsersyntax.html">query syntax</a> 
 to create custom and accurate search queries.
 <br><br>
 </div>
@@ -57,11 +58,19 @@ as rulings by themselves; scholars have a sophisticated process using
 the principles of fiqh to come up with rulings. We do not advocate do-it-yourself
 fiqh using these hadith for those who are untrained in these principles.
 If you have a question on a specific ruling, please ask your local scholar.
-</div>
+</div><br>
 
+<a name="Fonts"><div class=section>4. Fonts</div></a>
+<div class=content>
+In order to best view the content on our website, we recommend
+downloading and installing the <a href="http://fonts.qurancomplex.gov.sa/?page_id=608">
+KFGQPC Uthman Taha Naskh font</a>. Any Arabic font with a complete set of ligatures
+will also do. In particular, we use a Unicode character ﷺ to represent <i>sallallahu `alaihi wa sallam</i>.
+If you do not see the character in the previous sentence, your font does not fully support Arabic.
+For Urdu we recommend any Nastaliq font (such as <a href="http://www.urdujahan.com/urdu-fonts/Jameel%20Noori%20Nastaleeq.zip">Jameel Noori</a>).
+</div></br>
 
-<br>
-<a name="SourcesNumbering"><div class=section>5. Sources, numbering, and grading</div></a>
+<a name="SourcesNumbering"><div class=section>6. Sources, numbering, and grading</div></a>
 <div class=content>
 The Arabic text on our website is sourced from <a href="http://www.al-eman.com">al-eman.com</a>
 and <a href="http://hadith.al-islam.com">hadith.al-islam.com</a>. For the English
@@ -109,13 +118,13 @@ al-Arna'ut, Ahmad Shakir, and Abu Ghuddah wherever applicable.<br>
 
 
 <br>
-<a name="Misc"><div class=section>6. Misc</div></a>
+<a name="Misc"><div class=section>7. Misc</div></a>
 <div class=content>
 We ask that you to keep all those people who worked on this website in your du'a and help by <a href="/support">supporting us</a>.
 </div>
 
 <br>
-<a name="Reproduction"><div class=section>7. Reproduction, Copying, Scraping</div></a>
+<a name="Reproduction"><div class=section>8. Reproduction, Copying, Scraping</div></a>
 <div class=content>
 We do not permit the scraping of our data, nor mass reproduction of entire books or collections on other websites. Our data is undergoing continuous refinement.
 Reproducing individual hadith or selections of hadith for a teaching/didactic/presentation purpose is permitted. 
