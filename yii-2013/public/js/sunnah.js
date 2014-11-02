@@ -2,12 +2,82 @@
         window.open("http://quran.com/"+(surah+1)+"/"+beginayah+"-"+endayah, "quranWindow", "resizable = 1, fullscreen = 1");
     }
 
-    function reportHadith(urn) {
+    function reportHadith_old(urn) {
         window.open("/report.php?urn="+urn, "reportWindow", "scrollbars = yes, resizable = 1, fullscreen = 1, location = 0, toolbar = 0, width = 500, height = 700");
     }
 
-    function reportHadith2(urn) {
-        
+	var openre = "";
+	
+    function reportHadith(eurn, divname) {
+		// first check if some other RE panel is open.
+		// if it is and it's not this one, close it and destroy the captcha.
+		// otherwise if it's this one, toggle it off (animated), return
+		// 
+		// set up this panel and display it
+
+		var reel = $("#re"+divname);
+		var openreel = $("#re"+openre);
+	
+		if (openre.length > 0) {
+			if (openre == divname) {
+				reel.toggle(400, function() {openreel.remove(); });
+				openre = "";
+				return;
+			}
+			else {
+				$("#re"+openre).toggle();
+				openreel.remove()
+				openre = "";
+			}
+		}
+
+		$.get("/report.php", {eurn: eurn, hid: divname}, function (data) {
+			$("#"+divname+" .bottomItems").append(data);
+			
+			Recaptcha.create("6Ld7_PwSAAAAAH0CMHBshuY5t3z4dTHeUTsu4iey", "rerec"+divname,
+				{
+					theme: "red"
+					//callback: Recaptcha.focus_response_field
+				}
+			);
+
+			openre = divname;
+			$("#reform"+divname).submit(function(event) {
+				event.preventDefault();
+				
+				if (!$("#reform"+divname+" input[name=type]:checked").length) {
+					$("#reresp"+divname).html("Please choose the type of error.");			
+				}
+				else if ($("#reform"+divname+" input[name=type]:checked").val() == "other"
+						&& $("#reform"+divname+" input[name=othererror]").val().length < 1) {
+					$("#reresp"+divname).html("Please specify the type of error.");
+				}
+				else if ($("#reform"+divname+" input[name=emailme]").is(':checked') 
+						&& $("#reform"+divname+" input[name=email]").val().length < 1) {
+					$("#reresp"+divname).html("Please enter an email address.");
+				}
+				else {
+					$.ajax({
+						type: "POST",
+						url: "/processer.php",
+						data: $("#reform"+divname).serialize(),
+						success: function(data) {
+							var dataObj = $.parseJSON(data);
+							if (dataObj.status == 0) {
+								$("#reresp"+divname).css('color', 'rgb(117, 161, 161');
+								$("#reresp"+divname).css('font-weight', 'bold');
+								$("#reresp"+divname).css('font-size', '15px');
+								$(".resubmit").toggle();
+ 							}
+							$("#reresp"+divname).html(dataObj.message);
+						}
+					});
+				}
+			});
+			
+			$("#re"+divname).toggle(400);
+
+		});
     }
 
     function permalink(link) {
@@ -48,7 +118,7 @@
 			$("#header").css('top', '0');
 			$("#topspace").css('display', 'block');
 			$("#toolbar").css('display', 'none');
-			$("#search").css('bottom', '29px'); // crumbs height + 10 bottom padding
+			$("#search").css('bottom', '31px'); // crumbs height + 12 bottom padding
 			$("#sidePanel").css({'position': 'fixed', 'top': '65px', 'left': $(".mainContainer").position().left - $("#sidePanel").width() - 55}); // last number is sidePanelContainer padding
 		}
 		else {

@@ -82,6 +82,7 @@ class CollectionController extends Controller
         $this->_ourBookID = $ourBookID;
 		$this->_book = $this->util->getBook($collectionName, $ourBookID);
         if ($this->_book) $this->_entries = $this->_book->fetchHadith($hadithRange);
+		$this->_viewVars->lastUpdated = $this->_entries[3];
 
         if (is_null($hadithRange)) {
 			$this->_pageType = "book";

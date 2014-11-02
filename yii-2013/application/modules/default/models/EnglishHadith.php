@@ -20,7 +20,7 @@
 class EnglishHadith extends Hadith
 {
 
-    public function process_text() {
+	public function process_text() {
         $processed_text = trim($this->hadithText);
         $processed_text .= "</b>";
 		$imgsawstext = "<img class=sawsimg src=\"/images/sallallahu_alaihi_wa_sallam.png\" title=\"sallallahu 'alaihi wa sallam\">";

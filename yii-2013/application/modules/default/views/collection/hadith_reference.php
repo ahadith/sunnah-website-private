@@ -9,7 +9,8 @@
 			$collectionEnglishTitle = $values[12];
 			$permalink = "/urn/".$values[0];
 			$englishGrade1 = $values[13]; $arabicGrade1 = $values[14];
-			if (isset($values[15])) $hideReportError = $values[15];
+			$divname = $values[16];
+			$hideReportError = $values[15];
 
 			echo "<div class=bottomItems>\n";
 	    if (strlen($englishGrade1) > 0 or strlen($arabicGrade1) > 0) {
@@ -130,7 +131,7 @@
 			//echo "<a href=\"javascript:sharethis()\">Share</a>";
 			//echo "<a href=\"javascript:permalink('$permalink');\">Permalink</a>";
 			echo "<a href=\"$permalink\">Permalink</a>";
-			if (!isset($hideReportError) or !$hideReportError) echo " | <a href=\"javascript: void(0);\" onclick=\"reportHadith(".$values[0].")\">Report Error</a>";
+			if (!isset($hideReportError) or !$hideReportError) echo " | <a href=\"javascript: void(0);\" onclick=\"reportHadith(".$values[0].", '".$divname."')\">Report Error</a>";
 			echo "</div>";
 
 			echo "\n</div>";

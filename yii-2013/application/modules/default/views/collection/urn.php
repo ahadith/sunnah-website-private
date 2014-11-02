@@ -51,7 +51,7 @@
 				$englishEntry->hadithNumber,
 				$arabicEntry->bookNumber,
 				$arabicEntry->hadithNumber,
-				$ourHadithNumber, $collection, $ourBookID, $collectionHasBooks, $collectionHasVolumes, $status, $this->_collection->englishTitle, $englishEntry->grade1, $arabicEntry->grade1)
+				$ourHadithNumber, $collection, $ourBookID, $collectionHasBooks, $collectionHasVolumes, $status, $this->_collection->englishTitle, $englishEntry->grade1, $arabicEntry->grade1, false, "h".$arabicEntry->arabicURN)
         ));	
 						
 		echo "<div class=hline></div>";

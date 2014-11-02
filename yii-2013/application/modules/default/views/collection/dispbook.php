@@ -183,7 +183,17 @@ else {
 											$englishEntry->hadithNumber,
 											$arabicEntry->bookNumber,
 											$arabicEntry->hadithNumber,
-											$ourHadithNumber, $collection, $ourBookID, $collectionHasBooks, $collectionHasVolumes, $status, $this->_collection->englishTitle, $englishEntry->grade1, $arabicEntry->grade1)
+											$ourHadithNumber, 
+											$collection, 
+											$ourBookID, 
+											$collectionHasBooks, 
+											$collectionHasVolumes, 
+											$status, 
+											$this->_collection->englishTitle, 
+											$englishEntry->grade1, 
+											$arabicEntry->grade1,
+											false, // hide report error flag
+											"h".$arabicEntry->arabicURN)
                             ));	
 						echo "<div class=clear></div></div><!-- end actual hadith container -->";
 						echo "<div class=clear></div>";
@@ -233,7 +243,8 @@ else {
 							}
 						}
 					}
-	echo "</div>";
+					echo "<!-- <div align=right><i>Content on this page was last updated on ".$this->_viewVars->lastUpdated."</i></div> -->";
+					echo "</div>";
 
 } // ending the no error if
 

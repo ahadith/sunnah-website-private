@@ -106,6 +106,11 @@ class Book extends CActiveRecord
 			Yii::app()->cache->set($cacheID, $englishSet, Yii::app()->params['cacheTTL']);
 		}
 
+		// get last modified time for english hadith set
+		$crit->select = "max(last_updated) as lastup";
+       	$englishLastupSet = EnglishHadith::model()->findAll($crit);
+		if (count($englishLastupSet) > 0) $englishLastup = $englishLastupSet[0]->lastup;
+
 
 		$crit = new CDbCriteria;
 		$crit->select = '*';
@@ -135,7 +140,15 @@ class Book extends CActiveRecord
 			Yii::app()->cache->set($cacheID, $arabicSet, Yii::app()->params['cacheTTL']);
         }
 		else Yii::trace("$cacheID was hit in cache");
-        
+
+		// get last modified time for arabic hadith set
+		$crit->select = "max(last_updated) as lastup";
+       	$arabicLastupSet = ArabicHadith::model()->findAll($crit);
+		if (count($arabicLastupSet) > 0) $arabicLastup = $arabicLastupSet[0]->lastup;
+
+		$lastup = $englishLastup;
+		if ($arabicLastup > $englishLastup) $lastup = $arabicLastup;
+		
         if (count($englishSet) == 0 && count($arabicSet) == 0) return NULL;
 
         $eurns_string = '';
@@ -194,7 +207,7 @@ class Book extends CActiveRecord
                 }
             }
         }
-        if (count($englishEntries) > 0 || count($arabicEntries) > 0) return array($englishEntries, $arabicEntries, $pairs);
+        if (count($englishEntries) > 0 || count($arabicEntries) > 0) return array($englishEntries, $arabicEntries, $pairs, $lastup);
         else return array();        
 	}
 	
