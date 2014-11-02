@@ -40,6 +40,7 @@ class EnglishHadith extends Hadith
 
         $processed_text = preg_replace($to_be_replaced_nb, $sawstext, $processed_text);
         $processed_text = preg_replace($to_be_replaced_b, "(".$sawstext.")", $processed_text);
+		$processed_text = str_replace("the Apostle of Allah", "the Messenger of Allah", $processed_text);
 
         // Collection-specific processing of text
 		if (strcmp($this->collection, "bukhari") == 0) {
@@ -47,7 +48,6 @@ class EnglishHadith extends Hadith
 			$processed_text = str_replace("he Prophet ", "he Prophet (".$sawstext.") ", $processed_text);
 		}
 		elseif (strcmp($this->collection, "muslim") == 0) {
-			$processed_text = str_replace("the Apostle of Allah", "the Messenger of Allah", $processed_text);
 			$processed_text = str_replace("he Holy Prophet ", "he Prophet ", $processed_text);
 		}
         elseif (strcmp($this->collection, "qudsi") == 0) {

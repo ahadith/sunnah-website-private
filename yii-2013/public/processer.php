@@ -43,6 +43,6 @@ function getIP() {
 		$headers = "From: report@sunnah.com\r\nReply-To: $email";
 	  	mail($to, $subject, $fullString, $headers);
 
-		echo json_encode(array('status' => 0, 'message' => "Thank you!"));
+		echo json_encode(array('status' => 0, 'message' => "Report submitted, thank you!"));
 	}
 ?>
