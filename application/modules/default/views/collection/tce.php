@@ -107,7 +107,7 @@ else {
 											NULL,
 											$arabicEntry->bookNumber,
 											$arabicEntry->hadithNumber,
-											$ourHadithNumber, $arabicEntry->collection, intval($arabicEntry->bookID), "yes", true, 4, $this->_collections[$arabicEntry->collection]['englishTitle'], $englishEntry->grade1, $arabicEntry->grade1, true)
+											$ourHadithNumber, $arabicEntry->collection, intval($arabicEntry->bookID), "yes", true, 4, $this->_collections[$arabicEntry->collection]['englishTitle'], $englishEntry->grade1, $arabicEntry->grade1, true, "h".$arabicEntry->arabicURN)
                             ));	
 						echo "<div class=clear></div></div><!-- end actual hadith container -->";
                         echo "<div class=clear></div>";

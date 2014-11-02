@@ -999,3 +999,36 @@ a:hover { text-decoration: underline; }
 	font-size: 18px;
 	font-weight: bold;
 }
+
+.reporterrorbox {
+	padding-top: 10px;
+	padding-left: 20px;
+	padding-bottom: 15px;
+	display: none;
+	/*width: 100%;*/
+}
+
+.leftre {
+	float: left;
+	padding-right: 30px;
+}
+
+.resubmit {
+	background-color: rgb(117, 161, 161);
+	width: 150px;
+	height: 35px;
+	margin: auto;
+	border-radius: 8px;
+	color: white;
+	font-size: 20px;
+	text-align: center;
+	cursor: pointer;
+}
+
+.reresp {
+	width: auto;
+	margin: auto;
+	text-align: center;
+	font-size: 14px;
+	color: red;
+}

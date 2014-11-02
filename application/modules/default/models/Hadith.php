@@ -20,6 +20,8 @@
 class Hadith extends CActiveRecord
 {
 
+	public $lastup = NULL;
+	
 	public function toJSON() {
 		$json = new StdClass();
 		foreach ($this as $key => $value) {
