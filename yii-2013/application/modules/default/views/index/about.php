@@ -67,7 +67,7 @@ downloading and installing the <a href="http://fonts.qurancomplex.gov.sa/?page_i
 KFGQPC Uthman Taha Naskh font</a>. Any Arabic font with a complete set of ligatures
 will also do. In particular, we use a Unicode character ﷺ to represent <i>sallallahu `alaihi wa sallam</i>.
 If you do not see the character in the previous sentence, your font does not fully support Arabic.
-For Urdu we recommend any Nastaliq font (such as <a href="http://www.urdujahan.com/urdu-fonts/Jameel%20Noori%20Nastaleeq.zip">Jameel Noori</a>).
+For Urdu we recommend any Nastaliq font (such as <a href="http://www.urdujahan.com/urdu-fonts/Fajer%20Noori%20Nastalique%2015-12-2006.ttf">Fajer Noori</a>).
 </div></br>
 
 <a name="SourcesNumbering"><div class=section>6. Sources, numbering, and grading</div></a>

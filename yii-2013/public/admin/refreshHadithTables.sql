@@ -13,6 +13,7 @@ update ilmfruit_testhadithdb.tirmidhi_english set collection = 'tirmidhi' WHERE 
 update ilmfruit_testhadithdb.abudawud_arabic set collection = 'abudawud' WHERE collection IS NULL or collection = '';
 update ilmfruit_testhadithdb.abudawud_english set collection = 'abudawud' WHERE collection IS NULL or collection = '';
 update ilmfruit_testhadithdb.abudawud_indonesian set collection = 'abudawud' WHERE collection IS NULL or collection = '';
+update ilmfruit_testhadithdb.abudawud_urdu set collection = 'abudawud' WHERE collection IS NULL or collection = '';
 update ilmfruit_testhadithdb.nasai_arabic set collection = 'nasai' WHERE collection IS NULL or collection = '';
 update ilmfruit_testhadithdb.nasai_english set collection = 'nasai' WHERE collection IS NULL or collection = '';
 update ilmfruit_testhadithdb.nasai_indonesian set collection = 'nasai' WHERE collection IS NULL or collection = '';
@@ -68,10 +69,12 @@ WHERE ibook.indonesianmatchstatus >1;
 UPDATE hadithdb.BookData bd INNER JOIN (
 	SELECT bm.collection, arabicBookID, urduBookID, bookName, bookNum, urdumatchstatus
 	FROM (
-		SELECT arabicBookID, urduBookID, urdumatchstatus,  'bukhari' AS collection FROM ilmfruit_testhadithdb.bukharibookmatch
+		SELECT arabicBookID, urduBookID, urdumatchstatus,  'bukhari' AS collection FROM ilmfruit_testhadithdb.bukharibookmatch UNION
+		SELECT arabicBookID, urduBookID, urdumatchstatus,  'abudawud' AS collection FROM ilmfruit_testhadithdb.abudawudbookmatch
 	) bm
 	INNER JOIN (
-		SELECT *,  'bukhari' AS collection FROM ilmfruit_testhadithdb.bukhariurdubook
+		SELECT *,  'bukhari' AS collection FROM ilmfruit_testhadithdb.bukhariurdubook UNION
+		SELECT *,  'abudawud' AS collection FROM ilmfruit_testhadithdb.abudawudurdubook
 	) ib 
 ON bm.collection = ib.collection AND bm.urduBookID = ib.bookID
 ) ibook 
@@ -132,6 +135,7 @@ insert into hadithdb.IndonesianHadithTable (indonesianURN, collection, volumeNum
 
 delete from hadithdb.UrduHadithTable;
 insert into hadithdb.UrduHadithTable (urduURN, collection, volumeNumber, bookID, bookNumber, bookName, babNumber, babName, hadithNumber, hadithSanad, hadithText, grade, comments) select urduURN, collection, volumeNumber, bookID, bookNumber, bookName, babNumber, babName, hadithNumber, hadithSanad, hadithText, grade, comments from ilmfruit_testhadithdb.bukhari_urdu where bookID in (SELECT urduBookID FROM ilmfruit_testhadithdb.bukharibookmatch WHERE urdumatchstatus IS NOT NULL AND urdumatchstatus > 1);
+insert into hadithdb.UrduHadithTable (urduURN, collection, volumeNumber, bookID, bookNumber, bookName, babNumber, babName, hadithNumber, hadithSanad, hadithText, grade, comments) select urduURN, collection, volumeNumber, bookID, bookNumber, bookName, babNumber, babName, hadithNumber, hadithSanad, hadithText, grade, comments from ilmfruit_testhadithdb.abudawud_urdu where bookID in (SELECT urduBookID FROM ilmfruit_testhadithdb.abudawudbookmatch WHERE urdumatchstatus IS NOT NULL AND urdumatchstatus > 1);
 
 
 delete from hadithdb.matchtable;

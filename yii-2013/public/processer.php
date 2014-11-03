@@ -22,7 +22,7 @@ function getIP() {
 	$errortype = $_POST['type'].$_POST['otherrror'];
 	$errortext = $_POST['re_additional'];
 	$email = $_POST['email'];
-	if (strlen($email) <= 3 || !isset($_POST['emailme'])) $email = "sunnah@iman.net";
+	if (strlen($email) <= 3) $email = "sunnah@iman.net";
 		
 	$resp = recaptcha_check_answer ($privatekey,
 		$_SERVER["REMOTE_ADDR"],

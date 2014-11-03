@@ -54,7 +54,7 @@ a:hover { text-decoration: underline; }
 
 .urdu {
 	direction:rtl;
-    font-family: Jameel Noori Nastaleeq, Nafees Web Naskh, Urdu Naskh Asiatype;
+    font-family: Fajer Noori Nastalique, Jameel Noori Nastaleeq, Nafees Web Naskh, Urdu Naskh Asiatype;
     font-size: 20px;
 	text-align: justify;
 }
@@ -221,6 +221,7 @@ a:hover { text-decoration: underline; }
     font-size: 12px;
     font-family: Arial, Verdana;
     font-weight: bold;
+	width: 127px;
 }
 
 
@@ -780,7 +781,7 @@ a:hover { text-decoration: underline; }
     padding-left:15px;
 	padding-top: 10px;
     direction:rtl;
-    font-family: Jameel Noori Nastaleeq, Nafees Web Naskh, Urdu Naskh Asiatype;
+    font-family: Fajer Noori Nastalique, Jameel Noori Nastaleeq, Nafees Web Naskh, Urdu Naskh Asiatype;
     font-size: 20px;
     text-decoration:none;
     padding-bottom: 10px;
@@ -1027,6 +1028,7 @@ a:hover { text-decoration: underline; }
 
 .reresp {
 	width: auto;
+	height: 35px;
 	margin: auto;
 	text-align: center;
 	font-size: 14px;
