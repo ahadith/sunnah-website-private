@@ -355,8 +355,8 @@ function displayBookPairAdmin($collection, $lang, $ebooknum, $ebookname, $ebookc
 	elseif ($matched == 1) $matchedText = "<font color=\"blue\">In progress</font>";
 	else $matchedText =  "<font color=\"red\">Unmatched</font>";
 	
-	$aligndirn = "left";
-	if (strcmp($lang, "urdu") == 0) $aligndirn = "right";
+	$aligndirn = "left"; $textdirn = "ltr";
+	if (strcmp($lang, "urdu") == 0) { $aligndirn = "right"; $textdirn = "rtl"; }
 
 	if (is_null($ebookcount)) $ebookcount = 0;
 	if (is_null($abookcount)) $abookcount = 0;
@@ -364,7 +364,7 @@ function displayBookPairAdmin($collection, $lang, $ebooknum, $ebookname, $ebookc
 		$rowsHTML = "
 				<tr>
 					<td width=\"4%\" align=\"center\">".round($ebooknum-0.5, 0)."</td>
-					<td align=$aligndirn><a href=\"matchBooks_c.php?coll=".$collection."&lang=".$lang."&ebooknum=".$ebooknum."\"><span class=\"".$lang."Hadith_old\">".$ebookname." </span></a>&nbsp;(&nbsp;".$ebookcount."&nbsp;)&nbsp;</td>
+					<td align=$aligndirn style=\"direction: $textdirn;\"><a href=\"matchBooks_c.php?coll=".$collection."&lang=".$lang."&ebooknum=".$ebooknum."\"><span class=\"".$lang."Hadith_old\">".$ebookname." </span></a>&nbsp;(&nbsp;".$ebookcount."&nbsp;)&nbsp;</td>
 					<td align=\"right\"><a href=\"matchBooks_c.php?coll=".$collection."&lang=".$lang."&ebooknum=".$ebooknum."\">&nbsp;(".$abookcount.") <span class=\"arabicHadith_old\">".$abookname."&nbsp;</span></a></td>
 					<td width=\"5%\" align=\"center\">".round($abooknum-0.5, 0)."</td>
 					<td align=center>".$matchedText."</td>
@@ -387,7 +387,7 @@ function displayBookPairAdmin($collection, $lang, $ebooknum, $ebookname, $ebookc
 		$rowsHTML = "
 				<tr>
 					<td width=\"4%\" align=\"center\">".round($ebooknum,0)."</td>
-					<td><a href=\"viewSingleBook.php?coll=".$collection."&lang=".$lang."&ebooknum=".$ebooknum."\">".$ebookname." (".$ebookcount.")</a></td>
+					<td align=$aligndirn style=\"direction: $textdirn;\"><a href=\"viewSingleBook.php?coll=".$collection."&lang=".$lang."&ebooknum=".$ebooknum."\"><span class=\"".$lang."Hadith_old\">".trim($ebookname)."</span></a> ($ebookcount)</td>
 					<td align=\"right\">&nbsp;</td>
 					<td width=\"5%\" align=\"center\"><font size=\"5\">&nbsp;</font></td>
 					<td>&nbsp;</td>
