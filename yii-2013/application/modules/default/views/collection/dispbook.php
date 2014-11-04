@@ -56,9 +56,6 @@ else {
 	
 ?>
 
-
-<div class="share_mb"></div>
-
 	<div class="book_info">
     	<div class=book_page_colindextitle>
     		<div class="book_page_arabic_name arabic"><?php echo $this->_book->arabicBookName; ?></div>
