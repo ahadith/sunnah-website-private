@@ -117,6 +117,7 @@
 			
 			gapi.plusone.render("plusone-div");
 			FB.XFBML.parse();
+			twttr.widgets.load();
 		
 			//$('.share_close').click(function(){
 			//	console.log("close ...");
