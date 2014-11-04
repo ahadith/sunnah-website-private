@@ -44,6 +44,7 @@
 	<?php if (strcmp($this->_pageType, "search") == 0) echo "var searchQuery = '".addslashes($this->_searchQuery)."';";  ?>
 	</script>
   <script src="/js/sunnah.js"></script>
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
  
   <title>
 	<?php echo $this->titleString() ?>
@@ -52,6 +53,15 @@
 </head>
 
 <body>
+	<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0&appId=714222162002098";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+	
 <div id="site">
 
 	<div id="header">

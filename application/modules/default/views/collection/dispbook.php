@@ -55,12 +55,9 @@ else {
 	}
 	
 ?>
-	<div id="fuzz">  
-		<div class="permalinkbox">
-			<div class="permalinkboxcontent"></div>
-			<a class="ppclose" href="#" ><img src="/images/close.png"/></a>  
-		</div>  
-	</div>  
+
+
+<div class="share_mb"></div>
 
 	<div class="book_info">
     	<div class=book_page_colindextitle>

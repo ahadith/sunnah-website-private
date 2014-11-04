@@ -1,4 +1,7 @@
-<?php 
+<?php
+
+if (!isset($_GET['eurn'])) {echo "An error occurred"; return;}
+
 $eurn = $_GET['eurn'];
 $hid = $_GET['hid'];
 ?>
@@ -11,6 +14,7 @@ $hid = $_GET['hid'];
 		<span style="color: red;"> *</span><br>
 
 			<input type=hidden name=urn value=<?php echo $eurn; ?>>
+			<input type="hidden" name=ftype value="er" />
 			<input name="type" type=radio value=mismatch /> Mismatched translation<br>
 			<input name="type" type=radio value=spelling /> Spelling mistake<br>
 			<input name="type" type=radio value=incomplete /> Incomplete text<br>

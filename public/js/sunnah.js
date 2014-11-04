@@ -67,6 +67,7 @@
 								$("#reresp"+divname).css('color', 'rgb(117, 161, 161');
 								$("#reresp"+divname).css('font-weight', 'bold');
 								$("#reresp"+divname).css('font-size', '15px');
+								$("#reresp"+divname).css('height', ($("#reresp"+divname).height()+15)+'px');
 								$(".resubmit").toggle();
  							}
 							$("#reresp"+divname).html(dataObj.message);
@@ -79,11 +80,6 @@
 
 		});
     }
-
-    function permalink(link) {
-		$(".permalinkboxcontent").load("/permalink_pp.php?link="+link);
-		$("#fuzz").show();
-	}
 
 
   var _gaq = _gaq || [];
@@ -98,14 +94,38 @@
 
   // (a) put default input focus on the state field
   // (b) jquery ajax autocomplete implementation
+  
+  function close_box() {
+	$('#sharefuzz, .share_mb').animate(
+			{'opacity':'0'}, 
+			200, 
+			'linear', 
+			function() {
+				$('#sharefuzz, .share_mb').css('display', 'none');
+			});
+	}
+	
+	function share(permalink) {
+		$.get("/share.php", {"link": permalink}, function(data) {
+			$(".share_mb").html(data); // <div class="share_close"></div>
+			$(".share_mb").css("left", ($(window).width() - $(".share_mb").width())/2+"px");
+			$(".share_mb").css("top", ($(window).height() - $(".share_mb").height())/2.8+"px");
+		
+			$('#sharefuzz, .share_mb').animate({'opacity':'.25'}, 200, 'linear');
+			$('.share_mb').animate({'opacity':'1.00'}, 200, 'linear');
+			$('#sharefuzz, .share_mb').css('display', 'block');
+			
+			gapi.plusone.render("plusone-div");
+			FB.XFBML.parse();
+		
+			//$('.share_close').click(function(){
+			//	console.log("close ...");
+			//	close_box();
+			//});
+		});
+	}
+	
    $(document).ready(function () {  
-
-	$("#fuzz").css("height", $(document).height());
-
-	$(".ppclose").click(function(){  
-      $("#fuzz").hide();
-	});
-
 
 	$(window).scroll(function() {
 		if ($(window).scrollTop() > 750) $("#back-to-top").addClass('bttenabled');
@@ -132,6 +152,11 @@
 		}
 	});
 
+	$("body").append('<div id="sharefuzz"></div>');
+	//$("#sharefuzz").css({"height": $(document).height()});
+ 
+	$('#sharefuzz').click(function(){ close_box(); });
+	
 	if ("searchQuery" in window) {
 		$(".searchquery").val(searchQuery);
 		$(".searchquery").css('color', '#000');
