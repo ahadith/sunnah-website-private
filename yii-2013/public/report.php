@@ -35,7 +35,7 @@ $hid = $_GET['hid'];
 		<div id="rerec<?php echo $hid; ?>"> </div>
 	</div>
 	
-	<div class="clear" style="padding-top: 26px;"></div>
+	<div class="clear" style="padding-top: 0px;"></div>
 	<div class="reresp" id="reresp<?php echo $hid; ?>"></div>
 	<div align="center"><input type="submit" class="resubmit" value="SUBMIT"></div>
 	</form>

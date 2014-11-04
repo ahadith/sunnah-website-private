@@ -67,7 +67,7 @@
 								$("#reresp"+divname).css('color', 'rgb(117, 161, 161');
 								$("#reresp"+divname).css('font-weight', 'bold');
 								$("#reresp"+divname).css('font-size', '15px');
-								$("#reresp"+divname).css('height', ($("#reresp"+divname).height()+15)+'px');
+								//$("#reresp"+divname).css('height', ($("#reresp"+divname).height()+15)+'px');
 								$(".resubmit").toggle();
  							}
 							$("#reresp"+divname).html(dataObj.message);
