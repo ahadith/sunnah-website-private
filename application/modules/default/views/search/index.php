@@ -163,6 +163,8 @@ else {
 					$text = preg_replace("/<em>/", "<b>", $text);
 					$text = preg_replace("/<\/em>/", "</b>", $text);
 				}
+				else
+					$text = "<div style='text-align: left; direction: ltr;'>Preview not available. Please click on the link to view the hadith.</div>";
 		
 				//echo "<div class=\"search_arabic_text arabic_basic\" dir=rtl>... ".$text." ...</a></div>";
 				
