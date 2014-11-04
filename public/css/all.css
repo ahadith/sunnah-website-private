@@ -1035,7 +1035,10 @@ a:hover { text-decoration: underline; }
 	/*background: #f2f2f2;*/
 	background:url(../images/bg_small.png);
 	z-index: 50;
-	padding: 15px;
+	padding-left: 15px;
+	padding-right: 15px;
+	padding-top: 12px;
+	padding-bottom: 5px;
 }
 
 .sharelink {
@@ -1058,7 +1061,7 @@ a:hover { text-decoration: underline; }
 }
 
 .permalink_box {
-	padding: 5px;
+	padding: 4px;
 	padding-top: 10px;
 	font-size: 15px;
 	border-radius: 4px;
