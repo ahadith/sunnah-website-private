@@ -1002,6 +1002,7 @@ a:hover { text-decoration: underline; }
 
 .reresp {
 	width: auto;
+	height: 26px;
 	margin: auto;
 	text-align: center;
 	font-size: 14px;
