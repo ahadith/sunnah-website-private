@@ -116,7 +116,8 @@
 	}
 	
 	function share(permalink) {
-		insertScript("//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0&appId=714222162002098", 'facebook-jssdk');
+		insertScript("http://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0&appId=714222162002098", 'facebook-jssdk');
+		insertScript("http://platform.twitter.com/widgets.js", 'twitter-script');
 		insertScript("https://apis.google.com/js/platform.js", 'gplus-script');
 		
 		$.get("/share.php", {"link": permalink}, function(data) {
