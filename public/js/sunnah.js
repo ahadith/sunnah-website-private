@@ -115,10 +115,34 @@
 			});
 	}
 	
+	var sharescriptsInserted = false;
+	var justloaded = false;
+	var fb = false, tw = false, gp = false;
+
+	function setgploaded() {
+		gp = true;
+	}
+	
+	function shareScriptsReady() {
+		if (window.FB) fb = true;
+		if (window.twttr) tw = true;
+		if (fb && tw && gp) return true;
+		else return false;
+	}
+	
 	function share(permalink) {
-		insertScript("http://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0&appId=714222162002098", 'facebook-jssdk');
-		insertScript("http://platform.twitter.com/widgets.js", 'twitter-script');
-		insertScript("https://apis.google.com/js/platform.js", 'gplus-script');
+		if (!sharescriptsInserted) {
+			insertScript("http://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0&appId=714222162002098", 'facebook-jssdk');
+			insertScript("http://platform.twitter.com/widgets.js", 'twitter-script');
+			insertScript("https://apis.google.com/js/platform.js?onload=setgploaded", 'gplus-script');
+			sharescriptsInserted = true;
+			justloaded = true;
+			
+			//(function checkready() {
+			//	if (window.FB && window.twttr && gp) return; 
+			//	else {console.log("timing out"); setTimeout(checkready, 100);}
+			//})();
+		}
 		
 		$.get("/share.php", {"link": permalink}, function(data) {
 			if (!$(".share_mb").length) $("body").append('<div class="share_mb"></div>');
@@ -129,11 +153,15 @@
 			$('#sharefuzz, .share_mb').animate({'opacity':'.25'}, 200, 'linear');
 			$('.share_mb').animate({'opacity':'1.00'}, 200, 'linear');
 			$('#sharefuzz, .share_mb').css('display', 'block');
+
+			if (!justloaded) {
+				gapi.plusone.render("plusone-div", {"annotation": "none"});
+				twttr.widgets.load();
+				FB.XFBML.parse()
+			}
+			else justloaded = false;
 			
-			gapi.plusone.render("plusone-div", {"annotation": "none"});
-			FB.XFBML.parse();
-			twttr.widgets.load();
-		
+			
 			//$('.share_close').click(function(){
 			//	console.log("close ...");
 			//	close_box();
