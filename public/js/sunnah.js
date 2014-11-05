@@ -95,6 +95,14 @@
   // (a) put default input focus on the state field
   // (b) jquery ajax autocomplete implementation
   
+	function insertScript(uri, id) {
+		var js, fjs = document.getElementsByTagName('script')[0];
+		if (document.getElementById(id)) return;
+		js = document.createElement('script'); js.id = id;
+		js.src = uri;
+		fjs.parentNode.insertBefore(js, fjs);
+	}
+  
   function close_box() {
 	$('#sharefuzz, .share_mb').animate(
 			{'opacity':'0'}, 
@@ -106,6 +114,9 @@
 	}
 	
 	function share(permalink) {
+		insertScript("//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0&appId=714222162002098", 'facebook-jssdk');
+		insertScript("https://apis.google.com/js/platform.js", 'gplus-script');
+		
 		$.get("/share.php", {"link": permalink}, function(data) {
 			if (!$(".share_mb").length) $("body").append('<div class="share_mb"></div>');
 			$(".share_mb").html(data); // <div class="share_close"></div>

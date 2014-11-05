@@ -1,7 +1,10 @@
 <?php
 ?>
 
-<!--<span style="font-size: 15px;"> Permalink</span><br/>-->
+<!--
+<div style="font-family: Akzidenz Roman; font-size: 15px; padding-top: 3px; padding-bottom: 10px; text-align: center;"> SHARE THIS HADITH</div>
+-->
+
 <input class=permalink_box type="text" value="http://sunnah.com<?php echo $_GET['link']; ?>" size=45 /><br>
 
 <div class=share_buttons>
