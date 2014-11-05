@@ -117,24 +117,12 @@
 	
 	var sharescriptsInserted = false;
 	var justloaded = false;
-	var fb = false, tw = false, gp = false;
 
-	function setgploaded() {
-		gp = true;
-	}
-	
-	function shareScriptsReady() {
-		if (window.FB) fb = true;
-		if (window.twttr) tw = true;
-		if (fb && tw && gp) return true;
-		else return false;
-	}
-	
 	function share(permalink) {
 		if (!sharescriptsInserted) {
 			insertScript("http://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0&appId=714222162002098", 'facebook-jssdk');
 			insertScript("http://platform.twitter.com/widgets.js", 'twitter-script');
-			insertScript("https://apis.google.com/js/platform.js?onload=setgploaded", 'gplus-script');
+			insertScript("https://apis.google.com/js/platform.js", 'gplus-script');
 			sharescriptsInserted = true;
 			justloaded = true;
 			
@@ -154,8 +142,9 @@
 			$('.share_mb').animate({'opacity':'1.00'}, 200, 'linear');
 			$('#sharefuzz, .share_mb').css('display', 'block');
 
-			if (!justloaded) {
-				gapi.plusone.render("plusone-div", {"annotation": "none"});
+			if (!justloaded) { // these only need to be called if rendered 
+							   // after the script loads and inits, not before.
+				gapi.plusone.render("plusone-div", {"annotation": "none", "url": "http://sunnah.com"+permalink});
 				twttr.widgets.load();
 				FB.XFBML.parse()
 			}
