@@ -9,7 +9,7 @@ $hid = $_GET['hid'];
 <div id="re<?php echo $hid; ?>" class=reporterrorbox>
 	<div class="hadith_narrated" style="font-size: 15px;">Report Error</div>
 	<form class="reform" action="" id="reform<?php echo $hid; ?>">
-	<div class="leftre" style="padding-right: 50px;">
+	<div class="leftre" style="padding-right: 40px;">
 		Type of error: 
 		<span style="color: red;"> *</span><br>
 
@@ -31,7 +31,7 @@ $hid = $_GET['hid'];
 		<div style="padding-left: 23px;"><input name="email" type="text" size="25"  placeholder="Email address" style="padding-left: 5px;"/></div>
 	</div>
 	
-	<div class="leftre" style="padding-right: 0px;">
+	<div class="leftre" style="padding-right: 10px;">
 		<div id="rerec<?php echo $hid; ?>"> </div>
 	</div>
 	

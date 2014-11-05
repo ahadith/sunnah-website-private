@@ -998,11 +998,13 @@ a:hover { text-decoration: underline; }
 	font-size: 20px;
 	text-align: center;
 	cursor: pointer;
+	outline: none;
 }
 
 .reresp {
 	width: auto;
-	height: 26px;
+	height: 20px;
+	padding-top: 5px;
 	margin: auto;
 	text-align: center;
 	font-size: 14px;
@@ -1072,6 +1074,11 @@ a:hover { text-decoration: underline; }
 .permalink_box:focus {
 	box-shadow: 0px 1px 6pt 1pt #bdf4fc;
 	outline: none;
+}
+
+.share_buttons {
+	margin: auto;
+	width: 210px;
 }
 
 .share_button {

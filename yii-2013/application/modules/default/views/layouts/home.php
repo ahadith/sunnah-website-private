@@ -24,8 +24,10 @@
   <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
   <script src="/js/jquery.cookie.js"></script>
 
+  <!-- Uncomment if we need the carousel for something
   <script src="/js/jquery.jcarousel.min.js"></script>
   <link rel="stylesheet" type="text/css" href="/css/jcskin.css" />
+  -->
   <script type="text/javascript">
 
 	jQuery(document).ready(function() {
