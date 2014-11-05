@@ -9,7 +9,7 @@
 
 <div class=share_buttons>
 	<div class="share_button" style="float: right; padding-right: 0px;">
-		<div id="plusone-div" class="g-plusone" data-annotation="none" data-size="small" data-width="120" data-url="http://sunnah.com<?php echo $_GET['link']; ?>"></div>
+		<div id="plusone-div" class="g-plusone" data-annotation="none" data-url="http://sunnah.com<?php echo $_GET['link']; ?>"></div>
 	</div>
 
 	<div class="share_button" style="float: right;">
