@@ -31,6 +31,8 @@
 			}
 		}
 
+		insertScript('http://www.google.com/recaptcha/api/js/recaptcha_ajax.js', 'recaptcha-script');
+
 		$.get("/report.php", {eurn: eurn, hid: divname}, function (data) {
 			$("#"+divname+" .bottomItems").append(data);
 			
