@@ -116,7 +116,7 @@
 			$('.share_mb').animate({'opacity':'1.00'}, 200, 'linear');
 			$('#sharefuzz, .share_mb').css('display', 'block');
 			
-			gapi.plusone.render("plusone-div");
+			gapi.plusone.render("plusone-div", {"annotation": "none"});
 			FB.XFBML.parse();
 			twttr.widgets.load();
 		
