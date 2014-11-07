@@ -151,6 +151,7 @@
 			}
 			else justloaded = false;
 			
+			$(".permalink_box").select();
 			
 			//$('.share_close').click(function(){
 			//	console.log("close ...");
