@@ -32,12 +32,13 @@ return array(
 	),
 
 	'modules'=>array(
-		'default',		
+		'default',
+		'back',
 		'gii'=>array(
 			'class'=>'system.gii.GiiModule',
 			'password'=>'giipasswd',
 		 	// If removed, Gii defaults to localhost only. Edit carefully to taste.
-			'ipFilters'=>array('127.0.0.1','::1', '72.33.*'),
+			'ipFilters'=>array('127.0.0.1','::1', '72.33.*', '24.183.96.*'),
 		),
 		
 	),
@@ -87,6 +88,10 @@ return array(
                 'gii/<controller:\w+>'=>'gii/<controller>',
                 'gii/<controller:\w+>/<action:\w+>'=>'gii/<controller>/<action>',
 
+				'back'=>'back',
+				'back/<controller:\w+>'=>'back/<controller>',
+				'back/<controller:\w+>/<action:\w+>'=>'back/<controller>/<action>',
+
 				'nawawi40/<hadithNumbers:\d+>' => array('default/collection/dispbook/collectionName/nawawi40/ourBookID/1/hadithNumbers/<hadithNumbers>', 'defaultParams' => array('_escaped_fragment_' => 'default')),
 				'nawawi40' => array('default/collection/dispbook/collectionName/nawawi40/ourBookID/1', 'defaultParams' => array('_escaped_fragment_' => 'default')),
 				'qudsi40/<hadithNumbers:\d+>' => array('default/collection/dispbook/collectionName/qudsi40/ourBookID/1/hadithNumbers/<hadithNumbers>', 'defaultParams' => array('_escaped_fragment_' => 'default')),
@@ -132,6 +137,15 @@ return array(
 			'emulatePrepare' => true,
 			'username' => 'webreadp',
 			'password' => 'webreadp',
+			'charset' => 'utf8',
+		),
+		'db_internal'=>array(
+			'connectionString' => 'mysql:host=localhost;dbname=ilmfruit_testhadithdb',
+			'schemaCachingDuration' => 300,
+			'class' => 'CDbConnection',
+			'emulatePrepare' => true,
+			'username' => 'ilmfruit_ansari',
+			'password' => 'ansari',
 			'charset' => 'utf8',
 		),
 		'errorHandler'=>array(

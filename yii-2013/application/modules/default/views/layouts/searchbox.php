@@ -1,7 +1,7 @@
 <?php if (strcmp($this->_pageType, "home")) {
             $searchQuery = NULL;
             if (strcmp($this->_pageType, "search") == 0) $searchQuery = $this->_searchQuery;
-			if (isset($searchQuery)) $stextval = htmlspecialchars($searchQuery);
+			if (isset($searchQuery)) $stextval = $searchQuery;
 			else $stextval = "Search …";
 		}
 ?>

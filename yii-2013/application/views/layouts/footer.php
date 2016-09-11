@@ -7,16 +7,21 @@
 <div class=clear></div>
 </div>
 
+<!-- Piwik -->
 <script type="text/javascript">
-var pkBaseURL = (("https:" == document.location.protocol) ? "https://sunnah.com/piwik/" : "http://sunnah.com/piwik/");
-document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
-</script><script type="text/javascript">
-try {
-var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 1);
-piwikTracker.trackPageView();
-piwikTracker.enableLinkTracking();
-} catch( err ) {}
-</script><noscript><p><img src="http://sunnah.com/piwik/piwik.php?idsite=1" style="border:0" alt="" /></p></noscript>
+  var _paq = _paq || [];
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//sunnah.com/piwik/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId', 1]);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//sunnah.com/piwik/piwik.php?idsite=1" style="border:0;" alt="" /></p></noscript>
+<!-- End Piwik Code -->
 
 <script type="text/javascript">
 var sc_project=7148282; 

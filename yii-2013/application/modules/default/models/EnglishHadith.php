@@ -45,7 +45,7 @@ class EnglishHadith extends Hadith
         // Collection-specific processing of text
 		if (strcmp($this->collection, "bukhari") == 0) {
 			$processed_text = preg_replace("/Allah's Apostle(?!\s*<)/", "Allah's Messenger (".$sawstext.")", $processed_text);
-			$processed_text = str_replace("he Prophet ", "he Prophet (".$sawstext.") ", $processed_text);
+			$processed_text = preg_replace("/he Prophet (?!\()/", "he Prophet (".$sawstext.") ", $processed_text);
 		}
 		elseif (strcmp($this->collection, "muslim") == 0) {
 			$processed_text = str_replace("he Holy Prophet ", "he Prophet ", $processed_text);
@@ -59,6 +59,7 @@ class EnglishHadith extends Hadith
         elseif (strcmp($this->collection, "bulugh") == 0) {
             $processed_text = preg_replace("/\) said, /", ") said: ", $processed_text);
         }
+		
         $this->hadithText = $processed_text;
     }
 

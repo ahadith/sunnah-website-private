@@ -69,4 +69,4 @@
 		<div class="clear"></div>
 	</div> <!-- end collections div -->
 	<br>
-	<div align=center style="color: #75A1A1;">Supported languages: English, Arabic, Urdu, Bahasa Indonesia</div>
+	<div align=center style="color: #75A1A1;">Supported languages: English, Arabic, Urdu</div>

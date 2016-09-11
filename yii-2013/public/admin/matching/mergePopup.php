@@ -5,6 +5,7 @@ $con = mysql_connect("localhost", "ilmfruit_ansari", "ansari") or die(mysql_erro
 mysql_select_db("ilmfruit_testhadithdb") or die(mysql_error());
 mysql_query("SET NAMES utf8;"); mysql_query("SET CHARACTER_SET utf8;");
 
+include "checklogin.php";
 include "setlang.php";
 include "util.php";
 
@@ -41,6 +42,7 @@ if (isset($_POST['submit'])) {
 	$urn1 = $_POST['urn1'];
 	$urn2 = $_POST['urn2'];
 	$pagelang = $_POST['pagelang'];
+	$username = $_COOKIE['ID_ilmfruits_hadith'];
 
 	if ($urn1 > 0 and $urn2 > 0 and strlen($collection) > 0 and strlen($language) > 0) {
 		$retval = mergeHadith($urn1, $urn2, $collection, $language, $live, $username, $pagelang);

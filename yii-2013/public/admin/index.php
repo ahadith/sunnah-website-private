@@ -51,8 +51,8 @@
         // if login is ok then we add a cookie 
         $_POST['username'] = stripslashes($_POST['username']); 
         $hour = time() + 7*86400; 
-        setcookie(ID_ilmfruits_hadith, $_POST['username'], $hour); 
-        setcookie(Key_ilmfruits_hadith, $_POST['pass'], $hour);  
+        setcookie('ID_ilmfruits_hadith', $_POST['username'], $hour, '/'); 
+        setcookie('Key_ilmfruits_hadith', $_POST['pass'], $hour, '/');  
 
         //then redirect them to the members area 
         header("Location: home.php"); 

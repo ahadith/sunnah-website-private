@@ -8,6 +8,7 @@ mysql_query("SET NAMES utf8;"); mysql_query("SET CHARACTER_SET utf8;");
 
 include "setlang.php";
 include "util.php";
+include "checklogin.php";
 
 $url = $_SERVER['SCRIPT_NAME'];
 ?>

@@ -1,7 +1,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-  <?php if (isset($this->_book) and ($this->_book->indonesianBookID > 0 or $this->_book->urduBookID > 0)) echo "<meta name=\"fragment\" content=\"!\">\n"; ?>
+  <?php if (isset($this->_book) and (
+			//$this->_book->indonesianBookID > 0 or
+			$this->_book->urduBookID > 0
+			)
+		) echo "<meta name=\"fragment\" content=\"!\">\n"; ?>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="Content-Language" content="EN"/>
   <meta name="description" content="Hadith of the Prophet Muhammad (saws) in English and Arabic"/>
@@ -31,7 +35,7 @@
 
   <?php if (isset($this->_book)) { 
 	$langarray = array();
-	if ($this->_book->indonesianBookID > 0) $langarray[] = 'indonesian';
+	//if ($this->_book->indonesianBookID > 0) $langarray[] = 'indonesian';
 	if ($this->_book->urduBookID > 0) $langarray[] = 'urdu'; ?>
 
 	<script>
@@ -44,7 +48,7 @@
         ?>	</script>
   <?php } ?>
 	<script>
-	<?php if (strcmp($this->_pageType, "search") == 0) echo "var searchQuery = '".addslashes($this->_searchQuery)."';";  ?>
+	<?php if (strcmp($this->_pageType, "search") == 0) echo "var searchQuery = '".htmlentities(stripslashes($this->_searchQuery))."';";  ?>
 	</script>
   <script src="/js/sunnah.js"></script>
   <!--<script src="https://apis.google.com/js/platform.js" async defer></script>-->

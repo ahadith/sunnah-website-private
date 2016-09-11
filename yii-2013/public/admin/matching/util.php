@@ -1063,7 +1063,7 @@ function mergeHadith($urn1, $urn2, $collection, $lang, $live, $username, $pagela
 	$babNumber = $hadith1['babNumber'];
 	$babName = addslashes($hadith1['babName']);
 	$hadithNumber = $hadith1['hadithNumber'];
-	$grade = $hadith1['grade'];
+	$grade = addslashes($hadith1['grade']);
 	addHadith($newurn, $volumeNumber, $bookID, $bookNumber, $bookName, $babNumber, $babName, $hadithNumber, $newText, $collection, $lang, $live, $username, $newComments, $grade);
 
 	deleteReferencesToHadith($urn1, $collection, $lang, $live, $username, $pagelang);	
