@@ -1,7 +1,6 @@
 <div class=about style="font-size: 15px; width: 70%;">
 
-<div class="abouttitle">The Letter of Imam Abu Dawud as-Sijistani to the People of Makkah 
-	<br> Describing His Sunan</div>
+<div class="abouttitle">The Letter of Imam Abu Dawud as-Sijistani to the People of Makkah Describing His Sunan</div>
 <p>
 Narrated by Abul-Husayn ibn Jumay' from Muhammad ibn ‘Abdil-‘Aziz al-Hashimi from him:
 <p>
@@ -72,14 +71,16 @@ Shaykh Abul-Fath Muhammad ibn ‘Abdil-Baqi ibn Ahmad ibn Sulayman, known as ibn
 	And I did not gather anything except the ahkam in Kitab as-Sunan, and I did not gather the books of Zuhd, <sup>15</sup>Fadha'il al-A'mal, <sup>16</sup> and other than them. So these four thousand and eight hundred are all concerning ahkam. So as for the many sahih hadiths concerning Zuhd, Fada'il, and other than this, I did not report them. 
 <p>
 	And peace be upon you, and the Mercy of Allah, and His Blessings, and may Allah send salah upon our master Muhammad, the Prophet, and upon his family, and may He grant them complete peace. And Allah is Sufficient for us, and the Best Disposer of Affairs. 
-<p><p>
-	
+	<a name="mursal"></a>	
+<p>
+<p>
+
 	Footnotes:<br>
 	<sup>1</sup> The term bab is used for chapter as well as for a topic. <br>	
-	<sup>2</sup> A hadith narrated by a Tabi'i from the Prophet ( sall Allahu `alaihi wa sallam ) directly without mention of a Sahabi.<br> 
+	<sup>2</sup><a name="footnote-2"></a>Mursal: A hadith narrated by a Tabi'i (Successor) from the Prophet (ﷺ) directly without mention of a Sahabi (Companion).<br> 
 	<sup>3</sup> With a connected isnad, chain of narration. <br>
 	<sup>4</sup> Muttasil means connected. <br>
-	<sup>5</sup> Abandoned in hadith. This is said concerning a narrator whose narrations are not used even to strenghten other narrations or as witnesses for other narrations. 
+	<sup>5</sup> Abandoned in hadith. This is said concerning a narrator whose narrations are not used even to strenghten other narrations or as witnesses for other narrations.<br>
 	<sup>6</sup> Literally, munkar means rejected or objectionable. Here, Imam Abu Dawud means by it one which is clearly a mistake. <br>
 	<sup>7</sup> Extremely weak. <br>
 	<sup>8</sup> Some scholars have understood this statement to mean that anything he does not comment on is to be regarded as being at least hasan . More likely, however, he means that there is not some severe weakness in the hadith rendering it unusable. So a hadith that he did not comment on could still be weak. <br>

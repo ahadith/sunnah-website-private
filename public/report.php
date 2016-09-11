@@ -2,8 +2,11 @@
 
 if (!isset($_GET['eurn'])) {echo "An error occurred"; return;}
 
-$eurn = $_GET['eurn'];
-$hid = $_GET['hid'];
+$eurn = htmlentities($_GET['eurn']);
+$hid = htmlentities($_GET['hid']);
+
+if (!is_numeric($eurn) || !is_numeric(substr($hid, 1))) {echo "An error occurred"; return;}
+
 ?>
 <div class="clear"></div>
 <div id="re<?php echo $hid; ?>" class=reporterrorbox>

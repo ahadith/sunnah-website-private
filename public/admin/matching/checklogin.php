@@ -3,10 +3,19 @@
   mysql_select_db("ilmfruit_testhadithdb") or die(mysql_error());
   mysql_query("SET NAMES utf8;"); mysql_query("SET CHARACTER_SET utf8;");
 
+
+if (class_exists('Yii')) { 
+	if (isset(Yii::app()->request->cookies['ID_ilmfruits_hadith'])) $cookieID = Yii::app()->request->cookies['ID_ilmfruits_hadith'];
+	if (isset(Yii::app()->request->cookies['Key_ilmfruits_hadith'])) $cookieKey = Yii::app()->request->cookies['Key_ilmfruits_hadith'];
+} else {
+	if (isset($_COOKIE['ID_ilmfruits_hadith'])) $cookieID = $_COOKIE['ID_ilmfruits_hadith'];
+	if (isset($_COOKIE['Key_ilmfruits_hadith'])) $cookieKey = $_COOKIE['Key_ilmfruits_hadith'];
+}
+
  //checks cookies to make sure they are logged in 
-  if(isset($_COOKIE['ID_ilmfruits_hadith'])) {
-    $username = $_COOKIE['ID_ilmfruits_hadith'];
-    $pass = $_COOKIE['Key_ilmfruits_hadith'];
+  if(isset($cookieID)) {
+    $username = $cookieID;
+    $pass = $cookieKey;
     $check = mysql_query("SELECT * FROM users WHERE username = '$username'")or die(mysql_error());
     while($info = mysql_fetch_array( $check )) {
       //if the cookie has the wrong password, they are taken to the login page 
@@ -27,6 +36,7 @@
 	exit();
   }
 
+if (class_exists('Yii')) return;
 
 if (!isset($delay_headers)) {
 

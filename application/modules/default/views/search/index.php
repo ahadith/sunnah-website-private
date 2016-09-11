@@ -17,8 +17,8 @@ else {
 		//print_r($suggestions);
 		if (!empty($suggestions)) {
 			$collation = $suggestions['collation'];
-			$suggest_string = stripslashes(substr(strstr($collation, ":"), 1));
-			$atag = "<a href=\"javascript:void(0);\" onclick=\"location.href='/search_redirect.php?query=".rawurlencode($suggest_string)."&didyoumean=true";
+			$suggest_string = htmlentities(stripslashes(substr(strstr($collation, ":"), 1)));
+			$atag = "<a href=\"javascript:void(0);\" onclick=\"location.href='/?q=".rawurlencode($suggest_string)."&didyoumean=true";
 			$atag = $atag."&old=".rawurlencode($this->_searchQuery)."';\">";
 			echo "<span class=breadcrumbs_search>Did you mean to search for ".$atag.$suggest_string."</a></span> ?
 			<br><span class=breadcrumbs_search>We are still working on this feature. Please bear with us if the suggestion doesn't sound right.</span><br>";
@@ -34,7 +34,7 @@ else {
 	$prefix = strcmp($language, "english")==0 ? "" : "arabic";
 	if ($this->_numFound == 0) {
 		echo "<p align=center>Sorry, there were no results found.";
-		$googlequery = "http://www.google.com/#q=".preg_replace("/ /", "+", $this->_searchQuery)."+site:sunnah.com";
+		$googlequery = "http://www.google.com/#q=".preg_replace("/ /", "+", htmlentities($this->_searchQuery))."+site:sunnah.com";
 		echo "<br><a href=\"".$googlequery."\">Click here</a> to use Google's site search feature for your query instead.<br><br></p>";
 	}
 

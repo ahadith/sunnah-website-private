@@ -193,7 +193,7 @@
 	$('#sharefuzz').click(function(){ close_box(); });
 	
 	if ("searchQuery" in window) {
-		$(".searchquery").val(searchQuery);
+		$(".searchquery").val($('<textarea/>').html(searchQuery).text());
 		$(".searchquery").css('color', '#000');
 	}
 

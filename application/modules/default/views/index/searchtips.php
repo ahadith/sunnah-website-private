@@ -9,8 +9,7 @@
 the following tips and tricks to help you narrow down exactly what you are
 looking for.</p>
 
-<p>This list has been compiled from the official Lucene query parser syntax
-site: <a href="http://lucene.apache.org/core/old_versioned_docs/versions/2_9_1/queryparsersyntax.html" target="_blank">http://lucene.apache.org/core/old_versioned_docs/versions/2_9_1/queryparsersyntax.html</a></p>
+<p>This list has been compiled from the official <a href="http://lucene.apache.org/core/old_versioned_docs/versions/2_9_1/queryparsersyntax.html" target="_blank">Lucene query parser syntax</a> page.
 
 <p><strong>1. Terms</strong></p>
 
@@ -72,31 +71,24 @@ of what you are searching for.
 <p><strong>5. Boosting a term</strong></p>
 
 <p>Lucene provides the relevance level of matching documents
-based on the terms found.</p>
-<br>
-<p>To boost a term use the caret, &quot;^&quot;, symbol with a boost factor (a number) at
+based on the terms found.
+To boost a term use the caret (&quot;^&quot;) symbol with a boost factor (a number) at
 the end of the term you are searching. The higher the boost factor, the more
-relevant the term will be.</p>
+relevant the term will be.
+Boosting allows you to control the relevance of a document by boosting its
+term. For example, if you are searching for
+<br><pre>    pledge hijrah</pre>
+and you want the term &quot;pledge&quot; to be more relevant, boost it using the ^
+symbol along with the boost factor next to the term. You would type:
 <br>
-<p>Boosting allows you to control the relevance of a document by boosting its
-term. For example, if you are searching for</p>
+<pre>    pledge^4 hijrah</pre>
+This will make results with the term pledge appear more relevant. You can
+also boost Phrase Terms as in the example:
 <br>
-<p>pledge hijrah</p>
-<br>
-<p>and you want the term &quot;pledge&quot; to be more relevant boost it using the ^
-symbol along with the boost factor next to the term. You would type:</p>
-<br>
-<p>pledge^4 hijrah</p>
-<br>
-<p>This will make results with the term pledge appear more relevant. You can
-also boost Phrase Terms as in the example:</p>
-<br>
-<p>&quot;pledge of allegiance&quot;^5 requested</p>
-<br>
-<p>By default, the boost factor is 1. Although the boost factor must be
-positive, it can be less than 1 (e.g. 0.2)</p>
+<pre>    &quot;pledge of allegiance&quot;^5 requested</pre>
+By default, the boost factor is 1. Although the boost factor must be
+positive, it can be less than 1 (e.g. 0.2)
 
-<br>
 <br>
 
 <p><strong>6. Boolean operators </strong></p>
@@ -110,86 +102,67 @@ must be ALL CAPS).</p>
 there is no Boolean operator between two terms, the OR operator is used. The OR
 operator links two terms and finds a matching document if either of the terms
 exist in a document. This is equivalent to a union using sets. The symbol ||
-can be used in place of the word OR.</p>
-<br>
+can be used in place of the word OR.
+
 <p>To search for documents that contain either &quot;pledge allegiance&quot; or just
-&quot;pledge&quot; use the query:</p>
-<br>
-<p>&quot;pledge allegiance&quot; pledge</p>
-<br>
-<p>or</p>
-<br>
-<p>&quot;pledge allegiance&quot; OR pledge</p>
+&quot;pledge&quot; use the query:
 
-<br>
+<pre>    &quot;pledge allegiance&quot; pledge</pre>
 
+or
+<pre>    &quot;pledge allegiance&quot; OR pledge</pre>
+<br>
 <p><strong>The "AND" Operator</strong></p>
 <p>The AND operator matches documents where both terms exist anywhere in the
 text of a single document. This is equivalent to an intersection using sets.
-The symbol &amp;&amp; can be used in place of the word AND.</p>
-<br>
+The symbol &amp;&amp; can be used in place of the word AND.
+
 <p>To search for documents that contain &quot;pledge of Allegiance&quot; and &quot;second
-time&quot; use the query:</p>
-<br>
-<p>&quot;pledge of Allegiance&quot; AND &quot;second time&quot;</p>
+time&quot; use the query:
+
+<pre>    &quot;pledge of Allegiance&quot; AND &quot;second time&quot;</pre>
 
 <br>
-
 <p><strong>The "+" Operator</strong></p>
 <p>The &quot;+&quot; or required operator requires that the term after the &quot;+&quot; symbol
-exist somewhere in a the field of a single document.</p>
+exist somewhere in a the field of a single document.
+<p>To search for documents that must contain &quot;pledge&quot; and may contain &quot;allegiance&quot; use the query:
+<pre>    +pledge allegiance</pre>
 <br>
-<p>To search for documents that must contain &quot;pledge&quot; and may contain &quot;allegiance&quot; use the query:</p>
-<br>
-<p>+pledge allegiance</p>
-
-<br>
-
 <p><strong>The "NOT" Operator</strong></p>
 <p>The NOT operator excludes documents that contain the term after NOT. This is
 equivalent to a difference using sets. The symbol ! can be used in place of the
-word NOT.</p>
-<br>
-<p>To search for documents that contain &quot;pledge allegiance&quot; but not &quot;second
-time&quot; use the query:</p>
-<br>
-<p>&quot;pledge of Allegiance&quot; NOT &quot;second time&quot;</p>
+word NOT.
 
-<br>
+<p>To search for documents that contain &quot;pledge allegiance&quot; but not &quot;second
+time&quot; use the query:
+
+<pre>    &quot;pledge of Allegiance&quot; NOT &quot;second time&quot;</pre>
 
 <p>Note: The NOT operator cannot be used with just one term. For example, the
-following search will return no results:</p>
-<br>
-<p>NOT &quot;pledge allegiance&quot;</p>
+following search will return no results:
 
+<pre>    NOT &quot;pledge allegiance&quot;</pre>
 <br>
-
 <p><strong>The "-" Operator</strong></p>
 
 <p>The &quot;-&quot; or prohibit operator excludes documents that contain the term after
 the &quot;-&quot; symbol.</p>
 <br>
 <p>To search for documents that contain &quot;pledge allegiance&quot; but not &quot;allegiance
-to the Messenger&quot; use the query:</p>
-<br>
-<p>&quot;pledge allegiance&quot;-&quot;allegiance to the Messenger&quot;</p>
+to the Messenger&quot; use the query:
+<pre>    &quot;pledge allegiance&quot;-&quot;allegiance to the Messenger&quot;</pre>
 
-<br>
-
-<p><strong>Grouping</strong></p>
+<p><strong>7. Grouping</strong></p>
 
 <p>Lucene supports using parentheses to group clauses to form sub queries. This
-can be very useful if you want to control the boolean logic for a query.</p>
-<br>
-<p>To search for either &quot;pledge&quot; or &quot;allegiance&quot; and &quot;prayer&quot; use the query:</p>
-<br>
-<p>(pledge OR allegiance) AND prayer</p>
+can be very useful if you want to control the boolean logic for a query.
+<p>To search for either &quot;pledge&quot; or &quot;allegiance&quot; and &quot;prayer&quot; use the query:
+<pre>    (pledge OR allegiance) AND prayer</pre>
 
-<br>
+This eliminates any confusion and makes sure you that prayer must exist and
+either term pledge or allegiance may exist.
 
-<p>This eliminates any confusion and makes sure you that prayer must exist and
-either term pledge or allegiance may exist.</p>
-<br>
 <br>
 </div>
 <br>
