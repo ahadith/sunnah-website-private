@@ -1,6 +1,0 @@
-AuthUserFile /var/www/hadith/yii/public/admin/entry.password
-AuthGroupFile /dev/null
-AuthName "Enter Password"
-AuthType Basic
-
-require valid-user

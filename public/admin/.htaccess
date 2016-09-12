@@ -1,4 +1,0 @@
-#AuthType Basic
-#AuthName "Admin Section"
-#AuthUserFile /var/www/hadith/passwords
-#Require valid-user

@@ -1,9 +1,0 @@
-# jemdoc: menu{MENU}{utilities.php}
-{{<?php include "matching/checklogin.php"; ?> }}
-
-== Update Solr index
-
-{{<?php include "export_to_solr.php"; ?> }}
-
-
-
