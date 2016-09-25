@@ -36,7 +36,7 @@ return array(
 		'back',
 		'gii'=>array(
 			'class'=>'system.gii.GiiModule',
-			'password'=>'giipasswd',
+			'password'=>'NotInRepo',
 		 	// If removed, Gii defaults to localhost only. Edit carefully to taste.
 			'ipFilters'=>array('127.0.0.1','::1', '72.33.*', '24.183.96.*'),
 		),
@@ -136,7 +136,7 @@ return array(
 			'schemaCachingDuration' => 300,
 			'emulatePrepare' => true,
 			'username' => 'webreadp',
-			'password' => 'webreadp',
+			'password' => 'NotInRepo',
 			'charset' => 'utf8',
 		),
 		'db_internal'=>array(
@@ -145,7 +145,7 @@ return array(
 			'class' => 'CDbConnection',
 			'emulatePrepare' => true,
 			'username' => 'ilmfruit_ansari',
-			'password' => 'ansari',
+			'password' => 'NotInRepo',
 			'charset' => 'utf8',
 		),
 		'errorHandler'=>array(
