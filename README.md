@@ -20,3 +20,17 @@ modules/default/views/layouts: Other view code corresponding to side menus, sear
 modules/views: Sitewide view code like column layout, footer.
 
 modules/views/site: Not used. This folder is for view code that needs to be the same across modules.
+
+# Launching the Dev Container
+
+Launching the dev container is composed of two simple commands. First, building the image, then running it.
+
+In order to build the image, run the following command in the same directory as the Dockerfile:
+
+`docker build -t {username}/{imagename} .`
+
+Once the docker image builds, run it by doing the following:
+
+`sudo docker run -d -p 80:80 -p 3306:3306 {username}/{imagename}` 
+
+If you've used the ports above, you should be able to access the webserver as well as mysqld using ports 80 and 3306, respectively, via localhost.
