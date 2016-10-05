@@ -135,8 +135,8 @@ return array(
 			'connectionString' => 'mysql:host=localhost;dbname=hadithdb',
 			'schemaCachingDuration' => 300,
 			'emulatePrepare' => true,
-			'username' => 'webreadp',
-			'password' => 'NotInRepo',
+			'username' => 'root',
+			'password' => '',
 			'charset' => 'utf8',
 		),
 		'db_internal'=>array(
