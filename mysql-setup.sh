@@ -1,5 +1,5 @@
 #!/bin/bash
 
-gunzip /app/samplegitdb.sql.gz
+gunzip /samplegitdb.sql.gz
 mysql --user=root --password= -e "CREATE DATABASE hadithdb;"
-mysql --user=root --password= hadithdb < /app/samplegitdb.sql
+mysql --user=root --password= hadithdb < /samplegitdb.sql

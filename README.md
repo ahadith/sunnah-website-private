@@ -31,6 +31,6 @@ In order to build the image, run the following command in the same directory as 
 
 Once the docker image builds, run it by doing the following:
 
-`sudo docker run -d -p 80:80 -p 3306:3306 {username}/{imagename}` 
+`docker run -d -p 80:80 -p 3306:3306 {username}/{imagename}` 
 
 If you've used the ports above, you should be able to access the webserver as well as mysqld using ports 80 and 3306, respectively, via localhost.
