@@ -131,6 +131,7 @@ return array(
 		),
 		*/
 		// uncomment the following to use a MySQL database
+		// TODO: Migrate credentials over to a secret handler/KMS
 		'db'=>array(
 			'connectionString' => 'mysql:host=localhost;dbname=hadithdb',
 			'schemaCachingDuration' => 300,
