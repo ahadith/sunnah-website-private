@@ -20,3 +20,17 @@ modules/default/views/layouts: Other view code corresponding to side menus, sear
 modules/views: Sitewide view code like column layout, footer.
 
 modules/views/site: Not used. This folder is for view code that needs to be the same across modules.
+
+## Running on windows
+
+* Install PHP 5.6
+* [Download](http://windows.php.net/downloads/pecl/releases/memcache/3.0.8/) and copy the memcache extension
+* [Download](http://s3.amazonaws.com/downloads.northscale.com/memcached-win32-1.4.4-14.zip) and install memcache
+* Create an iis website and point it to the public folder
+* Add the index.php file as default document
+* Add handler mapping for .php files in iis
+* [Download](https://dev.mysql.com/downloads/windows/) and install mysql for windows
+* Import the sample db in mysql
+* [Download](https://getcomposer.org/download/) and install composer
+* Run `install` comand of composer in the root dir
+* Visit the localhost url to see the site running   
