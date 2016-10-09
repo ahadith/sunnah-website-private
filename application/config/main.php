@@ -136,8 +136,8 @@ return array(
 			'connectionString' => 'mysql:host=localhost;dbname=hadithdb',
 			'schemaCachingDuration' => 300,
 			'emulatePrepare' => true,
-			'username' => 'root',
-			'password' => '',
+			'username' => parse_ini_file('config.ini')['db_username'],
+			'password' => parse_ini_file('config.ini')['db_password'],
 			'charset' => 'utf8',
 		),
 		'db_internal'=>array(
