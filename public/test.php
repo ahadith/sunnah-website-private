@@ -1,6 +1,6 @@
 <?php
 
-$yii = '/usr/local/yii/framework/yii.php';
+$yii = '../vendor/yiisoft/yii/framework/yii.php';
 
 require_once($yii);
 
