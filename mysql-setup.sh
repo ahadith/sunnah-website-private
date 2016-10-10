@@ -7,7 +7,6 @@ mysql --user=root --password= hadithdb < /samplegitdb.sql
 rm -f /samplegitdb.sql
 
 # Generate a password on the fly and use it for webreadp
-
 MYSQL_USER=webreadp
 MYSQL_PASS=\'$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 16 | head -n 1)\'
 mysql --user=root --password= -e "CREATE USER $MYSQL_USER@'localhost' IDENTIFIED BY $MYSQL_PASS;"
@@ -18,3 +17,7 @@ CONFIG_FILE=/app/application/config/config.ini
 echo [database] >> $CONFIG_FILE
 echo "db_password = $(echo $MYSQL_PASS | tr -d "'")" >> $CONFIG_FILE
 echo "db_username = $MYSQL_USER" >> $CONFIG_FILE
+
+# Search needs a read-only account with no password access
+mysql --user=root --password= -e "CREATE USER 'webread'@'localhost' IDENTIFIED BY '';"
+mysql --user=root --password= -e "GRANT SELECT ON hadithdb.* TO 'webread'@'localhost';"
