@@ -2,7 +2,7 @@
 //Make the database connection.
   db_connect() or die('Unable to connect to database server!');
 
-db_cred_file = parse_ini_file('/app/application/config/config.ini');
+db_creds = parse_ini_file('/app/application/config/config.ini');
 
 //You will need to replace the parameters below with the values for your database connection
 //server = the database server (usually localhost).
