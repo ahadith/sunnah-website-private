@@ -58,7 +58,7 @@ return array(
 		),
 		'cache' => array(
 			'class' => 'CMemCache',
-			'useMemcached' => true,
+			'useMemcached' => false,
 			'servers' => array(
 				array('host' => 'localhost', 'port' => 7630),
 			),
