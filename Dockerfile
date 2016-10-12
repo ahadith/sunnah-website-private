@@ -35,6 +35,6 @@ FROM tutum/lamp:latest
 	RUN chown -R www-data:www-data /app /usr/local/yii
 	RUN chmod -R 755 /app
 
-	# Expose the ports for http and mysqld
-	EXPOSE 80 3306
+	# Expose the ports for http 
+	EXPOSE 80 
 CMD ["/run.sh"]
