@@ -131,12 +131,13 @@ return array(
 		),
 		*/
 		// uncomment the following to use a MySQL database
+		// TODO: Migrate credentials over to a secret handler/KMS
 		'db'=>array(
 			'connectionString' => 'mysql:host=localhost;dbname=hadithdb',
 			'schemaCachingDuration' => 300,
 			'emulatePrepare' => true,
-			'username' => 'webreadp',
-			'password' => 'NotInRepo',
+			'username' => parse_ini_file('config.ini')['db_username'],
+			'password' => parse_ini_file('config.ini')['db_password'],
 			'charset' => 'utf8',
 		),
 		'db_internal'=>array(
