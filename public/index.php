@@ -1,7 +1,7 @@
 <?php
 
 // change the following paths if necessary
-$yii = '/usr/local/yii/framework/yii.php';
+$yii = '../vendor/yiisoft/yii/framework/yii.php';
 $config=dirname(__FILE__).'/../application/config/main.php';
 
 // remove the following lines when in production mode
