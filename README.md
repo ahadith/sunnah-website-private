@@ -34,3 +34,18 @@ modules/views/site: Not used. This folder is for view code that needs to be the 
 * [Download](https://getcomposer.org/download/) and install composer
 * Run `install` comand of composer in the root dir
 * Visit the localhost url to see the site running   
+
+
+## Launching the Dev Container
+
+Launching the dev container is composed of two simple commands. First, building the image, then running it.
+
+In order to build the image, run the following command in the same directory as the Dockerfile:
+
+`docker build -t {username}/{imagename} .`
+
+Once the docker image builds, run it by doing the following:
+
+`docker run -d -p 80:80 {username}/{imagename}` 
+
+If you've used the ports above, you should be able to access the webserver using port 80 on the container's host.

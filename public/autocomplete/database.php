@@ -2,11 +2,13 @@
 //Make the database connection.
   db_connect() or die('Unable to connect to database server!');
 
+db_creds = parse_ini_file('/app/application/config/config.ini');
+
 //You will need to replace the parameters below with the values for your database connection
 //server = the database server (usually localhost).
 //username = The user name to connect to the database.
 //password = The password to connect to the database.
-  function db_connect($server = 'localhost', $username = 'webreadp', $password = 'webreadp', $database = 'searchdb', $link = 'db_link') {
+  function db_connect($server = 'localhost', $username = db_creds['db_username'], $password = db_creds['db_password'], $database = 'searchdb', $link = 'db_link') {
     global $$link;
 
     $$link = mysql_connect($server, $username, $password);
