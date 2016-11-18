@@ -1,7 +1,6 @@
 #!/bin/bash
 
 # Create DB and load sample data
-gunzip /samplegitdb.sql.gz
 mysql --user=root --password= -e "CREATE DATABASE hadithdb;"
 mysql --user=root --password= hadithdb < /samplegitdb.sql
 rm -f /samplegitdb.sql
@@ -21,3 +20,6 @@ echo "db_username = $MYSQL_USER" >> $CONFIG_FILE
 # Search needs a read-only account with no password access
 mysql --user=root --password= -e "CREATE USER 'webread'@'localhost' IDENTIFIED BY '';"
 mysql --user=root --password= -e "GRANT SELECT ON hadithdb.* TO 'webread'@'localhost';"
+
+# Start memcached after db is configured
+service memcached restart
