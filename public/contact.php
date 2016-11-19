@@ -1,4 +1,6 @@
-<?php session_start(); ?>
+<?php session_start(); 
+require_once 'Mail.php';
+?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -25,7 +27,7 @@
   <script src="/js/sunnah.js"></script>
  
   <title>
-	Sahih al-Bukhari - 	Sunnah.com - Sayings and Teachings of Prophet Muhammad (صلى الله عليه و سلم)
+	Contact - 	Sunnah.com - Sayings and Teachings of Prophet Muhammad (صلى الله عليه و سلم)
   </title>
 </head>
 
@@ -80,7 +82,7 @@
 	</div>
 </div>
 		<div class=clear></div>
-		<div class=crumbs><a href="/">Home</a> &#187; Sahih al-Bukhari</div><div class=clear></div>	</div>
+		<div class=crumbs><a href="/">Home</a> &#187; Contact</div><div class=clear></div>	</div>
 
 	<div class=clear></div>
 	<div id="topspace"></div>
@@ -127,15 +129,37 @@ if (isset($_POST['submit'])) {
             $fullString = "Message: ".$contacttext."\n";
             $fullString = $fullString."Submitted by $name (".$email.") at $timestamp\n";
             $fullString = $fullString."IP address: ".getIP()."\n";
-            $to = "sunnah@iman.net";
-            $subject = "[Contact] Sunnah.com - $timestamp";
-            $headers = "From: contact@sunnah.com\r\nReply-To: $email";
-            mail($to, $subject, $fullString, $headers);
 
+			$headers = array (
+			  'From' => 'contact@sunnah.com',
+			  'To' => 'sunnah@iman.net',
+			  'Reply-To' => $email,
+			  'Subject' => "[Contact] Sunnah.com - $timestamp");
+			
+			$sesCreds = parse_ini_file('../application/sesCreds.txt');
+
+			$smtpParams = array (
+			  'host' => 'email-smtp.us-west-2.amazonaws.com',
+			  'port' => 587,
+			  'auth' => true,
+			  'username' => $sesCreds['smtpUser'],
+			  'password' => $sesCreds['smtpPassword']
+			);
+
+			$mail = Mail::factory('smtp', $smtpParams);
+			$result = $mail->send("sunnah@iman.net", $headers, $fullString);
+
+			if (PEAR::isError($result)) {
+            echo "
+    <table width=75% align=\"center\" cellpadding=\"0\" cellspacing=\"0\">
+        <tr><td align=center>There was an error and your message was not sent. $result->getMessage()</td></tr>
+    </table>";
+			} else {
             echo "
     <table width=75% align=\"center\" cellpadding=\"0\" cellspacing=\"0\">
         <tr><td align=center>Your message has been sent. Thank you!</td></tr>
     </table>";
+			}
           }
     }
 }

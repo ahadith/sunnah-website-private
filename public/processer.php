@@ -1,5 +1,5 @@
 <?php
-
+require_once 'Mail.php';
 require_once('recaptchalib.php');
 $privatekey = "6Ld7_PwSAAAAAMNp02FDTQfpd8gO91BJEdyBaktr";
 
@@ -33,7 +33,7 @@ if (isset($_POST['ftype'])) {
 		
 		if (!$resp->is_valid) {
 			echo json_encode(array('status' => 2, 'message' => "The captcha was entered	"
-				. "incorrectly. Please try again."));
+				. "incorrectly. Please try again. $resp->error"));
 		}
 		else {
 			$fullString = "Error type: ".$errortype."\n";
@@ -41,10 +41,28 @@ if (isset($_POST['ftype'])) {
 		  	$fullString = $fullString."Submitted by ".$email."\n";
 			$fullString = $fullString."IP address: ".getIP()."\n";
 			$fullString = $fullString."\nhttp://sunnah.com/urn/".$urn."\n";
-		  	$to = "sunnah@iman.net";
+
 			$subject = "[Error Report] URN ".$urn;
-			$headers = "From: report@sunnah.com\r\nReply-To: $email";
-			mail($to, $subject, $fullString, $headers);
+			
+			$headers = array (
+              'From' => 'report@sunnah.com',
+              'To' => 'sunnah@iman.net',
+              'Reply-To' => $email,
+              'Subject' => $subject);
+
+            $sesCreds = parse_ini_file('../application/sesCreds.txt');
+
+            $smtpParams = array (
+              'host' => 'email-smtp.us-west-2.amazonaws.com',
+              'port' => 587,
+              'auth' => true,
+              'username' => $sesCreds['smtpUser'],
+              'password' => $sesCreds['smtpPassword']
+            );
+
+            $mail = Mail::factory('smtp', $smtpParams);
+            $result = $mail->send("sunnah@iman.net", $headers, $fullString);
+
 
 			echo json_encode(array('status' => 0, 'message' => "Report submitted, thank you!"));
 		}
