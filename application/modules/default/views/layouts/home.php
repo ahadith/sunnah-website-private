@@ -77,7 +77,7 @@
 	        </div>
     	</div>
 
-		<a href="http://sunnah.com"><div id="banner" class=bannerTop></div></a>
+		<a href="https://sunnah.com"><div id="banner" class=bannerTop></div></a>
 		<div class=clear></div>
 	</div>
 
