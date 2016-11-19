@@ -1,7 +1,7 @@
 <?php
 require_once 'Mail.php';
 require_once('recaptchalib.php');
-$privatekey = "6Ld7_PwSAAAAAMNp02FDTQfpd8gO91BJEdyBaktr";
+$privatekey = parse_ini_file("../application/recaptcha.key")['private_key'];
 
 function getIP() {
 	if (!empty($_SERVER['HTTP_CLIENT_IP']))  //check ip from share internet
