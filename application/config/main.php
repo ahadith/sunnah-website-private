@@ -10,6 +10,7 @@ function _joinpath($dir1, $dir2) {
     return realpath($dir1 . '/' . $dir2);
 }
 
+$STAGE = ($_SERVER['SERVER_NAME'] == 'localhost' ? 'development' : 'production');
 $homePath      = dirname(__FILE__) . '/../..';
 $protectedPath = _joinpath($homePath, 'application');
 $webrootPath   = _joinpath($homePath, 'public');
@@ -136,8 +137,8 @@ return array(
 			'connectionString' => 'mysql:host=localhost;dbname=hadithdb',
 			'schemaCachingDuration' => 300,
 			'emulatePrepare' => true,
-			'username' => parse_ini_file('config.ini')['db_username'],
-			'password' => parse_ini_file('config.ini')['db_password'],
+			'username' => parse_ini_file('config.ini')[sprintf('%s.db_username', $STAGE)],
+			'password' => parse_ini_file('config.ini')[sprintf('%s.db_password', $STAGE)],
 			'charset' => 'utf8',
 		),
 		'db_internal'=>array(
