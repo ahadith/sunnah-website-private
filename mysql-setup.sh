@@ -1,5 +1,7 @@
 #!/bin/bash
 
+STAGE=development # todo: add production
+
 # Create DB and load sample data
 mysql --user=root --password= -e "CREATE DATABASE hadithdb;"
 mysql --user=root --password= hadithdb < /samplegitdb.sql
@@ -14,8 +16,8 @@ mysql --user=root --password= -e "GRANT ALL ON hadithdb.* TO $MYSQL_USER@'localh
 # Make the password accessible to php
 CONFIG_FILE=/app/application/config/config.ini
 echo [database] >> $CONFIG_FILE
-echo "db_password = $(echo $MYSQL_PASS | tr -d "'")" >> $CONFIG_FILE
-echo "db_username = $MYSQL_USER" >> $CONFIG_FILE
+echo "$STAGE.db_password = $(echo $MYSQL_PASS | tr -d "'")" >> $CONFIG_FILE
+echo "$STAGE.db_username = $MYSQL_USER" >> $CONFIG_FILE
 
 # Search needs a read-only account with no password access
 mysql --user=root --password= -e "CREATE USER 'webread'@'localhost' IDENTIFIED BY '';"
